@@ -2,11 +2,8 @@
 
 use App\Http\Controllers\Customer\CustomerController;
 use Illuminate\Support\Facades\Route;
-use App\Mail\WelcomeMail;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Staff\StaffController;
-use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -24,8 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
@@ -48,15 +46,6 @@ Route::group(['middleware' => ['auth', 'customer']], function (){
 // Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
 
-//Route for mailing
-
-
-Route::get('/email',  function(){
-    Mail::to('gingcoeddie971@gmail.com')->send(new WelcomeMail());
-    return new WelcomeMail();
-
-});
-
 // Route::group(['middleware' => 'auth'],function(){
 
 //     Route::group(['middleware' => 'staff'],function (){
@@ -72,3 +61,6 @@ Route::get('/email',  function(){
 //     });
 
 // });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

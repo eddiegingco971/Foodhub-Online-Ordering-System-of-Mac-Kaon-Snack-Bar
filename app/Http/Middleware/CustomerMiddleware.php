@@ -21,7 +21,7 @@ class CustomerMiddleware
                 return $next($request);
             }
             else{
-                return back()->with('status', 'Acess Denied');
+                return back()->with('status', 'Access Denied');
             }
         
             
