@@ -40,16 +40,11 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-  <div class="hold-transition sidebar-mini layout-fixed">
+  <div class="hold-transition sidebar-mini">
     <div id="app">
-
-
-
-      
       <main class="py-4">
             @yield('content')
         </main>
-
     </div>
   </div>
 
