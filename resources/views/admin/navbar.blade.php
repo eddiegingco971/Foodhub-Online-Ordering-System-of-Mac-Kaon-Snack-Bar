@@ -1,22 +1,11 @@
 
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-dark navbar-light">
     <!-- Left navbar links -->
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ml-3 mt-2">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
 
-            <!-- SEARCH FORM -->
-     <form class="form-inline md-4">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
     
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
@@ -30,10 +19,18 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto ">
 
+       <!-- Navbar Search-->
+    <form class="nav-item d-md-inline-block form-inline ms-auto mr-4">
+      <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+      </div>
+    </form>
+
         <li>
-            <div class="dropdown">
+            <div class="dropdown mr-4">
               <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="22" height="22" class="rounded-circle me-2">
+                <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-2">
                 <strong>Eddie Gingco</strong>
               </a>
               <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
