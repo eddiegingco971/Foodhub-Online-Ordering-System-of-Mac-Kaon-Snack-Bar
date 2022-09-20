@@ -31,7 +31,7 @@
             <div class="dropdown mr-4">
               <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="" width="35" height="35" class="rounded-circle me-2">
-                <strong>Eddie Gingco</strong>
+                <strong>{{ Auth::user()->name }}</strong>
               </a>
               <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 {{-- <li><a class="dropdown-item" href="#">New project...</a></li>--}}

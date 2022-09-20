@@ -38,7 +38,7 @@
         <div class="dropdown">
           <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="22" height="22" class="rounded-circle me-2">
-            <strong>Eddie Gingco</strong>
+            <strong>{{ Auth::user()->name }}</strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             {{-- <li><a class="dropdown-item" href="#">New project...</a></li>--}}
@@ -70,12 +70,12 @@
                     <div class="sb-sidenav-menu-heading">Core</div>
                     <a class="nav-link" href="index.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
+                        Cart
                     </a>
                     <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
+                        Orders
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
