@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Customer\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Staff\StaffController;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('base');
 });
 
 Auth::routes();
@@ -29,6 +32,9 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/product', [ProductController::class, 'index'])->name('product');
+    Route::get('/category', [CategoryController::class, 'index'])->name('category');
+    Route::get('/order', [OrderController::class, 'index'])->name('order');
  
 });
 
@@ -41,23 +47,3 @@ Route::group(['middleware' => ['auth', 'customer']], function (){
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
  
 });
-
-// Route::get('/staff', [StaffController::class, 'index'])->name('staff');
-// Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
-
-
-// Route::group(['middleware' => 'auth'],function(){
-
-//     Route::group(['middleware' => 'staff'],function (){
-//         Route::get('/home',[HomeController::class,'index'])->name('home');
-//     });
-
-//     Route::group(['middleware' => 'staff'],function (){
-//         Route::get('/staff', [StaffController::class, 'index'])->name('staff');
-//     });
-
-//     Route::group(['middleware' => 'customer'],function (){
-//         Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
-//     });
-
-// });
