@@ -1,7 +1,5 @@
-@extends('customer.app')
+@extends('customer.index')
 
 @section('content')
-
-@include('customer.navbar')
 
 @endsection

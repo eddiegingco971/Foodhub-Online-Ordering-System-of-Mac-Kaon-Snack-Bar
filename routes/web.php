@@ -36,8 +36,8 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
 
 
     Route::get('/category', [CategoryController::class, 'index'])->name('category');
-    Route::get('/category/create', [CategoryController::class, 'create']);
-    Route::post('/category', [CategoryController::class, 'store']);
+    // Route::get('/category/create', [CategoryController::class, 'create']);
+    // Route::post('/category', [CategoryController::class, 'store']);
    
 
     Route::get('/order', [OrderController::class, 'index'])->name('order');
