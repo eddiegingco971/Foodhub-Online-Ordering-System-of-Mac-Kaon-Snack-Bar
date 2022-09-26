@@ -72,27 +72,13 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="{{url('/category')}}" class="nav-link active">
-              <i class="nav-icon fas fa-layer-group"></i>
-              <p>Category Management</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{url('/product')}}" class="nav-link active">
-              <i class="nav-icon fas fa-shopping-cart"></i>
-              <p>Product Management</p>
-            </a>
-          </li>
-          
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Order Management
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-danger right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -111,6 +97,21 @@
              
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="{{url('/category')}}" class="nav-link active">
+              <i class="nav-icon fas fa-layer-group"></i>
+              <p>Category Management</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{url('/product')}}" class="nav-link active">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>Product Management</p>
+            </a>
+          </li>
+          
           
         
           <li class="nav-header">Game Events</li>
