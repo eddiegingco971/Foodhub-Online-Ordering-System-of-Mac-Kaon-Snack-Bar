@@ -65,15 +65,15 @@
           </li> --}}
 
           <li class="nav-header">Core Management</li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{url('/home')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Order Management
@@ -97,34 +97,7 @@
              
             </ul>
           </li>
-
-          <li class="nav-item">
-            <a href="{{url('/category')}}" class="nav-link active">
-              <i class="nav-icon fas fa-layer-group"></i>
-              <p>Category Management</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{url('/product')}}" class="nav-link active">
-              <i class="nav-icon fas fa-shopping-cart"></i>
-              <p>Product Management</p>
-            </a>
-          </li>
-          
-          
-        
-          <li class="nav-header">Game Events</li>
-          <li class="nav-item">
-            <a href="{{url('/calendar')}}" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          
+   
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

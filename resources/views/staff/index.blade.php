@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('admin.head')
+  @include('staff.head')
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -18,17 +18,17 @@
   </div>
 
   <!-- Navbar -->
-  @include('admin.navbar')
+  @include('staff.navbar')
   <!-- /.navbar -->
   
   <!-- Main Sidebar Container -->
-  @include('admin.sidebar')
+  @include('staff.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-  @include('admin.content')
+  @include('staff.content')
   <!-- /.content-wrapper -->
 
-  @include('admin.footer')
+  @include('staff.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

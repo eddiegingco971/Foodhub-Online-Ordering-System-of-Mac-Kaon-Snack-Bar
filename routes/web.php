@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
    
 
     Route::get('/order', [OrderController::class, 'index'])->name('order');
+    Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
  
 });
 
