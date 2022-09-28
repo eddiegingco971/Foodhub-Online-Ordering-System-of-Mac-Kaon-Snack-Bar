@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.index');
+        $products = Product::get();
+        return view('admin.product.index', compact('products'));
     }
 
     /**
@@ -22,9 +23,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('admin.product.create');
+        // $request->validate([
+        //     'product_photo' => 'required|string',
+        //     'product_name' => 'required|string',
+        //     'quantity' => 'required|numeric',
+        //     'price' => 'required|string',
+        // ]);
+
+        // Product::create([
+        //     'product_photo'=> $request->product_photo,
+        //     'product_name'=> $request->product_name,
+        //     'quantity'=> $request->quantity,
+        //     'price'=> $request->price,
+        // ]);
+
+        // return redirect('/product')->with('status', 'Added Product Successfully');
     }
 
     /**
@@ -35,7 +51,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $products = new Product;
+        $products->product_name = $request->input('product_name');
+        $products->quantity = $request->input('quantity');
+        $products->price = $request->input('price');
+       
+        if($request->hasFile('product_photo')){
+  
+          $file = $request->file('product_photo');
+          $extention = $file->getClientOriginalExtension();
+          $filename = time().'.'. $extention;
+          $file->move('dist/img/', $filename);
+          $products->product_photo = $filename;
+        
+        }
+  
+        $products->save();
+     
+       
+        return redirect('/product')->with('status', 'Product Added Successfully!');
+            
     }
 
     /**

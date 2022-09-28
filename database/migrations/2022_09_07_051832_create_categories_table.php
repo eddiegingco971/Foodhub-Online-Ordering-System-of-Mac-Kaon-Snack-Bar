@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('category_name');
             // $table->bigInteger('product_id')->unsigned();
+            // $table->bigInteger('sub_category')->unsigned();
             $table->timestamps();
 
             // $table->foreign('product_id')->references('id')->on('products');

@@ -17,9 +17,9 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
+            'product_photo' => fake()->image(),
             'product_name' => fake()->name(),
             'quantity' => fake()->numerify('##'),
-            'product_sizing' => fake()->randomElement(['Solo', 'Regular', 'Small', 'Medium', 'Large']),
             'price' => fake()->randomElement(['50', '100', '50', '80', '100']),
         ];
     }

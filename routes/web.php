@@ -33,6 +33,8 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/product', [ProductController::class, 'index'])->name('product');
+    Route::get('/product-create', [ProductController::class, 'create']);
+    Route::post('/product-create', [ProductController::class, 'store']);
 
 
     Route::get('/category', [CategoryController::class, 'index'])->name('category');

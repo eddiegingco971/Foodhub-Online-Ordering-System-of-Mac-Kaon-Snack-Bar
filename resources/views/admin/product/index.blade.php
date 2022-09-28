@@ -708,45 +708,9 @@
             </div>
             <div class="col-sm-6 mt-3">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a class="btn btn-primary" data-toggle="modal" data-target="#addProductModal" data-whatever="@mdo">Add Product</a></li>
+                  <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('product-create')}}">Add Product</a></li>
                 </ol>
             </div>
-           
-
-            
-            {{-- Added Modal Start--}}
-            <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header bg-primary">
-                    <h5 class="modal-title" id="exampleModalLabel">Product Entry</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                      </div>
-                      <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Confirm</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {{-- Added Modal End--}}
-  
-
-
 
         </div>
       </div><!-- /.container-fluid -->
@@ -767,23 +731,27 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>Product Image</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                  </tr>
+                    @foreach ($products as $product)
+                      <tr>
+                        {{-- <td><img src="{{asset('dist/img/'.$product->product_photo)}}" width="50px" height="50px" alt="Image" style="border-radius: 50%"></td> --}}
+                        <td class="text-center"><img src="{{asset('dist/img/'.$product->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
+                        <td>{{$product->product_name}}</td>
+                        <td>{{$product->quantity}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>
+                          <a href="{{url('edit-operator/' .$product->id)}}" class="btn btn-info btn-sm">Edit</a>
+                          <a href="{{url('delete-operator/'.$product->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                      </tr>
+                  @endforeach
                   </tbody>
                   {{-- <tfoot>
                   <tr>
