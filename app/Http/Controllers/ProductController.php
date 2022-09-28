@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -91,22 +92,46 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $products = Product::find($id);
+        return view('admin.product.edit', compact('products'));
     }
 
-    /**
+      /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
-    {
-        //
+
+     public function update(Request $request, $id){
+        $products = Product::find($id);
+        $products->product_name = $request->input('product_name');
+        $products->quantity = $request->input('quantity');
+        $products->price = $request->input('price');
+       
+        if($request->hasFile('product_photo')){
+  
+          $destination = 'dist/img/'.$products->product_photo;
+          if(File::exists($destination)){
+              File::delete($destination);
+          }
+          $file = $request->file('product_photo');
+          $extention = $file->getClientOriginalExtension();
+          $filename = time().'.'. $extention;
+          $file->move('dist/img/', $filename);
+          $products->product_photo = $filename;
+        
+        }
+  
+        $products->update();
+        return redirect('/product')->with('status', 'Product Updated Successfully!');
     }
+
+  
+   
 
     /**
      * Remove the specified resource from storage.
@@ -114,8 +139,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $products = Product::find($id);
+        $destination = 'dist/img/'.$products->product_photo;
+         if(File::exists($destination)){
+             File::delete($destination);
+         }
+        $products->delete();
+        return redirect('/product')->with('status', 'Product Deleted Successfully!');
     }
 }

@@ -747,8 +747,8 @@
                         <td>{{$product->quantity}}</td>
                         <td>{{$product->price}}</td>
                         <td>
-                          <a href="{{url('edit-operator/' .$product->id)}}" class="btn btn-info btn-sm">Edit</a>
-                          <a href="{{url('delete-operator/'.$product->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                          <a href="{{url('edit-product/' .$product->id)}}" class="btn btn-info btn-sm">Edit</a>
+                          <a href="{{url('delete-product/'.$product->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>
                   @endforeach
