@@ -24,15 +24,19 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper bg-dark">
     @if (session('status'))
-        <div class="alert alert-warning m-2 text-center" role="alert">
+        <div class="alert alert-success text-center" role="alert">
             {{ session('status') }}
         </div>
     @endif
-
+    @if (session('error'))
+        <div class="alert alert-warning text-center" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif
     <!-- Main content -->
-    <section class="content">
+    <section class="content text-dark">
       <div class="container-fluid">
         <div class="row">
           <div class="col-6 offset-3 mt-3">
@@ -65,7 +69,7 @@
 
                       <div class="form-group text-justify-end">
                         <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
-                        <button type="submit" class="btn btn-info" style="position: relative; left:70%;">Save</button>
+                        <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button>
                     </div>
 
                   </form>

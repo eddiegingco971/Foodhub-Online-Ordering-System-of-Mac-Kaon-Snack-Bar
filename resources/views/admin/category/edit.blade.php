@@ -41,73 +41,42 @@
             {{ session('error') }}
         </div>
     @endif
-    <!-- Content Header (Page header) -->
-    {{-- <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6 mt-3">
-            <h1>Category Management</h1>
-          </div>
-
-          <div class="col-sm-6 mt-3">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('category-create')}}">Add Category</a></li>
-            </ol>
-        </div>
-        </div>
-      </div>
-    </section> --}}
-
+   
   <section class="content text-dark">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-4 mt-3">
-          @include('admin.category.create')
-        </div>
-        <div class="col-md-8 mt-3">
-          <div class="card">
-            <div class="card-header">
-              <h1>List of Categories</h1>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Category ID#</th>
-                  <th>Category Name</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                
-                  @foreach ($categories as $category)
-                    <tr>
-                      <td>{{$category->id}}</td>
-                      <td>{{$category->category_name}}</td>
-                      <td>
-                        <a href="{{url('edit-category/' .$category->id)}}" class="btn btn-info btn-sm">Edit</a>
-                        <a href="{{url('delete-category/'.$category->id)}}" class="btn btn-danger btn-sm">Delete</a>
-                      </td>
-                    </tr>
-                @endforeach
-                </tr>
-                </tbody>
-                {{-- <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </tfoot> --}}
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
+        <div class="col-md-8 offset-md-2 mt-3">
+            <section class="content text-dark">
+                <div class="container-fluid">
+                      <div class="card">
+                        <div class="card-header text-center">
+                          <h1>Category Entry</h1>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <form action="{{url('update-category/'.$categories->id)}}" method="POST">
+                              @csrf
+                              @method('PUT')
+            
+                              <div class="form-group">
+                                  <label for="category_name" id="category_name"> Category Name</label>
+                                  <input type="category_name" name="category_name" class="form-control" value="{{$categories->category_name}}">
+                              </div>
+                             
+                                <div class="form-group ml-5">
+                                    <a type="button" class="btn btn-secondary" href="{{url('/category')}}">Cancel</a>
+                                  <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button>
+                              </div>
+            
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
+                      </div>
+                      <!-- /.card -->
+                </div>
+            </section>
+
+
         </div>
       </div>
     </div>
@@ -173,3 +142,8 @@
 </script>
 </body>
 </html>
+
+
+
+
+

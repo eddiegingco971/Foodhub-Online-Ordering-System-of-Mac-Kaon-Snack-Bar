@@ -23,7 +23,7 @@ class AdminMiddleware
                     return $next($request);
     
                 }else{
-                    return back()->with('status', 'Access Denied');
+                    return back()->with('error', 'Access Denied');
                 }
             }     
     }

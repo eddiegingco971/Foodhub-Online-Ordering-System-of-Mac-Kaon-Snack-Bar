@@ -1,27 +1,26 @@
-@extends('admin.app')
-
-@section('content')
-<div class="container">
-<div class="row">
-    <div class="col-md-4 0ffset-md-4">
-        <form action="{{url('/category')}}" method="POST">
-            <div class="card">
-                <div class="card-header">
-                    <h2>Category Entry</h2>
-                </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label for="category_name" id="category_name"> Category Name</label>
-                        <input type="category_name" class="category_name" placeholder="Category Name">
-                    </div>
-                    <div class="mb-3">
-                        <button class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
+<section class="content text-dark">
+    <div class="container-fluid">
+          <div class="card">
+            <div class="card-header text-center">
+              <h1>Category Entry</h1>
             </div>
-        </form>
-    </div>
-</div>
-</div>
-@endsection
+            <!-- /.card-header -->
+            <div class="card-body">
+              <form action="{{url('category-create')}}" method="POST">
+                  @csrf
+                  <div class="form-group">
+                      <label for="category_name" id="category_name"> Category Name</label>
+                      <input type="category_name" name="category_name" class="form-control" placeholder="Category Name">
+                  </div>
+                 
+                    <div class="form-group float-right mr-5">
+                      <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button>
+                  </div>
 
+                </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+    </div>
+</section>

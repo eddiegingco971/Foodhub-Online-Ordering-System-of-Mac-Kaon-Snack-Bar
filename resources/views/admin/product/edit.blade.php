@@ -24,15 +24,20 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper bg-dark">
     @if (session('status'))
-        <div class="alert alert-warning m-2 text-center" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
+    <div class="alert alert-success text-center" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
+@if (session('error'))
+    <div class="alert alert-warning text-center" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content text-dark">
       <div class="container-fluid">
         <div class="row">
           <div class="col-6 offset-3 mt-3">
@@ -51,7 +56,7 @@
                     <div class="form-group">
                       <label for="product_photo" class="col-form-label">Product Image</label>
                       <input type="file" name="product_photo" class="form-control" id="product_photo">
-                      <img src="{{asset('dist/img/'.$products->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%">
+                      <img src="{{asset('dist/img/'.$products->product_photo)}}" width="100px" height="50px" alt="Image" style="border-radius: 10%">
                     </div>
                     <div class="form-group">
                         <label for="product_name" class="col-form-label">Product Name</label>
@@ -69,7 +74,7 @@
 
                       <div class="form-group text-justify-end">
                         <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
-                        <button type="submit" class="btn btn-info" style="position: relative; left:70%;">Update</button>
+                        <button type="submit" class="btn btn-info" style="position: relative; left:75%;">Update</button>
                     </div>
 
                   </form>

@@ -693,10 +693,15 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper bg-dark">
     @if (session('status'))
-        <div class="alert alert-warning m-2 text-center" role="alert">
-            {{ session('status') }}
+    <div class="alert alert-success text-center" role="alert">
+        {{ session('status') }}
+    </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-warning text-center" role="alert">
+            {{ session('error') }}
         </div>
     @endif
     <!-- Content Header (Page header) -->
@@ -717,7 +722,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content text-dark">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -731,6 +736,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>Product ID#</th>
                     <th>Product Image</th>
                     <th>Product Name</th>
                     <th>Quantity</th>
@@ -741,6 +747,7 @@
                   <tbody>
                     @foreach ($products as $product)
                       <tr>
+                        <td>{{$product->id}}</td>
                         {{-- <td><img src="{{asset('dist/img/'.$product->product_photo)}}" width="50px" height="50px" alt="Image" style="border-radius: 50%"></td> --}}
                         <td class="text-center"><img src="{{asset('dist/img/'.$product->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
                         <td>{{$product->product_name}}</td>
