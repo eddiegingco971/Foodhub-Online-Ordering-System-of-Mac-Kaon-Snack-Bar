@@ -24,7 +24,10 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper bg-dark">
+  <div class="content-wrapper">
+
+    @include('admin.preloader')
+
     @if (session('status'))
         <div class="alert alert-success text-center" role="alert">
             {{ session('status') }}
@@ -36,12 +39,12 @@
         </div>
     @endif
     <!-- Main content -->
-    <section class="content text-dark">
+    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-6 offset-3 mt-3">
 
-            <div class="card">
+            <div class="card elevation-3">
               <div class="card-header">
                 <h1>Product Entry</h1>
               </div>
@@ -87,12 +90,8 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  @include('admin.footer')
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

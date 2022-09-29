@@ -49,6 +49,9 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/delete-category/{id}', [CategoryController::class, 'destroy']);
    
     Route::get('/order', [OrderController::class, 'index'])->name('order');
+    Route::get('/delete-order/{id}', [OrderController::class, 'destroy']);
+
+    
     Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
 
     Route::get('/customer-list', [CustomerController::class, 'list']);

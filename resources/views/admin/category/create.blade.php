@@ -1,8 +1,8 @@
-<section class="content text-dark">
+<section class="content">
     <div class="container-fluid">
-          <div class="card">
+          <div class="card elevation-3">
             <div class="card-header text-center">
-              <h1>Category Entry</h1>
+              <h2>Category Entry</h2>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -14,7 +14,7 @@
                   </div>
                  
                     <div class="form-group float-right mr-5">
-                      <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button>
+                      <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Add</button>
                   </div>
 
                 </form>

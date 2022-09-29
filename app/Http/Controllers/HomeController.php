@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       
+        $orders = DB::table('orders')->count();
+        $users = DB::table('users')->count();
+        $products = DB::table('products')->count();
+        $customers = DB::table('customers')->count();
+        $categories = DB::table('categories')->count();
+        return view('home' ,compact('orders','users','products','customers', 'categories'));
+    
     }
 
     public function calendar()

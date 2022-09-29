@@ -693,7 +693,10 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper bg-dark">
+  <div class="content-wrapper">
+
+    @include('admin.preloader')
+
     @if (session('status'))
     <div class="alert alert-success text-center" role="alert">
         {{ session('status') }}
@@ -722,12 +725,12 @@
     </section>
 
     <!-- Main content -->
-    <section class="content text-dark">
+    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
 
-            <div class="card">
+            <div class="card elevation-3">
               <div class="card-header">
                 <h3 class="card-title">DataTable with default features</h3>
               </div>

@@ -30,7 +30,10 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper bg-dark">
+  <div class="content-wrapper">
+    
+    @include('admin.preloader')
+
     @if (session('status'))
     <div class="alert alert-success text-center" role="alert">
         {{ session('status') }}
@@ -42,13 +45,13 @@
         </div>
     @endif
    
-  <section class="content text-dark">
+  <section class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 offset-md-2 mt-3">
             <section class="content text-dark">
                 <div class="container-fluid">
-                      <div class="card">
+                      <div class="card elevation-3">
                         <div class="card-header text-center">
                           <h1>Category Entry</h1>
                         </div>
