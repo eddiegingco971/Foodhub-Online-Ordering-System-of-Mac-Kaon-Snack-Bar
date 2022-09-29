@@ -48,9 +48,10 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::put('/update-category/{id}', [CategoryController::class, 'update']);
     Route::get('/delete-category/{id}', [CategoryController::class, 'destroy']);
    
-
     Route::get('/order', [OrderController::class, 'index'])->name('order');
     Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
+
+    Route::get('/customer-list', [CustomerController::class, 'list']);
  
 });
 

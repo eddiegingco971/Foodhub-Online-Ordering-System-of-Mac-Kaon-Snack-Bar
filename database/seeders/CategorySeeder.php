@@ -30,6 +30,6 @@ class CategorySeeder extends Seeder
         //     Category::create($category);
         // }
 
-        Category::factory(10)->create();
+        Category::factory(20)->create();
     }
 }

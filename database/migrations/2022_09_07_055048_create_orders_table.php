@@ -15,11 +15,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_name');
-            // $table->bigInteger('user_id')->unsigned();
+            $table->date('order_date');
+            $table->string('total_amount');
+            $table->string('order_status')->default('process');//process or deliver
+            // $table->bigInteger('customer_id')->unsigned();
+            // $table->bigInteger('processed_by');
             $table->timestamps();
 
-            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('processed_by')->references('id')->on('payments');
+            // $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 

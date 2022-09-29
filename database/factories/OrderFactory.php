@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'order_name' => fake()->name(),
+            'order_date'=> Carbon::now(),
+            'total_amount'=> fake()->numerify('##'.'##'),
+            'order_status'=> fake()->randomElement(['process','deliver']),
         ];
     }
 }
