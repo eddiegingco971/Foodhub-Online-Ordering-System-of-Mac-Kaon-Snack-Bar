@@ -58,9 +58,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{url('/cart-list')}}" class="nav-link">
                   <i class="far fa-clock nav-icon"></i>
-                  <p>Orders History</p>
+                  <p>Cart</p>
                 </a>
               </li>
              

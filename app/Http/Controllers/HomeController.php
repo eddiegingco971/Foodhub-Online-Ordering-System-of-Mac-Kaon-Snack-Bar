@@ -31,9 +31,11 @@ class HomeController extends Controller
         $products = DB::table('products')->count();
         $customers = DB::table('customers')->count();
         $categories = DB::table('categories')->count();
-        return view('home' ,compact('orders','users','products','customers', 'categories'));
+        $carts = DB::table('carts')->count();
+        return view('home' ,compact('orders','users','products','customers', 'categories','carts'));
     
     }
+
 
     public function calendar()
     {

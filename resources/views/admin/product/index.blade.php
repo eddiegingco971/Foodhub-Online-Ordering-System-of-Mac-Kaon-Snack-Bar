@@ -752,7 +752,7 @@
                       <tr>
                         <td>{{$product->id}}</td>
                         {{-- <td><img src="{{asset('dist/img/'.$product->product_photo)}}" width="50px" height="50px" alt="Image" style="border-radius: 50%"></td> --}}
-                        <td class="text-center"><img src="{{asset('dist/img/'.$product->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
+                        <td class="text-center"><img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
                         <td>{{$product->product_name}}</td>
                         <td>{{$product->quantity}}</td>
                         <td>{{$product->price}}</td>

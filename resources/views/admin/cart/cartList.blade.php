@@ -21,7 +21,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Category</span>
+      <span class="brand-text font-weight-light">Customer</span>
     </a>
 
     <!-- Sidebar -->
@@ -31,7 +31,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
     @include('admin.preloader')
 
     @if (session('status'))
@@ -44,52 +44,87 @@
             {{ session('error') }}
         </div>
     @endif
-   
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8 offset-md-2 mt-3">
-            <section class="content text-dark">
-                <div class="container-fluid">
-                      <div class="card elevation-3">
-                        <div class="card-header text-center">
-                          <h1>Edit Category</h1>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                          <form action="{{url('update-category/'.$categories->id)}}" method="POST">
-                              @csrf
-                              @method('PUT')
-            
-                              <div class="form-group">
-                                  <label for="category_name" id="category_name"> Category Name</label>
-                                  <input type="category_name" name="category_name" class="form-control" value="{{$categories->category_name}}">
-                              </div>
-                             
-                                <div class="form-group ml-5">
-                                    <a type="button" class="btn btn-secondary" href="{{url('/category')}}">Cancel</a>
-                                  <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button>
-                              </div>
-            
-                            </form>
-                        </div>
-                        <!-- /.card-body -->
-                      </div>
-                      <!-- /.card -->
-                </div>
-            </section>
-
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6 mt-3">
+                <h1>Cart Management</h1>
+            </div>
+            {{-- <div class="col-sm-6 mt-3">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('product-create')}}">Add Product</a></li>
+                </ol>
+            </div> --}}
 
         </div>
-      </div>
-    </div>
-   
+      </div><!-- /.container-fluid -->
+    </section>
+
     <!-- Main content -->
-  </section>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+
+            <div class="card elevation-3">
+              <div class="card-header">
+                <h3 class="card-title">List of Cart</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Customer ID</th>
+                    <th>Product ID</th>
+                    <th>Product Quantity</th>
+                    <th>Total Amount</th>
+                  
+                   
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($carts as $cart)
+                      <tr>
+                        <td>{{$cart->customer_id}}</td>
+                        <td>{{$cart->product_id}}</td>
+                        <td>{{$cart->product_quamtity}}</td>
+                        <td>{{$cart->total_amount}}</td>
+                    
+                        <td>
+                          {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
+                          <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                      </tr>
+                  @endforeach
+                  </tbody>
+                  {{-- <tfoot>
+                  <tr>
+                    <th>Rendering engine</th>
+                    <th>Browser</th>
+                    <th>Platform(s)</th>
+                    <th>Engine version</th>
+                    <th>CSS grade</th>
+                  </tr>
+                  </tfoot> --}}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-@include('admin.footer')
+  @include('admin.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -140,8 +175,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-

@@ -100,7 +100,7 @@
                         <td>{{$customer->phone_number}}</td>
                         <td>{{$customer->customer_status}}</td>
                         <td>
-                          <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a>
+                          {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
                           <a href="{{url('delete-customer/'.$customer->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>

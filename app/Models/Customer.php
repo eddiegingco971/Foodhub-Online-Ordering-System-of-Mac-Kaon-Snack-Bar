@@ -22,7 +22,14 @@ class Customer extends Model
         'profile_image',
         'customer_status',
     ];
-    public function user(){
-        
+     
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
+    public function orders(){
+        return $this->hasMany(Order::class);
     }
 }

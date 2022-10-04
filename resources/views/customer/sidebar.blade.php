@@ -29,12 +29,12 @@
               <p>Menu</p>
             </a>
           </li>
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a href="{{url('/customer-cart')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Cart</p>
             </a>
-          </li> --}}
+          </li>
 
           <li class="nav-item">
             <a href="{{url('/customer-order')}}" class="nav-link active">

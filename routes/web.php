@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Customer\CustomerController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,10 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
 
     Route::get('/customer-list', [CustomerController::class, 'list']);
+    Route::get('/delete-customer/{id}', [CustomerController::class, 'destroy']);
+
+    Route::get('/cart-list', [CartController::class, 'list']);
+    Route::get('/delete-cart/{id}', [CartController::class, 'destroy']);
  
 });
 
@@ -67,4 +72,6 @@ Route::group(['middleware' => ['auth', 'customer']], function (){
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
     Route::get('/customer-order', [CustomerController::class, 'customerOrder']);
+
+    Route::get('/customer-cart', [CartController::class, 'index'])->name('cart');
 });

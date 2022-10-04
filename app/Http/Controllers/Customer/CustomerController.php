@@ -37,4 +37,11 @@ class CustomerController extends Controller
     public function customerOrder(){
         return view('customer.customer-order.index');
     }
+
+    public function destroy($id)
+    {
+        $customers = Customer::find($id);
+        $customers->delete();
+        return redirect('/customer')->with('status', 'Customer Deleted Successfully!');
+    }
 }
