@@ -26,7 +26,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
-    @include('admin.preloader')
+    {{-- @include('admin.preloader') --}}
 
     @if (session('status'))
     <div class="alert alert-success text-center" role="alert">

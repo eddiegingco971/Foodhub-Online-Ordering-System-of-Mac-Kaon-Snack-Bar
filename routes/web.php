@@ -65,5 +65,6 @@ Route::group(['middleware' => ['auth', 'staff']], function (){
 
 Route::group(['middleware' => ['auth', 'customer']], function (){
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
- 
+
+    Route::get('/customer-order', [CustomerController::class, 'customerOrder']);
 });

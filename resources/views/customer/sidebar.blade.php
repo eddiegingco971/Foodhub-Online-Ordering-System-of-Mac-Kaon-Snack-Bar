@@ -24,14 +24,20 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-header">Account Setting</li>
           <li class="nav-item">
-            <a href="{{url('#')}}" class="nav-link active">
+            <a href="{{url('/customer')}}" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Menu</p>
+            </a>
+          </li>
+          {{-- <li class="nav-item">
+            <a href="{{url('/customer-cart')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Cart</p>
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
-            <a href="{{url('#')}}" class="nav-link active">
+            <a href="{{url('/customer-order')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Order</p>
             </a>

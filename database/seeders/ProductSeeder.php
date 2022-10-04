@@ -51,6 +51,6 @@ class ProductSeeder extends Seeder
         //     Product::create($product);
         // }
 
-        Product::factory(100)->create();
+        Product::factory(20)->create();
     }
 }
