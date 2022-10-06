@@ -1,8 +1,53 @@
 <div class="content-wrapper aligned-center">
+ 
+  <!-- Main content -->
+      <!-- Small boxes (Stat box) -->
+      <div class="content">
+      <div class="row">
+          @foreach ($sliders as $slider)
+
+          <!-- Slideshow container -->
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade" id="banner">
+              <img src="{{asset('dist/img/slider/'.$slider->image)}}" style="width:100%">
+              <div class="text-dark text-center">{{$slider->name}}</div>
+            </div>
+            
+          <style>
+
+            /* Hide the images by default */
+            .mySlides {
+              display: none;
+              width: 100%;
+              height: 100%;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+
+            /* Fading animation */
+            .fade {
+              animation-name: fade;
+              animation-duration: 5.5s;
+            }
+
+            @keyframes fade {
+              from {opacity: .4}
+              to {opacity: 1}
+            }
+          </style>
+          
+        @endforeach
+      </div>
+    </div>
+  <!-- /.content -->
+  
+
+
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header bg-dark">
       <div class="container-fluid">
-        <div class="row mb-2">
+        <div class="row mt-2">
           <div class="col-sm-6">
             <h1 class="m-0">Menu</h1>
           </div><!-- /.col -->
@@ -16,14 +61,13 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
     <!-- Main content -->
-    <section class="content">
+    <section class="content mt-2">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
             @foreach ($products as $product)
-            <div class="card m-2 elevation-2">
+            <div class="card ml-4 elevation-2">
               <div class="card-header">
                   <img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="200px" alt="Image" >
               </div>
@@ -41,3 +85,5 @@
     </section>
     <!-- /.content -->
   </div>
+
+  

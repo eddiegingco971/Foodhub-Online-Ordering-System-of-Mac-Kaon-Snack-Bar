@@ -21,7 +21,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Products</span>
+      <span class="brand-text font-weight-light">Slider</span>
     </a>
 
     <!-- Sidebar -->
@@ -49,7 +49,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6 mt-3">
-                <h1>Category Management</h1>
+                <h1>Banner Management</h1>
             </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -60,30 +60,34 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-            @include('admin.category.create')
+            @include('admin.sliders.create')
           </div>
           <div class="col-9">
 
             <div class="card elevation-3">
               <div class="card-header">
-                <h3 class="card-title">List of Category</h3>
+                <h3 class="card-title">List of Slider</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Category Name</th>
+                    <th>Slider ID#</th>
+                    <th>Slider Name</th>
+                    <th>Slider Image</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($sliders as $slider)
                         <tr>
-                          <td>{{$category->category_name}}</td>
+                          <td>{{$slider->id}}</td>
+                          <td>{{$slider->name}}</td>
+                          <td class="text-center"><img src="{{asset('dist/img/slider/'.$slider->image)}}" width="50px" height="50px" alt="Image" style="border-radius: 10%"></td>
                           <td>
-                            <a href="{{url('edit-category/' .$category->id)}}" class="btn btn-info btn-sm">Edit</a>
-                            <a href="{{url('delete-category/'.$category->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{url('edit-slider/' .$slider->id)}}" class="btn btn-info btn-sm">Edit</a>
+                            <a href="{{url('delete-slider/'.$slider->id)}}" class="btn btn-danger btn-sm">Delete</a>
                           </td>
                         </tr>
                     @endforeach
@@ -163,74 +167,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-{{-- @foreach ($categories as $category)
-<tr>
-  <td>{{$category->id}}</td>
-  <td>{{$category->category_name}}</td>
-  <td>
-    <a href="{{url('edit-category/' .$category->id)}}" class="btn btn-info btn-sm">Edit</a>
-    <a href="{{url('delete-category/'.$category->id)}}" class="btn btn-danger btn-sm">Delete</a>
-  </td>
-</tr>
-@endforeach --}}
-
-
-
-{{-- <div class="row">
-  <div class="col-md-4 mt-3">
-    @include('admin.category.create')
-  </div>
-  <div class="col-md-8 mt-3">
-    <div class="card">
-      <div class="card-header">
-        <h1>List of Categories</h1>
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
-          <tr>
-            <th>Category ID#</th>
-            <th>Category Name</th>
-            <th>Action</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-          
-            @foreach ($categories as $category)
-              <tr>
-                <td>{{$category->id}}</td>
-                <td>{{$category->category_name}}</td>
-                <td>
-                  <a href="{{url('edit-category/' .$category->id)}}" class="btn btn-info btn-sm">Edit</a>
-                  <a href="{{url('delete-category/'.$category->id)}}" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-              </tr>
-          @endforeach
-          </tr>
-          </tbody>
-          <tfoot>
-          <tr>
-            <th>Rendering engine</th>
-            <th>Browser</th>
-            <th>Platform(s)</th>
-            <th>Engine version</th>
-            <th>CSS grade</th>
-          </tr>
-          </tfoot>
-        </table>
-      </div>
-      <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
-  </div>
-</div> --}}

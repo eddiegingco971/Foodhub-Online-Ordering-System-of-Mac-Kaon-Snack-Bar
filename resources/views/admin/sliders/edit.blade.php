@@ -21,7 +21,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Products</span>
+      <span class="brand-text font-weight-light">Category</span>
     </a>
 
     <!-- Sidebar -->
@@ -31,7 +31,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
+    
     @include('admin.preloader')
 
     @if (session('status'))
@@ -44,69 +44,57 @@
             {{ session('error') }}
         </div>
     @endif
- 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-6 offset-3 mt-3">
+   
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 mt-3">
+            <section class="content text-dark">
+                <div class="container-fluid">
+                      <div class="card elevation-3">
+                        <div class="card-header text-center">
+                          <h1>Edit Slider</h1>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <form action="{{url('update-slider/'.$sliders->id)}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group">
+                              <label for="image" class="col-form-label">Slider Image</label>
+                              <input type="file" name="image" class="form-control" id="image">
+                              <img src="{{asset('dist/img/slider/'.$sliders->image)}}" width="250px" height="200px" alt="Image" style="border-radius: 10%; margin-top: 2px;">
+                            </div>
 
-            <div class="card elevation-3">
-              <div class="card-header text-center">
-                <h1>Product Entry</h1>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form action="{{url('product-create')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="form-group mb-3">
-                    <label for="product_photo" class="col-form-label">Product Image</label>
-                    <input type="file" name="product_photo" class="form-control" id="product_photo">
-                    @error('product_photo')
-                      <div class="text-danger">{{$message}}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                      <label for="product_name" class="col-form-label">Product Name</label>
-                      <input type="product_name" name="product_name" class="form-control" id="product_name" placeholder="Product Name">
-                      @error('product_name')
-                        <div class="text-danger">{{$message}}</div>
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                      <label for="quantity" class="col-form-label">Quantity</label>
-                      <input type="quantity" name="quantity" class="form-control" id="quantity" placeholder="1-100">
-                      @error('quantity')
-                        <div class="text-danger">{{$message}}</div>
-                      @enderror
-                    </div>
-                  <div class="form-group">
-                    <label for="price" class="col-form-label">Price</label>
-                    <input type="price" name="price" class="form-control" id="price" placeholder="0.00">
-                    @error('price')
-                        <div class="text-danger">{{$message}}</div>
-                      @enderror
-                  </div>
-                  <div class="form-group">
-                    <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
-                    <button type="submit" class="btn btn-info">Save</button>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Product Name</label>
+                                <input type="name" name="name" class="form-control" value="{{$sliders->name}}" id="name" placeholder="Product Name">
+                            </div>
+
+                            <div class="form-group">
+                                <a type="button" class="btn btn-secondary" href="{{url('/slider')}}">Back</a>
+                                <button type="submit" class="btn btn-info">Update</button>
+                            </div>
+        
+                          </form>
+                        </div>
+                        <!-- /.card-body -->
+                      </div>
+                      <!-- /.card -->
+                </div>
+            </section>
+
+
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
-    </section>
+    </div>
+   
+    <!-- Main content -->
+  </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  @include('admin.footer')
+@include('admin.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -157,3 +145,8 @@
 </script>
 </body>
 </html>
+
+
+
+
+

@@ -27,12 +27,10 @@ class HomeController extends Controller
     {
        
         $orders = DB::table('orders')->count();
-        $users = DB::table('users')->count();
         $products = DB::table('products')->count();
         $customers = DB::table('customers')->count();
-        $categories = DB::table('categories')->count();
         $carts = DB::table('carts')->count();
-        return view('home' ,compact('orders','users','products','customers', 'categories','carts'));
+        return view('home' ,compact('orders','products','customers','carts'));
     
     }
 

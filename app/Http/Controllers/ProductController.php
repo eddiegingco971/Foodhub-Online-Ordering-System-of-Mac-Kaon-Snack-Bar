@@ -57,15 +57,20 @@ class ProductController extends Controller
         $products->product_name = $request->input('product_name');
         $products->quantity = $request->input('quantity');
         $products->price = $request->input('price');
+
+        $request->validate([
+            'product_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'product_name' => 'required|string|max:255',
+            'quantity' => 'required|numeric',
+            'price' => 'required|numeric',
+        ]);
        
         if($request->hasFile('product_photo')){
-  
           $file = $request->file('product_photo');
           $extention = $file->getClientOriginalExtension();
           $filename = time().'.'. $extention;
           $file->move('dist/img/product/', $filename);
           $products->product_photo = $filename;
-        
         }
   
         $products->save();

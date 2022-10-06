@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\Staff\StaffController;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,6 +34,13 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/slider', [SliderController::class,'index'])->name('sliders');
+    Route::post('/slider-create', [SliderController::class, 'store']);
+    Route::get('/edit-slider/{id}', [SliderController::class, 'edit']);
+    Route::put('/update-slider/{id}', [SliderController::class, 'update']);
+    Route::get('/delete-slider/{id}', [SliderController::class, 'destroy']);
+
     Route::get('/product', [ProductController::class, 'index'])->name('product');
     Route::get('/product-create', [ProductController::class, 'create']);
     Route::post('/product-create', [ProductController::class, 'store']);

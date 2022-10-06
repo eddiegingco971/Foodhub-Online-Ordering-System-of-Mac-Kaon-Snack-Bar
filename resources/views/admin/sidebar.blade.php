@@ -91,6 +91,17 @@
           
         
           <li class="nav-header">Game Events</li>
+
+          <li class="nav-item">
+            <a href="{{url('/slider')}}" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Banner Slider
+                <span class="badge badge-danger right"></span>
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="{{url('/calendar')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>

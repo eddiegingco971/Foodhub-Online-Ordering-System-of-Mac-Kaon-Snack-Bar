@@ -29,9 +29,8 @@ class CustomerController extends Controller
     {
     
         $products = DB::table('products')->get();
-      
-
-        return view('customer', compact('products'));
+        $sliders = DB::table('sliders')->get();
+        return view('customer', compact('products','sliders'));
     }
 
     public function customerOrder(){
