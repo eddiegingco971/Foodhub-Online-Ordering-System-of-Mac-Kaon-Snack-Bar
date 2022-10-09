@@ -72,32 +72,18 @@
             </a>
           </li> --}}
 
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Order Management
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-danger right">6</span>
-              </p>
+          <li class="nav-item">
+            <a href="{{url('/order')}}" class="nav-link active">
+              <i class="nav-icon fas fa-clipboard"></i>
+              <p>Today's Order</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/order')}}" class="nav-link">
-                  <i class="far fa-calendar nav-icon"></i>
-                  <p>Today's Order</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-clock nav-icon"></i>
-                  <p>Orders History</p>
-                </a>
-              </li>
-             
-            </ul>
           </li>
-   
+          <li class="nav-item">
+            <a href="{{url('/order')}}" class="nav-link active">
+              <i class="nav-icon fas fa-clipboard-check"></i>
+              <p>Order History</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

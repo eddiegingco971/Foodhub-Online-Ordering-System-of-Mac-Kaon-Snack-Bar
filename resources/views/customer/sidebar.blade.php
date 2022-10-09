@@ -8,14 +8,14 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" width="50" height="50" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
-      </div>
+      </div> --}}
 
      
 
@@ -25,20 +25,20 @@
           <li class="nav-header">Account Setting</li>
           <li class="nav-item">
             <a href="{{url('/customer')}}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>Menu</p>
+              <i class="nav-icon fas fa-briefcase"></i>
+              <p>Products</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{url('/customer-cart')}}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-shopping-cart"></i>
               <p>Cart</p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{{url('/customer-order')}}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-truck"></i>
               <p>Order</p>
             </a>
           </li>

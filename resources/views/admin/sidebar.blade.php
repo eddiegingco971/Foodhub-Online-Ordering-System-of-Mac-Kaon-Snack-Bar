@@ -36,7 +36,7 @@
           <li class="nav-header">Core Management</li>
           <li class="nav-item">
             <a href="{{url('/home')}}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-table"></i>
               <p>Dashboard</p>
             </a>
           </li>
@@ -76,32 +76,33 @@
 
           <li class="nav-item">
             <a href="{{url('/product')}}" class="nav-link active">
-              <i class="nav-icon fas fa-shopping-cart"></i>
+              <i class="nav-icon fas fa-briefcase"></i>
               <p>Product Management</p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{{url('/customer-list')}}" class="nav-link active">
-              <i class="nav-icon fas fa-shopping-cart"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>Customer Management</p>
             </a>
           </li>
           
           
         
-          <li class="nav-header">Game Events</li>
+          <li class="nav-header">Banner</li>
 
           <li class="nav-item">
             <a href="{{url('/slider')}}" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon far fa-images"></i>
               <p>
-                Banner Slider
+                Photo Slider
                 <span class="badge badge-danger right"></span>
               </p>
             </a>
           </li>
 
+          <li class="nav-header">Game Events</li>
           <li class="nav-item">
             <a href="{{url('/calendar')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>

@@ -139,8 +139,8 @@
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="25" height="25" class="rounded-circle">
-                <strong>{{Auth::user()->name}}</strong>
+                <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
+                {{-- <strong>{{Auth::user()->name}}</strong> --}}
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#!">Account Settings</a></li>
