@@ -152,8 +152,8 @@
 <!-- fullCalendar 2.2.5 -->
 <script src="{{asset('/plugins')}}/moment/moment.min.js"></script>
 <script src="{{asset('/plugins')}}/fullcalendar/main.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('/dist')}}/js/demo.js"></script>
+{{-- <!-- AdminLTE for demo purposes -->
+<script src="{{asset('/dist')}}/js/demo.js"></script> --}}
 <!-- Page specific script -->
 <script>
   $(function () {

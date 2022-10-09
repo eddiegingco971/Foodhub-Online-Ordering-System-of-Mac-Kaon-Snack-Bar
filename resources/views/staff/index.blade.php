@@ -97,9 +97,9 @@
 <script src="{{asset('/plugins')}}/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/dist')}}/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
+{{-- <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/dist')}}/js/demo.js"></script>
-<!-- Page specific script -->
+<!-- Page specific script --> --}}
 <script>
   $(function () {
     $("#example1").DataTable({
