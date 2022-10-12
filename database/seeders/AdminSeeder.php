@@ -22,21 +22,24 @@ class AdminSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'email_verified_at' => Carbon::now(),
                 'password'=> bcrypt('password'),
-                'user_type'=> 'admin'
+                'user_type'=> 'admin',
+                'status'=> 'active'
             ],
             [
                 'name' => 'Test Staff',
                 'email' => 'staff@gmail.com',
                 'email_verified_at' => Carbon::now(),
                 'password'=> bcrypt('password'),
-                'user_type'=> 'staff'
+                'user_type'=> 'staff',
+                'status'=> 'active'
             ],
             [
                 'name' => 'Test Customer',
                 'email' => 'customer@gmail.com',
                 'email_verified_at' => Carbon::now(),
                 'password'=> bcrypt('password'),
-                'user_type'=> 'customer'
+                'user_type'=> 'customer',
+                'status'=> 'active'
             ],
         
         ];

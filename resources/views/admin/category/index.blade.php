@@ -74,6 +74,7 @@
                   <thead>
                   <tr>
                     <th>Category Name</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -81,6 +82,7 @@
                     @foreach ($categories as $category)
                         <tr>
                           <td>{{$category->category_name}}</td>
+                          <td>{{$category->status}}</td>
                           <td>
                             <a href="{{url('edit-category/' .$category->id)}}" class="btn btn-info btn-sm">Edit</a>
                             <a href="{{url('delete-category/'.$category->id)}}" class="btn btn-danger btn-sm">Delete</a>

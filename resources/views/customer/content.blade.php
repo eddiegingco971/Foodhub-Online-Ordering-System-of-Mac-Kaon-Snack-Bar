@@ -1,5 +1,42 @@
 <div class="content-wrapper aligned-center">
  
+
+  <section class="small-banner section">
+    <div class="container-fluid">
+        <div class="row">
+            @php
+            $categories=DB::table('categories')->where('status','active')->limit(3)->get();
+            @endphp
+            @if($categories)
+                @foreach($categories as $category)
+                    
+                        <!-- Single Banner  -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="single-banner">
+                              {{$category->category_name}}
+                                {{-- @if($cat->photo)
+                                    <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
+                                @else
+                                    <img src="https://via.placeholder.com/600x370" alt="#">
+                                @endif
+                                <div class="content">
+                                    <h3>{{$cat->title}}</h3>
+                                        <a href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
+                                </div> --}}
+                            </div>
+                        </div>
+                   
+                    <!-- /End Single Banner  -->
+                @endforeach
+            @endif
+        </div>
+    </div>
+</section>
+
+
+
+
+
   <!-- Main content -->
       <!-- Small boxes (Stat box) -->
       <div class="content">
@@ -90,7 +127,8 @@
                 <div class="form-group text-dark">
                   <input class="form-control" type="number" name="product_quantity" id="product_quantity" placeholder="1">
                 </div>
-                  <button class="btn btn-danger float-right">Add Cart</button>
+                <button class="btn btn-light">Add Cart</button>
+                  <button class="btn btn-success float-right">Order</button>
                 
               </div>
             </div>   

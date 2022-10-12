@@ -80,8 +80,11 @@
                     <th>Order ID#</th>
                     <th>Customer ID#</th>
                     <th>Order Date</th>
+                    <th>Quantity</th>
                     <th>Total Amount</th>
-                    <th>Order Status</th>
+                    <th>Payment Method</th>
+                    <th>Payment Status</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -92,8 +95,11 @@
                         <td>{{$order->id}}</td>
                         <td>{{$order->customer_id}}</td>
                         <td>{{$order->order_date}}</td>
+                        <td>{{$order->quantity}}</td>
                         <td>{{$order->total_amount}}</td>
-                        <td>{{$order->order_status}}</td>
+                        <td>{{$order->payment_method}}</td>
+                        <td>{{$order->payment_status}}</td>
+                        <td>{{$order->status}}</td>
                         <td>
                           <a href="{{url('delete-order/'.$order->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>

@@ -15,14 +15,18 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('customer_id')->unsigned();
-            $table->bigInteger('product_id')->unsigned();
-            $table->integer('product_quantity')->default('1');
-            $table->string('total_amount');
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('order_id')->nullable();
+            $table->unsignedBigInteger('customer_id')->nullable();
+            $table->float('price');
+            $table->integer('quantity');
+            $table->float('total_amount');
+            $table->enum('status',['new','progress','delivered','cancel'])->default('new');
             $table->timestamps();
 
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('CASCADE');
+            $table->foreign('customer_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('SET NULL');
         });
     }
 

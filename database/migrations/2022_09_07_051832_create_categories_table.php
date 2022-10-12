@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('category_name');
+            $table->enum('status',['active','inactive'])->default('active');
             // $table->bigInteger('product_id')->unsigned();
             // $table->bigInteger('sub_category')->unsigned();
             $table->timestamps();

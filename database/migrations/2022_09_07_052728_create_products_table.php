@@ -19,7 +19,10 @@ return new class extends Migration
             $table->string('product_name');
             $table->integer('quantity');
             $table->string('price');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE');
         });
     }
 

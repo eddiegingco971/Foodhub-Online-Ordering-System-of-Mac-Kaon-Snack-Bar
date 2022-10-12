@@ -38,8 +38,10 @@ class CategoryController extends Controller
     {
         $category = new Category;
         $category->category_name = $request->input('category_name');
+        $category->status = $request->input('status');
         $request->validate([
             'category_name' => 'required|string|max:255',
+            'status' => 'required|string',
         ]);
 
         $category->save();

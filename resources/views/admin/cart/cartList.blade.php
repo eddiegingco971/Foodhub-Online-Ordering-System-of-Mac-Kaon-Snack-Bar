@@ -78,8 +78,11 @@
                   <tr>
                     <th>Customer ID</th>
                     <th>Product ID</th>
-                    <th>Product Quantity</th>
+                    <th>Order ID</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
                     <th>Total Amount</th>
+                    <th>Status</th>
                   
                    
                     <th>Action</th>
@@ -90,8 +93,11 @@
                       <tr>
                         <td>{{$cart->customer_id}}</td>
                         <td>{{$cart->product_id}}</td>
-                        <td>{{$cart->product_quamtity}}</td>
+                        <td>{{$cart->order_id}}</td>
+                        <td>{{$cart->price}}</td>
+                        <td>{{$cart->quantity}}</td>
                         <td>{{$cart->total_amount}}</td>
+                        <td>{{$cart->status}}</td>
                     
                         <td>
                           {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}

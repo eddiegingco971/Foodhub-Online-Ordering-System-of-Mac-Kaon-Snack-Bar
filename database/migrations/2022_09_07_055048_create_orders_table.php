@@ -15,13 +15,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('customer_id')->nullable();
             $table->date('order_date');
+            $table->integer('quantity');
             $table->string('total_amount');
-            $table->string('order_status')->default('process');//process or deliver
+            $table->enum('payment_method',['cod','scan_gcash'])->default('cod');
+            $table->enum('payment_status',['paid','unpaid'])->default('unpaid');
+            $table->enum('status',['new','process','delivered','cancel'])->default('new');
             // $table->bigInteger('customer_id')->unsigned();
             // $table->bigInteger('processed_by');
             $table->timestamps();
 
+            // $table->foreign('customer_id')->references('id')->on('customers')->onDelete('SET NULL');
             // $table->foreign('processed_by')->references('id')->on('payments');
             // $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });

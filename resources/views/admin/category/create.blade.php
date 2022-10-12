@@ -15,6 +15,18 @@
                         <div class="text-danger">{{$message}}</div>
                       @enderror
                   </div>
+
+                  <div class="form-group">
+                    <label for="status" id="status">Status</label>
+                    <select  type="status" name="status" class="form-select form-control" id="status" >
+                      <option value="active">Active</option>
+                      <option value="inactive">Inactive</option>
+                     </select>
+
+                    @error('status')
+                      <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
                  
                     <div class="form-group float-right mr-5">
                       <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Add</button>
