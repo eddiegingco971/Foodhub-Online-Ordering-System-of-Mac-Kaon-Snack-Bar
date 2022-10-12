@@ -26,11 +26,12 @@ Route::get('/', function () {
     return view('base');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::group(['middleware' => ['auth', 'verified']], function (){
 
 Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -82,4 +83,6 @@ Route::group(['middleware' => ['auth', 'customer']], function (){
     Route::get('/customer-order', [CustomerController::class, 'customerOrder']);
 
     Route::get('/customer-cart', [CartController::class, 'index'])->name('cart');
+});
+
 });
