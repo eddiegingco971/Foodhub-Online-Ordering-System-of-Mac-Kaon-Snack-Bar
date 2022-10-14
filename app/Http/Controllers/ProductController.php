@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -18,7 +19,6 @@ class ProductController extends Controller
         $products = Product::get();
         return view('admin.product.index', compact('products'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +26,9 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        return view('admin.product.create');
+        $products = Product::get('category_id');
+        $categories = Category::where('created_at', '!=', null)->get();
+        return view('admin.product.create',  compact('categories'));
         // $request->validate([
         //     'product_photo' => 'required|string',
         //     'product_name' => 'required|string',
@@ -52,17 +54,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
         $products = new Product;
         $products->product_name = $request->input('product_name');
         $products->quantity = $request->input('quantity');
         $products->price = $request->input('price');
+        $products->category_id = $request->input('category_id');
 
         $request->validate([
             'product_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'product_name' => 'required|string|max:255',
             'quantity' => 'required|numeric',
             'price' => 'required|numeric',
+            'category_id'=> 'required'
         ]);
        
         if($request->hasFile('product_photo')){
@@ -100,7 +103,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::find($id);
-        return view('admin.product.edit', compact('products'));
+        $categories = Category::where('created_at', '!=', null)->get();
+        return view('admin.product.edit', compact('products','categories'));
     }
 
       /**
@@ -116,7 +120,8 @@ class ProductController extends Controller
         $products->product_name = $request->input('product_name');
         $products->quantity = $request->input('quantity');
         $products->price = $request->input('price');
-       
+        $products->category_id = $request->input('category_id');
+
         if($request->hasFile('product_photo')){
   
           $destination = 'dist/img/product/'.$products->product_photo;

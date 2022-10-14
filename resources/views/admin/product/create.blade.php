@@ -59,6 +59,20 @@
               <div class="card-body">
                 <form action="{{url('product-create')}}" method="POST" enctype="multipart/form-data">
                   @csrf
+                  
+                  <div class="form-group">
+                    <label for="category_id" class="col-form-label">Category</label>
+                    <select class="form-select form-control" name="category_id">
+                      <option value="">--Select any category--</option>
+                        @foreach ($categories as $category)
+                          <option value="{{$category->id}}">{{$category->category_name}}</option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <div class="text-danger">{{$message}}</div>
+                      @enderror
+                  </div>
+                  
                   <div class="form-group mb-3">
                     <label for="product_photo" class="col-form-label">Product Image</label>
                     <input type="file" name="product_photo" class="form-control" id="product_photo">
@@ -87,6 +101,7 @@
                         <div class="text-danger">{{$message}}</div>
                       @enderror
                   </div>
+                  
                   <div class="form-group">
                     <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
                     <button type="submit" class="btn btn-info">Save</button>

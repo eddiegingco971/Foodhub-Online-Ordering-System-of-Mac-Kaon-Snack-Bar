@@ -60,6 +60,20 @@
                           <form action="{{url('update-product/'.$products->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+
+                            <div class="form-group">
+                              <label for="category_id" class="col-form-label">Category</label>
+                              <select class="form-select form-control" type="category_id" name="category_id">
+                                <option hidden="true" selected disabled value="{{$products->category_id}}">--Default Category--</option>
+                                  @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                  @endforeach
+                              </select>
+                              @error('category_id')
+                                  <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
                             <div class="form-group">
                               <label for="product_photo" class="col-form-label">Product Image</label>
                               <input type="file" name="product_photo" class="form-control" id="product_photo">

@@ -1,7 +1,7 @@
 <div class="content-wrapper aligned-center">
  
 
-  <section class="small-banner section">
+  <section class="content bg-primary">
     <div class="container-fluid">
         <div class="row">
             @php
@@ -11,9 +11,10 @@
                 @foreach($categories as $category)
                     
                         <!-- Single Banner  -->
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="single-banner">
-                              {{$category->category_name}}
+                        {{-- <div class="col-lg-4 col-md-6 col-12"> --}}
+                        
+                            <div class="single-banner ml-3 p-2">
+                              <strong>{{$category->category_name}}</strong>
                                 {{-- @if($cat->photo)
                                     <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
                                 @else
@@ -24,7 +25,7 @@
                                         <a href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
                                 </div> --}}
                             </div>
-                        </div>
+                        
                    
                     <!-- /End Single Banner  -->
                 @endforeach
@@ -94,11 +95,11 @@
   
 
     <!-- Content Header (Page header) -->
-    <div class="content-header bg-dark">
+    <div class="content-header bg-primary p-2">
       <div class="container-fluid">
-        <div class="row mt-2">
+        <div class="row">
           <div class="col-lg-3 col-6">
-            <h1 class="m-0">Menu</h1>
+            <h2 class="m-0">Best Deals</h2>
           </div><!-- /.col -->
           {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -116,13 +117,15 @@
         <!-- Small boxes (Stat box) -->
         <div class="row justify-content-center">
             @foreach ($products as $product)
-            <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between;">
+            <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:380px;">
               <div class="card-body">
                   <img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="200px" alt="Image" >
+                  <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
               </div>
-              <div class="card-footer">
-                <h3 class="text-center"><strong>{{$product->product_name}}</strong></h3>
-                <h6>Stock: {{$product->quantity}}</h6>
+              
+               
+                {{-- <h6>Stock: {{$product->quantity}}</h6> --}}
+                <div class="card-footer mt-2">
                 <h6>Price: {{$product->price}}</h6>
                 <div class="form-group text-dark">
                   <input class="form-control" type="number" name="product_quantity" id="product_quantity" placeholder="1">

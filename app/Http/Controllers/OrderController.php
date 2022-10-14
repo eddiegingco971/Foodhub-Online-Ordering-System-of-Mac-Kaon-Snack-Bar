@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::get();
-        return view('admin.order.index', compact('orders'));
+        $categories = Category::where('created_at', '!=', null)->get();
+        return view('admin.order.index', compact('orders', 'categories'));
     }
 
     /**

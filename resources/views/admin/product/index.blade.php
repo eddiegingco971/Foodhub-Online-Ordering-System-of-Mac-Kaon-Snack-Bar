@@ -79,22 +79,23 @@
                     <th>Product ID#</th>
                     <th>Product Image</th>
                     <th>Product Name</th>
+                    <th>Category ID</th>
                     <th>Quantity</th>
                     <th>Price</th>
-                    <th>Category ID</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($products as $product)
                       <tr>
+                       
                         <td>{{$product->id}}</td>
                         {{-- <td><img src="{{asset('dist/img/'.$product->product_photo)}}" width="50px" height="50px" alt="Image" style="border-radius: 50%"></td> --}}
                         <td class="text-center"><img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
                         <td>{{$product->product_name}}</td>
+                        <td>{{$product->category_id}}</td>
                         <td>{{$product->quantity}}</td>
                         <td>{{$product->price}}</td>
-                        <td>{{$product->category_id}}</td>
                         <td>
                           <a href="{{url('edit-product/' .$product->id)}}" class="btn btn-info btn-sm">Edit</a>
                           <a href="{{url('delete-product/'.$product->id)}}" class="btn btn-danger btn-sm">Delete</a>
