@@ -78,7 +78,6 @@
                   <tr>
                     <th>Customer ID</th>
                     <th>Product ID</th>
-                    <th>Order ID</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total Amount</th>
@@ -93,7 +92,6 @@
                       <tr>
                         <td>{{$cart->customer_id}}</td>
                         <td>{{$cart->product_id}}</td>
-                        <td>{{$cart->order_id}}</td>
                         <td>{{$cart->price}}</td>
                         <td>{{$cart->quantity}}</td>
                         <td>{{$cart->total_amount}}</td>

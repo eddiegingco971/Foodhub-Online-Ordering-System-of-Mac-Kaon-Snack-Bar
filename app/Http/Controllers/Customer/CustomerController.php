@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,4 +45,27 @@ class CustomerController extends Controller
         $customers->delete();
         return redirect('/customer')->with('status', 'Customer Deleted Successfully!');
     }
+
+
+    // public function addCart(Request $request){
+    //      $request->validate([
+    //         'product_id' => 'required',
+    //         'customer_id' => 'required',
+    //         'price' => 'require',
+    //         'quantity' => 'required',
+    //         'total_amount' => 'required',
+    //         'status' => 'required|string',
+    //     ]);
+
+    //     Cart::create([
+    //         'product_id' => \App\Models\Product::where('id'),
+    //         'customer_id' => auth()->user()->id,
+    //         'price' => $request->price,
+    //         'quantity' => $request->quantity,
+    //         'total_amount' => $request->total_amount,
+    //         'status' => $request->status,
+    //      ]);
+
+    //      return redirect('/customer')->with('status', 'Added Product Successfully');
+    // }
 }

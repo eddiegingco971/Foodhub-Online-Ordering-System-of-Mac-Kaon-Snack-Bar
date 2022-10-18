@@ -15,7 +15,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('customer.cart.index');
+        $carts = Cart::get();
+        return view('customer.cart.index', compact('carts'));
     }
 
     public function list()
@@ -24,69 +25,25 @@ class CartController extends Controller
         return view('admin.cart.cartList', compact('carts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function addCart(Request $request){
+        $request->validate([
+           'product_id' => 'required',
+           'customer_id' => 'required',
+           'price' => 'require',
+           'quantity' => 'required',
+           'total_amount' => 'required',
+           'status' => 'required|string',
+       ]);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+       Cart::create([
+           'product_id' => \App\Models\Product::where('id'),
+           'customer_id' => auth()->user()->id,
+           'price' => $request->price,
+           'quantity' => $request->quantity,
+           'total_amount' => $request->total_amount,
+           'status' => $request->status,
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Cart $cart)
-    {
-        //
-    }
+        return redirect('/customer')->with('status', 'Added Product Successfully');
+   }
 }

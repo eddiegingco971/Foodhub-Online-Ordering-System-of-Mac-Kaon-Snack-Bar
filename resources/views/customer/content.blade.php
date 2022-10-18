@@ -116,13 +116,13 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row justify-content-center">
+          <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
             @foreach ($products as $product)
             <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:380px;">
               <div class="card-body">
-                  <img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="200px" alt="Image" >
+                  <img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
                   <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
               </div>
-              
                
                 {{-- <h6>Stock: {{$product->quantity}}</h6> --}}
                 <div class="card-footer mt-2">
@@ -130,12 +130,13 @@
                 <div class="form-group text-dark">
                   <input class="form-control" type="number" name="product_quantity" id="product_quantity" placeholder="1">
                 </div>
-                <button class="btn btn-light">Add Cart</button>
+                  <button class="btn btn-light" type="submit">Add Cart</button>
                   <button class="btn btn-success float-right">Order</button>
                 
               </div>
             </div>   
           @endforeach
+          </form>
         </div>
 
 
