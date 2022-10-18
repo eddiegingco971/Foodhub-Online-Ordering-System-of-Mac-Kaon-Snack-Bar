@@ -115,8 +115,10 @@
     <section class="content mt-2">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+        <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
+          @csrf
         <div class="row justify-content-center">
-          <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
+         
             @foreach ($products as $product)
             <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:380px;">
               <div class="card-body">
@@ -136,8 +138,9 @@
               </div>
             </div>   
           @endforeach
-          </form>
+         
         </div>
+      </form>
 
 
 
