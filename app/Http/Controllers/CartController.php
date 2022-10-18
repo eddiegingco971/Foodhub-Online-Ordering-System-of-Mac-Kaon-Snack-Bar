@@ -29,14 +29,14 @@ class CartController extends Controller
         $request->validate([
            'product_id' => 'required',
            'customer_id' => 'required',
-           'price' => 'require',
+           'price' => 'required',
            'quantity' => 'required',
            'total_amount' => 'required',
            'status' => 'required|string',
        ]);
 
        Cart::create([
-           'product_id' => \App\Models\Product::where('id'),
+           'product_id' => $request->product_id,
            'customer_id' => auth()->user()->id,
            'price' => $request->price,
            'quantity' => $request->quantity,

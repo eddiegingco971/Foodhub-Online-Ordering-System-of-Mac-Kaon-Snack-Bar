@@ -115,32 +115,148 @@
     <section class="content mt-2">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
-          @csrf
+    
         <div class="row justify-content-center">
-         
             @foreach ($products as $product)
-            <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:380px;">
+            <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:400px;">
               <div class="card-body">
-                  <img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
+                <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
+                  @csrf
+
+                  <input type="hidden" name="customer_id" id="email" value="{{auth()->user()->id}}">
+                  <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
+                  <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
                   <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
               </div>
-               
                 {{-- <h6>Stock: {{$product->quantity}}</h6> --}}
                 <div class="card-footer mt-2">
                 <h6>Price: {{$product->price}}</h6>
+                <input type="hidden" name="price" id="price" value="{{$product->price}}">
                 <div class="form-group text-dark">
-                  <input class="form-control" type="number" name="product_quantity" id="product_quantity" placeholder="1">
+                  <input class="form-control" type="number" name="quantity" id="quantity" class="form-control" value="1">
+                </div>
+                <div class="form-group text-dark">
+                  <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder=" Price * Quantity">
+                  <input type="hidden" name="status" id="status" class="form-control" value="new">
+                  
                 </div>
                   <button class="btn btn-light" type="submit">Add Cart</button>
                   <button class="btn btn-success float-right">Order</button>
-                
+
               </div>
+            </form>
             </div>   
           @endforeach
          
         </div>
-      </form>
+ 
+        
+      {{-- <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6 offset-3 mt-3">
+  
+              <div class="card elevation-3">
+                <div class="card-header text-center">
+                  <h1>Cart Entry</h1>
+                </div>
+                <!-- /.card-header -->
+                @foreach ($products as $product)
+                <div class="card-body">
+                  <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="customer_id" id="email" value="{{auth()->user()->id}}">
+                
+                      <div class="form-group">
+                       
+                        <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
+                        <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
+                        @error('product_id')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
+                    </div>
+        
+                        <div class="form-group">
+                          <label for="price">Price</label>
+                          <input type="number" name="price" id="price" class="form-control" value="{{$product->price}}">
+                          @error('price')
+                          <p class="text-danger">{{$message}}</p>
+                          @enderror
+                      </div>
+        
+                      <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" name="quantity" id="quantity" class="form-control" placeholder="1-100">
+                        @error('quantity')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
+                    </div>
+
+                      <div class="form-group">
+                        <label for="total_amount">Total amount</label>
+                        <input type="number" name="total_amount" id="total_amount" class="form-control" placeholder="">
+                        @error('total_amount')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                      <label for="status">Status</label>
+                      <select name="status" id="status" class="form-select form-control">
+                        <option hidden="true">--Select Category--</option>
+                        <option value="new">New</option>
+                        <option value="progress">Progress</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancel">Cancel</option>  
+                      </select>
+                        @error('quantity')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
+                    </div>
+                    
+                    <div class="form-group">
+                      <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
+                      <button type="submit" class="btn btn-info">Save</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card-body -->
+                @endforeach
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section> --}}
+
+
+
+      {{-- <input type="hidden" name="customer_id" id="email" value="{{auth()->user()->id}}">
+                  <input type="hidden" name="product_id" value="{{$product->id}}"> --}}
+                  {{-- @foreach ($carts as $cart)
+                      
+                  <div class="form-group text-dark">
+                    <input class="form-control" type="customer_id" name="customer_id" id="customer_id" placeholder="{{$carts->customer_id}}">
+                  </div>
+                  <div class="form-group text-dark">
+                    <input class="form-control" type="product_id" name="product_id" id="product_id" placeholder="Product Id">
+                  </div>
+                  <div class="form-group text-dark">
+                    <input class="form-control" type="qunatity" name="quantity" id="quantity" placeholder="Quantity">
+                  </div>
+                  <div class="form-group text-dark">
+                    <input class="form-control" type="price" name="price" id="price" placeholder="Price">
+                  </div>
+                  <div class="form-group text-dark">
+                    <input class="form-control" type="total_amount" name="total_amount" id="total_amount" placeholder="Total Amount">
+                  </div>
+                  <div class="form-group text-dark">
+                    <input class="form-control" type="text" name="status" id="status"placeholder="Status">
+                  </div>
+                  @endforeach --}}
 
 
 
