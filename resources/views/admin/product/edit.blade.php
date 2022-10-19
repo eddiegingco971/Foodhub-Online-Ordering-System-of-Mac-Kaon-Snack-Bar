@@ -83,10 +83,6 @@
                                 <label for="product_name" class="col-form-label">Product Name</label>
                                 <input type="product_name" name="product_name" class="form-control" value="{{$products->product_name}}" id="product_name" placeholder="Product Name">
                               </div>
-                              <div class="form-group">
-                                <label for="quantity" class="col-form-label">Quantity</label>
-                                <input type="quantity" name="quantity" class="form-control" value="{{$products->quantity}}" id="quantity" placeholder="1-100">
-                              </div>
                             <div class="form-group">
                               <label for="price" class="col-form-label">Price</label>
                               <input type="price" name="price" class="form-control" value="{{$products->price}}" id="price" placeholder="0.00">

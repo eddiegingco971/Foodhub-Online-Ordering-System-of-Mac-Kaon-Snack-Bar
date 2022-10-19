@@ -52,8 +52,8 @@
                 <h1>Product Management</h1>
             </div>
             <div class="col-sm-6 mt-3">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('product-create')}}">Add Product</a></li>
+                <ol class="breadcrumb float-sm-right ms-auto">
+                  <li class="breadcrumb-item"><a class="btn btn-sm btn-primary" href="{{url('product-create')}}">Add Product</a></li>
                 </ol>
             </div>
 
@@ -65,7 +65,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
+          <div class="col-md-12">
 
             <div class="card elevation-3">
               <div class="card-header">
@@ -80,7 +80,6 @@
                     <th>Product Image</th>
                     <th>Product Name</th>
                     <th>Category ID</th>
-                    <th>Quantity</th>
                     <th>Price</th>
                     <th>Action</th>
                   </tr>
@@ -94,7 +93,6 @@
                         <td class="text-center"><img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
                         <td>{{$product->product_name}}</td>
                         <td>{{$product->category_id}}</td>
-                        <td>{{$product->quantity}}</td>
                         <td>{{$product->price}}</td>
                         <td>
                           <a href="{{url('edit-product/' .$product->id)}}" class="btn btn-info btn-sm">Edit</a>

@@ -34,11 +34,11 @@ class AdminSeeder extends Seeder
                 'status'=> 'active'
             ],
             [
-                'name' => 'Test Customer',
-                'email' => 'customer@gmail.com',
+                'name' => 'Test User',
+                'email' => 'user@gmail.com',
                 'email_verified_at' => Carbon::now(),
                 'password'=> bcrypt('password'),
-                'user_type'=> 'customer',
+                'user_type'=> 'user',
                 'status'=> 'active'
             ],
         

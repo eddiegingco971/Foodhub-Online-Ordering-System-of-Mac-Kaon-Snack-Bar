@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,9 +28,9 @@ class HomeController extends Controller
        
         $orders = DB::table('orders')->count();
         $products = DB::table('products')->count();
-        $customers = DB::table('customers')->count();
+        $users = DB::table('users')->count();
         $carts = DB::table('carts')->count();
-        return view('home' ,compact('orders','products','customers','carts'));
+        return view('home' ,compact('orders','products','users','carts'));
     
     }
 
@@ -37,6 +38,12 @@ class HomeController extends Controller
     public function calendar()
     {
         return view('admin.event.calendar');
+    }
+
+    public function cartList()
+    {
+        $carts = Cart::get();
+        return view('admin.cart.cartList', compact('carts'));
     }
 
 

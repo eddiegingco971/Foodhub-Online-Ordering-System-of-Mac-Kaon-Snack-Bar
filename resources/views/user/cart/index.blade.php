@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('admin.head')
+  @include('user.head')
   <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -13,7 +13,7 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  @include('admin.navbar')
+  @include('user.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -25,14 +25,14 @@
     </a>
 
     <!-- Sidebar -->
-    @include('admin.sidebar')
+    @include('user.sidebar')
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
-    @include('admin.preloader')
+    @include('user.preloader')
 
     @if (session('status'))
     <div class="alert alert-success text-center" role="alert">
@@ -49,7 +49,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6 mt-3">
-                <h1>Customer Management</h1>
+                <h1>Cart Management</h1>
             </div>
             {{-- <div class="col-sm-6 mt-3">
                 <ol class="breadcrumb float-sm-right">
@@ -69,39 +69,37 @@
 
             <div class="card elevation-3">
               <div class="card-header">
-                <h3 class="card-title">List of Customer</h3>
+                <h3 class="card-title">List of Cart</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Profile Image</th>
-                    <th>Customer Name</th>
-                    <th>Age</th>
-                    <th>Sex</th>
-                    <th>Address</th>
-                    <th>Barangay</th>
-                    <th>Phone number</th>
-                    <th>Customer Status</th>
+                    <th>User ID</th>
+                    <th>Product ID</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                  
                    
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($customers as $customer)
+                    @foreach ($carts as $cart)
                       <tr>
-                        <td class="text-center"><img src="{{asset('dist/img/'.$customer->profile_image)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
-                        <td>{{$customer->lastname}}, &nbsp; {{$customer->firstname}} &nbsp; {{$customer->middlename}}</td>
-                        <td>{{$customer->age}}</td>
-                        <td>{{$customer->sex}}</td>
-                        <td>{{$customer->address}}</td>
-                        <td>{{$customer->barangay}}</td>
-                        <td>{{$customer->phone_number}}</td>
-                        <td>{{$customer->customer_status}}</td>
+                        <td>{{$cart->user_id}}</td>
+                        <td>{{$cart->product_id}}</td>
+                        <td>{{$cart->price}}</td>
+                        <td>{{$cart->quantity}}</td>
+                        <td>{{$cart->total_amount}}</td>
+                        <td>{{$cart->status}}</td>
+                    
                         <td>
                           {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
-                          <a href="{{url('delete-customer/'.$customer->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                          <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>
                   @endforeach

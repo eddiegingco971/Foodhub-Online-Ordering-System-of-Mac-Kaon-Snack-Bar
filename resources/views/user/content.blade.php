@@ -123,7 +123,7 @@
                 <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
                   @csrf
 
-                  <input type="hidden" name="customer_id" id="email" value="{{auth()->user()->id}}">
+                  <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
                   <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
                   <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
                   <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>

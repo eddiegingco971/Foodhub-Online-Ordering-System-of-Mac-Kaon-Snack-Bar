@@ -21,7 +21,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Orders</span>
+      <span class="brand-text font-weight-light">Customer</span>
     </a>
 
     <!-- Sidebar -->
@@ -35,13 +35,12 @@
     @include('admin.preloader')
 
     @if (session('status'))
-        <div class="alert alert-warning m-2 text-center" role="alert">
-            {{ session('status') }}
-        </div>
+    <div class="alert alert-success text-center" role="alert">
+        {{ session('status') }}
+    </div>
     @endif
-
     @if (session('error'))
-        <div class="alert alert-warning m-2 text-center" role="alert">
+        <div class="alert alert-warning text-center" role="alert">
             {{ session('error') }}
         </div>
     @endif
@@ -49,15 +48,15 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6 mt-3">
-            <h1>Order Management</h1>
-          </div>
-          {{-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
-            </ol>
-          </div> --}}
+            <div class="col-sm-6 mt-3">
+                <h1>Customer Management</h1>
+            </div>
+            {{-- <div class="col-sm-6 mt-3">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('product-create')}}">Add Product</a></li>
+                </ol>
+            </div> --}}
+
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -70,42 +69,37 @@
 
             <div class="card elevation-3">
               <div class="card-header">
-                <h3 class="card-title">List of Order</h3>
+                <h3 class="card-title">List of User</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Order ID#</th>
-                    <th>User ID#</th>
-                    <th>Order Date</th>
-                    <th>Quantity</th>
-                    <th>Total Amount</th>
-                    <th>Payment Method</th>
-                    <th>Payment Status</th>
+                    <th>User ID</th>
+                    <th>Profile Image</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>User Type</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-
-                    @foreach ($orders as $order)
+                    @foreach ($users as $user)
                       <tr>
-                        <td>{{$order->id}}</td>
-                        <td>{{$order->user_id}}</td>
-                        <td>{{$order->order_date}}</td>
-                        <td>{{$order->quantity}}</td>
-                        <td>{{$order->total_amount}}</td>
-                        <td>{{$order->payment_method}}</td>
-                        <td>{{$order->payment_status}}</td>
-                        <td>{{$order->status}}</td>
+                        <td>{{$user->id}}</td>
+                        <td class="text-center"><img src="{{asset('dist/img/'.$user->profile_image)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->user_type}}</td>
+                        <td>{{$user->status}}</td>
                         <td>
-                          <a href="{{url('delete-order/'.$order->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                          {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
+                          <a href="{{url('delete-user/'.$user->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>
-                    @endforeach
-
+                  @endforeach
                   </tbody>
                   {{-- <tfoot>
                   <tr>

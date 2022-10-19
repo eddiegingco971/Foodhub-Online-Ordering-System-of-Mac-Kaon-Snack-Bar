@@ -56,14 +56,12 @@ class ProductController extends Controller
     {
         $products = new Product;
         $products->product_name = $request->input('product_name');
-        $products->quantity = $request->input('quantity');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
 
         $request->validate([
             'product_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'product_name' => 'required|string|max:255',
-            'quantity' => 'required|numeric',
             'price' => 'required|numeric',
             'category_id'=> 'required'
         ]);
@@ -118,7 +116,6 @@ class ProductController extends Controller
      public function update(Request $request, $id){
         $products = Product::find($id);
         $products->product_name = $request->input('product_name');
-        $products->quantity = $request->input('quantity');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
 

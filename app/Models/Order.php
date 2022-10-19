@@ -9,7 +9,7 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'customer_id',
+        'user_id',
         'order_date',
         'total_amount',
         'quantity',
@@ -18,7 +18,7 @@ class Order extends Model
         'status',
     ];
 
-    public function customers(){
-        return $this->hasMany(Customer::class);
+    public function users(){
+        return $this->hasMany(User::class);
     }
 }

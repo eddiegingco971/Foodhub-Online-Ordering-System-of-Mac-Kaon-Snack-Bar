@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CustomerMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,13 +17,11 @@ class CustomerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-            if(Auth::user()-> user_type == 'customer'){
-                return $next($request);
-            }
-            else{
-                return back()->with('error', 'Access Denied');
-            }
-        
-            
+        if(Auth::user()-> user_type == 'user'){
+            return $next($request);
+        }
+        else{
+            return back()->with('error', 'Access Denied');
+        }
     }
 }

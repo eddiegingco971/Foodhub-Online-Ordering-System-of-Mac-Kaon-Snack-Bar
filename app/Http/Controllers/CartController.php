@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Laravel\Ui\Presets\React;
 
 class CartController extends Controller
 {
@@ -13,22 +15,17 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        $carts = Cart::get();
-        return view('customer.cart.index', compact('carts'));
-    }
-
-    public function list()
-    {
-        $carts = Cart::get();
-        return view('admin.cart.cartList', compact('carts'));
+        $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
+        return view('user.cart.index', compact('carts'));
     }
 
     public function addCart(Request $request){
         $request->validate([
            'product_id' => 'required',
-           'customer_id' => 'required',
+           'user_id' => 'required',
            'price' => 'required',
            'quantity' => 'required',
            'total_amount' => 'required',
@@ -37,13 +34,13 @@ class CartController extends Controller
 
        Cart::create([
            'product_id' => $request->product_id,
-           'customer_id' => auth()->user()->id,
+           'user_id' => auth()->user()->id,
            'price' => $request->price,
            'quantity' => $request->quantity,
            'total_amount' => $request->total_amount,
            'status' => $request->status,
         ]);
 
-        return redirect('/customer')->with('status', 'Added Product Successfully');
+        return redirect('/user')->with('status', 'Added Product Successfully');
    }
 }

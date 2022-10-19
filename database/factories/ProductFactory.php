@@ -19,7 +19,6 @@ class ProductFactory extends Factory
         return [
             'product_photo' => fake()->image(),
             'product_name' => fake()->name(),
-            'quantity' => fake()->numerify('##'),
             'price' => fake()->randomElement(['50', '100', '50', '80', '100']),
         ];
     }

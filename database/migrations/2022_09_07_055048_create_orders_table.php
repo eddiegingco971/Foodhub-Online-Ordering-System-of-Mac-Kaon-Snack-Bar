@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('customer_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->date('order_date');
             $table->integer('quantity');
             $table->string('total_amount');
@@ -28,7 +28,7 @@ return new class extends Migration
 
             // $table->foreign('customer_id')->references('id')->on('customers')->onDelete('SET NULL');
             // $table->foreign('processed_by')->references('id')->on('payments');
-            // $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

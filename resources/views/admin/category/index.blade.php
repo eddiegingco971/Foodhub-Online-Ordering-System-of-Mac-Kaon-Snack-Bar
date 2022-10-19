@@ -62,7 +62,7 @@
           <div class="col-md-3">
             @include('admin.category.create')
           </div>
-          <div class="col-9">
+          <div class="col-md-9">
 
             <div class="card elevation-3">
               <div class="card-header">

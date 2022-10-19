@@ -2,13 +2,14 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Customer\CustomerController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SliderController;
-use App\Http\Controllers\Staff\StaffController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -64,10 +65,10 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     
     Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
 
-    Route::get('/customer-list', [CustomerController::class, 'list']);
-    Route::get('/delete-customer/{id}', [CustomerController::class, 'destroy']);
+    Route::get('/user-list', [UserController::class, 'list']);
+    Route::get('/delete-user/{id}', [UserController::class, 'destroy']);
 
-    Route::get('/cart-list', [CartController::class, 'list']);
+    Route::get('/cart-list', [HomeController::class, 'cartList']);
     Route::get('/delete-cart/{id}', [CartController::class, 'destroy']);
  
 });
@@ -77,13 +78,13 @@ Route::group(['middleware' => ['auth', 'staff']], function (){
  
 });
 
-Route::group(['middleware' => ['auth', 'customer']], function (){
-    Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+Route::group(['middleware' => ['auth', 'user']], function (){
+    Route::get('/user', [UserController::class, 'index'])->name('user');
 
-    Route::get('/customer-order', [CustomerController::class, 'customerOrder']);
+    Route::get('/user-order', [UserController::class, 'userOrder']);
 
     Route::post('/cart-create', [CartController::class, 'addCart']);
-    Route::get('/customer-cart', [CartController::class, 'index'])->name('cart');
+    Route::get('/user-cart/{id}', [CartController::class, 'index'])->name('cart');
 });
 
 });

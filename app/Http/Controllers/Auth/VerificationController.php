@@ -36,7 +36,7 @@ class VerificationController extends Controller
             return 'staff';
 
         }else{
-            return 'customer';
+            return 'user';
         }
       }
     /**

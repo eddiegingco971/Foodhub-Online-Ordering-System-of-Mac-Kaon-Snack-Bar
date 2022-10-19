@@ -49,7 +49,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-6 offset-3 mt-3">
+          <div class="col-md-6 offset-md-3 mt-3">
 
             <div class="card elevation-3">
               <div class="card-header text-center">
@@ -84,13 +84,6 @@
                       <label for="product_name" class="col-form-label">Product Name</label>
                       <input type="product_name" name="product_name" class="form-control" id="product_name" placeholder="Product Name">
                       @error('product_name')
-                        <div class="text-danger">{{$message}}</div>
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                      <label for="quantity" class="col-form-label">Quantity</label>
-                      <input type="quantity" name="quantity" class="form-control" id="quantity" placeholder="1-100">
-                      @error('quantity')
                         <div class="text-danger">{{$message}}</div>
                       @enderror
                     </div>
