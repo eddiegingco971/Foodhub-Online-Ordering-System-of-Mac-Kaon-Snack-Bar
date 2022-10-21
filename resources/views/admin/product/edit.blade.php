@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('admin.head')
+  @include('layouts.components.head')
   <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -13,7 +13,7 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  @include('admin.navbar')
+  @include('layouts.components.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -25,14 +25,14 @@
     </a>
 
     <!-- Sidebar -->
-    @include('admin.sidebar')
+    @include('layouts.components.sidebar')
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     
-    @include('admin.preloader')
+    @include('layouts.components.preloader')
 
     @if (session('status'))
     <div class="alert alert-success text-center" role="alert">
@@ -120,7 +120,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-@include('admin.footer')
+@include('layouts.components.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

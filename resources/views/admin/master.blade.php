@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('admin.head')
+  @include('layouts.components.head')
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
-  @include('admin.preloader')
+  @include('layouts.components.preloader')
 
   <!-- Navbar -->
-  @include('admin.navbar')
+  @include('layouts.components.navbar')
   <!-- /.navbar -->
   
   <!-- Main Sidebar Container -->
-  @include('admin.sidebar')
+  @include('layouts.components.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   @include('admin.content')
   <!-- /.content-wrapper -->
 
-  @include('admin.footer')
+  @include('layouts.components.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('staff.head')
+  @include('layouts.components.head')
+  
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-buttons/css/buttons.bootstrap4.min.css">
@@ -23,17 +24,17 @@
   </div>
 
   <!-- Navbar -->
-  @include('staff.navbar')
+  @include('layouts.components.navbar')
   <!-- /.navbar -->
   
   <!-- Main Sidebar Container -->
-  @include('staff.sidebar')
+  @include('layouts.components.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   @include('staff.content')
   <!-- /.content-wrapper -->
 
-  @include('staff.footer')
+  @include('layouts.components.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -73,8 +74,6 @@
 <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/dist')}}/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('/dist')}}/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('/dist')}}/js/pages/dashboard.js"></script>
 

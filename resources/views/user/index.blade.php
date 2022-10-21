@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('user.head')
+  @include('layouts.components.head')
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -11,17 +11,17 @@
   {{-- @include('customer.preloader') --}}
 
   <!-- Navbar -->
-  @include('user.navbar')
+  @include('layouts.components.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  @include('user.sidebar')
+  @include('layouts.components.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   @include('user.content')
   <!-- /.content-wrapper -->
 
-  @include('user.footer')
+  @include('layouts.components.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
