@@ -83,6 +83,7 @@ class CategoryController extends Controller
 
         $categories = Category::find($id);
         $categories->category_name = $request->input('category_name');
+        $categories->status = $request->input('status');
 
         $categories->update();
 

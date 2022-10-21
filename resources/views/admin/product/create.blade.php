@@ -60,6 +60,10 @@
                 <form action="{{url('product-create')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   
+                  @php
+                  $categories=DB::table('categories')->where('status','active')->get();
+                  @endphp
+                  
                   <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
                     <select class="form-select form-control" name="category_id">
@@ -94,6 +98,17 @@
                         <div class="text-danger">{{$message}}</div>
                       @enderror
                   </div>
+                  <div class="form-group">
+                    <label for="status" id="status">Status</label>
+                    <select  type="status" name="status" class="form-select form-control" id="status" >
+                      <option value="active">Active</option>
+                      <option value="inactive">Inactive</option>
+                     </select>
+
+                    @error('status')
+                      <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
                   
                   <div class="form-group">
                     <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>

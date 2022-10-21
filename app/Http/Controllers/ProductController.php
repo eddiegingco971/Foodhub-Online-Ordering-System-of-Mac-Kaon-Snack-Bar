@@ -58,12 +58,14 @@ class ProductController extends Controller
         $products->product_name = $request->input('product_name');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
+        $products->status = $request->input('status');
 
         $request->validate([
             'product_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'product_name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'category_id'=> 'required'
+            'category_id'=> 'required',
+            'status'=> 'required'
         ]);
        
         if($request->hasFile('product_photo')){
@@ -118,6 +120,7 @@ class ProductController extends Controller
         $products->product_name = $request->input('product_name');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
+        $products->status = $request->input('status');
 
         if($request->hasFile('product_photo')){
   

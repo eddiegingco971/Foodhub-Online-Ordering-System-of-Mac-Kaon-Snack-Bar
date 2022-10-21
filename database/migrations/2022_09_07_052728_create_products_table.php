@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('price');
             $table->unsignedBigInteger('category_id');
+            $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE');

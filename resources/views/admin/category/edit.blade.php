@@ -66,10 +66,26 @@
                                   <input type="category_name" name="category_name" class="form-control" value="{{$categories->category_name}}">
                               </div>
                              
-                                <div class="form-group ml-5">
-                                    <a type="button" class="btn btn-secondary" href="{{url('/category')}}">Cancel</a>
-                                  <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button>
-                              </div>
+                               
+
+                              <div class="form-group">
+                                <label for="status" id="status">Status</label>
+                                <select  type="status" name="status" class="form-select form-control"  value="{{$categories->status}}">
+                                  <option value="{{$categories->status}}">--Select Status--</option>
+                                  <option value="active">Active</option>
+                                  <option value="inactive">Inactive</option>
+                                 </select>
+            
+                                @error('status')
+                                  <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                              <a type="button" class="btn btn-secondary" href="{{url('/category')}}">Cancel</a>
+                              {{-- <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button> --}}
+                              <button type="submit" class="btn btn-info">Save</button>
+                          </div>
             
                             </form>
                         </div>

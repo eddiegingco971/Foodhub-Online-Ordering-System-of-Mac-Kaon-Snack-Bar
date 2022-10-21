@@ -20,6 +20,7 @@ class ProductFactory extends Factory
             'product_photo' => fake()->image(),
             'product_name' => fake()->name(),
             'price' => fake()->randomElement(['50', '100', '50', '80', '100']),
+            'status' => fake()->randomElement(['active','inactive']),
         ];
     }
 }

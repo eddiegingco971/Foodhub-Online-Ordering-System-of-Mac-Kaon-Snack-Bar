@@ -12,7 +12,8 @@ class Product extends Model
         'product_photo',
         'product_name',
         'price',
-        'category_id'
+        'category_id',
+        'status'
     ];
 
     public function categories(){

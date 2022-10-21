@@ -3,33 +3,41 @@
 
   <section class="content bg-primary">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row p-2">
             @php
-            $categories=DB::table('categories')->where('status','active')->limit(3)->get();
+            $categories=DB::table('categories')->where('status','active')->get();
             @endphp
-            @if($categories)
-                @foreach($categories as $category)
-                    
-                        <!-- Single Banner  -->
-                        {{-- <div class="col-lg-4 col-md-6 col-12"> --}}
-                        
-                            <div class="single-banner ml-3 p-2">
-                              <strong>{{$category->category_name}}</strong>
-                                {{-- @if($cat->photo)
-                                    <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
-                                @else
-                                    <img src="https://via.placeholder.com/600x370" alt="#">
-                                @endif
-                                <div class="content">
-                                    <h3>{{$cat->title}}</h3>
-                                        <a href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
-                                </div> --}}
-                            </div>
-                        
-                   
-                    <!-- /End Single Banner  -->
-                @endforeach
+
+            <div class="single-banner ml-2 p-2">
+              <strong><a href="#" class="text-light">Home</a></strong>
+            </div>
+
+          @if($categories)
+            @foreach($categories as $category)
+             <!-- Example single danger button -->
+             <div class="dropdown">
+              <a class="nav-link dropdown-toggle text-light" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <strong>Categories</strong>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#!">{{$category->category_name}}</a></li>
+                </ul>
+            </div>
+              @endforeach
             @endif
+            <div class="single-banner ml-1 p-2">
+              <strong><a href="#"  class="text-light">About Us</a></strong>
+            </div>
+
+
+
+          {{-- @if($categories)
+              @foreach($categories as $category)    
+                <div class="single-banner ml-3 p-2">
+                  <strong>{{$category->category_name}}</strong>
+                </div>
+              @endforeach
+          @endif --}}
         </div>
     </div>
 </section>
@@ -42,6 +50,10 @@
       <!-- Small boxes (Stat box) -->
       <div class="content">
       <div class="row">
+        {{-- @php
+        $sliders=DB::table('sliders')->where('status','active')->get();
+        @endphp --}}
+
           @foreach ($sliders as $slider)
 
             <!-- Full-width images with number and caption text -->
@@ -115,7 +127,10 @@
     <section class="content mt-2">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-    
+        @php
+        $products=DB::table('products')->where('status','active')->get();
+        @endphp
+        
         <div class="row justify-content-center">
             @foreach ($products as $product)
             <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:400px;">
@@ -128,7 +143,7 @@
                   <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
                   <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
               </div>
-                {{-- <h6>Stock: {{$product->quantity}}</h6> --}}
+              
                 <div class="card-footer mt-2">
                 <h6>Price: {{$product->price}}</h6>
                 <input type="hidden" name="price" id="price" value="{{$product->price}}">
@@ -149,116 +164,6 @@
           @endforeach
          
         </div>
- 
-        
-      {{-- <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-6 offset-3 mt-3">
-  
-              <div class="card elevation-3">
-                <div class="card-header text-center">
-                  <h1>Cart Entry</h1>
-                </div>
-                <!-- /.card-header -->
-                @foreach ($products as $product)
-                <div class="card-body">
-                  <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="customer_id" id="email" value="{{auth()->user()->id}}">
-                
-                      <div class="form-group">
-                       
-                        <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
-                        <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
-                        @error('product_id')
-                        <p class="text-danger">{{$message}}</p>
-                        @enderror
-                    </div>
-        
-                        <div class="form-group">
-                          <label for="price">Price</label>
-                          <input type="number" name="price" id="price" class="form-control" value="{{$product->price}}">
-                          @error('price')
-                          <p class="text-danger">{{$message}}</p>
-                          @enderror
-                      </div>
-        
-                      <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <input type="number" name="quantity" id="quantity" class="form-control" placeholder="1-100">
-                        @error('quantity')
-                        <p class="text-danger">{{$message}}</p>
-                        @enderror
-                    </div>
-
-                      <div class="form-group">
-                        <label for="total_amount">Total amount</label>
-                        <input type="number" name="total_amount" id="total_amount" class="form-control" placeholder="">
-                        @error('total_amount')
-                        <p class="text-danger">{{$message}}</p>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                      <label for="status">Status</label>
-                      <select name="status" id="status" class="form-select form-control">
-                        <option hidden="true">--Select Category--</option>
-                        <option value="new">New</option>
-                        <option value="progress">Progress</option>
-                        <option value="delivered">Delivered</option>
-                        <option value="cancel">Cancel</option>  
-                      </select>
-                        @error('quantity')
-                        <p class="text-danger">{{$message}}</p>
-                        @enderror
-                    </div>
-                    
-                    <div class="form-group">
-                      <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
-                      <button type="submit" class="btn btn-info">Save</button>
-                    </div>
-                  </form>
-                </div>
-                <!-- /.card-body -->
-                @endforeach
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-      </section> --}}
-
-
-
-      {{-- <input type="hidden" name="customer_id" id="email" value="{{auth()->user()->id}}">
-                  <input type="hidden" name="product_id" value="{{$product->id}}"> --}}
-                  {{-- @foreach ($carts as $cart)
-                      
-                  <div class="form-group text-dark">
-                    <input class="form-control" type="customer_id" name="customer_id" id="customer_id" placeholder="{{$carts->customer_id}}">
-                  </div>
-                  <div class="form-group text-dark">
-                    <input class="form-control" type="product_id" name="product_id" id="product_id" placeholder="Product Id">
-                  </div>
-                  <div class="form-group text-dark">
-                    <input class="form-control" type="qunatity" name="quantity" id="quantity" placeholder="Quantity">
-                  </div>
-                  <div class="form-group text-dark">
-                    <input class="form-control" type="price" name="price" id="price" placeholder="Price">
-                  </div>
-                  <div class="form-group text-dark">
-                    <input class="form-control" type="total_amount" name="total_amount" id="total_amount" placeholder="Total Amount">
-                  </div>
-                  <div class="form-group text-dark">
-                    <input class="form-control" type="text" name="status" id="status"placeholder="Status">
-                  </div>
-                  @endforeach --}}
-
-
 
         <h5 class="mt-4 mb-2">Tabs in Cards</h5>
 

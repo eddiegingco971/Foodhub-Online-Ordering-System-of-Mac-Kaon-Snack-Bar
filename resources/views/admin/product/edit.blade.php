@@ -60,11 +60,14 @@
                           <form action="{{url('update-product/'.$products->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-
+                            @php
+                            $categories=DB::table('categories')->where('status','active')->get();
+                            @endphp
+                    
                             <div class="form-group">
                               <label for="category_id" class="col-form-label">Category</label>
                               <select class="form-select form-control" type="category_id" name="category_id">
-                                <option hidden="true" selected disabled value="{{$products->category_id}}">--Default Category--</option>
+                                <option hidden="true" selected value="{{$products->category_id}}">--Default Category--</option>
                                   @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                   @endforeach
@@ -87,6 +90,13 @@
                               <label for="price" class="col-form-label">Price</label>
                               <input type="price" name="price" class="form-control" value="{{$products->price}}" id="price" placeholder="0.00">
                             </div>
+                            <div class="form-group">
+                              <label for="status" id="status">Status</label>
+                              <select  type="status" name="status" class="form-select form-control" id="status" >
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                               </select>
+                          </div>
                               <div class="form-group">
                                 <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
                                 <button type="submit" class="btn btn-info">Update</button>
