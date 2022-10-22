@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('/dist')}}/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -62,7 +60,7 @@
           <div class="col-md-3">
             @include('admin.sliders.create')
           </div>
-          <div class="col-9">
+          <div class="col-md-9">
 
             <div class="card elevation-3">
               <div class="card-header">

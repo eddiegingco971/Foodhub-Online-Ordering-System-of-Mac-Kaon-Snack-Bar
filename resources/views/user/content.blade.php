@@ -148,10 +148,14 @@
                 <h6>Price: {{$product->price}}</h6>
                 <input type="hidden" name="price" id="price" value="{{$product->price}}">
                 <div class="form-group text-dark">
+            
                   <input class="form-control" type="number" name="quantity" id="quantity" class="form-control" value="1">
+
                 </div>
-                <div class="form-group text-dark">
-                  <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder=" Price * Quantity">
+                <div class="form-group text-dark"> 
+                  @foreach ($orders as $order)
+                    <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
+                  @endforeach
                   <input type="hidden" name="status" id="status" class="form-control" value="new">
                   
                 </div>
@@ -162,7 +166,6 @@
             </form>
             </div>   
           @endforeach
-         
         </div>
 
         <h5 class="mt-4 mb-2">Tabs in Cards</h5>

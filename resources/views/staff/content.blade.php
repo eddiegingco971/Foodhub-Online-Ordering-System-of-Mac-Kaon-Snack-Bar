@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="content-wrapper aligned-center">
   <!-- Main content -->
   <section class="content-header">
     <div class="container-fluid">

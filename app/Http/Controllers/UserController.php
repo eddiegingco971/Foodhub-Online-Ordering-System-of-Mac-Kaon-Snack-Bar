@@ -30,7 +30,8 @@ class UserController extends Controller
     
         $products = DB::table('products')->get();
         $sliders = DB::table('sliders')->get();
-        return view('user', compact('products','sliders'));
+        $orders = DB::table('orders')->where('quantity')->get();
+        return view('user', compact('products','sliders', 'orders'));
     }
 
     public function userOrder(){
