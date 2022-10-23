@@ -1,5 +1,4 @@
 <div class="content-wrapper aligned-center">
- 
 
   <section class="content bg-primary">
     <div class="container-fluid">
@@ -7,7 +6,6 @@
             @php
             $categories=DB::table('categories')->where('status','active')->get();
             @endphp
-
             <div class="single-banner ml-2 p-2">
               <strong><a href="#" class="text-light">Home</a></strong>
             </div>
@@ -32,7 +30,7 @@
 
 
           {{-- @if($categories)
-              @foreach($categories as $category)    
+              @foreach($categories as $category)
                 <div class="single-banner ml-3 p-2">
                   <strong>{{$category->category_name}}</strong>
                 </div>
@@ -104,7 +102,7 @@
      </div>
     </div>
   <!-- /.content -->
-  
+
 
     <!-- Content Header (Page header) -->
     <div class="content-header bg-primary p-2">
@@ -130,7 +128,7 @@
         @php
         $products=DB::table('products')->where('status','active')->get();
         @endphp
-        
+
         <div class="row justify-content-center">
             @foreach ($products as $product)
             <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:400px;">
@@ -143,31 +141,38 @@
                   <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
                   <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
               </div>
-              
+
                 <div class="card-footer mt-2">
                 <h6>Price: {{$product->price}}</h6>
                 <input type="hidden" name="price" id="price" value="{{$product->price}}">
                 <div class="form-group text-dark">
-            
+
                   <input class="form-control" type="number" name="quantity" id="quantity" class="form-control" value="1">
 
                 </div>
-                <div class="form-group text-dark"> 
+                <div class="form-group text-dark">
                   @foreach ($orders as $order)
                     <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
                   @endforeach
                   <input type="hidden" name="status" id="status" class="form-control" value="new">
-                  
+
                 </div>
                   <button class="btn btn-light" type="submit">Add Cart</button>
                   <button class="btn btn-success float-right">Order</button>
 
               </div>
             </form>
-            </div>   
+            </div>
           @endforeach
         </div>
 
+
+
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+    <div class="content">
         <h5 class="mt-4 mb-2">Tabs in Cards</h5>
 
         <div class="row">
@@ -180,7 +185,7 @@
                   <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Tab 1</a></li>
                   <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Tab 2</a></li>
                   <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Tab 3</a></li>
-                  <li class="nav-item dropdown">
+                  {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                       Dropdown <span class="caret"></span>
                     </a>
@@ -191,7 +196,7 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" tabindex="-1" href="#">Separated link</a>
                     </div>
-                  </li>
+                  </li> --}}
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -235,10 +240,20 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
-       
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+    </div>
+
+
+
+
+
+
+
+
+
+
   </div>
 
-  
+
+
+
+

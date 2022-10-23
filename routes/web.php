@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +24,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('base');
-});
+// Route::get('/', function () {
+//     return view('base');
+// });
+Route::get('/', [SiteController::class, 'index'])->name('base');
+
 
 Auth::routes(['verify' => true]);
 
@@ -58,11 +61,11 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/edit-category/{id}', [CategoryController::class, 'edit']);
     Route::put('/update-category/{id}', [CategoryController::class, 'update']);
     Route::get('/delete-category/{id}', [CategoryController::class, 'destroy']);
-   
+
     Route::get('/order', [OrderController::class, 'index'])->name('order');
     Route::get('/delete-order/{id}', [OrderController::class, 'destroy']);
 
-    
+
     Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
 
     Route::get('/user-list', [UserController::class, 'list']);
@@ -70,12 +73,12 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
 
     Route::get('/cart-list', [HomeController::class, 'cartList']);
     Route::get('/delete-cart/{id}', [CartController::class, 'destroy']);
- 
+
 });
 
 Route::group(['middleware' => ['auth', 'staff']], function (){
     Route::get('/staff', [StaffController::class, 'index'])->name('staff');
- 
+
 });
 
 Route::group(['middleware' => ['auth', 'user']], function (){

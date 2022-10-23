@@ -13,12 +13,12 @@
     {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    
+
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{asset('/assets')}}/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script> --}}
 
-    <!-- Google Font: Source Sans Pro -->
+       <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{asset('/plugins')}}/fontawesome-free/css/all.min.css">
@@ -40,27 +40,18 @@
 <link rel="stylesheet" href="{{asset('/plugins')}}/summernote/summernote-bs4.min.css">
 
     <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="anti">
     <div class="wrapper">
     <div id="app">
-   
-        <main class="py-4">
+
+        <main>
             @yield('content')
         </main>
     </div>
 </div>
-   
 
-    {{-- <script src="{{asset('/assets')}}/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="{{asset('/assets')}}/js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="{{asset('/assets')}}/demo/chart-area-demo.js"></script>
-    <script src="{{asset('/assets')}}/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="{{asset('/assets')}}/js/datatables-simple-demo.js"></script> --}}
-<!-- jQuery -->
 <script src="{{asset('/plugins')}}/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('/plugins')}}/jquery-ui/jquery-ui.min.js"></script>

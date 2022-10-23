@@ -13,7 +13,7 @@
       </li> --}}
     </ul>
 
-   
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
@@ -119,7 +119,7 @@
         </div>
       </li>
     </ul>
-    
+
     <a class="btn btn-danger ml-4" href="{{ route('logout') }}"
         onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
@@ -129,12 +129,12 @@
             @csrf
     </form>
 
-    
+
       </div>
 
   </nav>
 
-  
+
 
 @elseif(Auth::user()->user_type == 'staff')
 
@@ -152,7 +152,7 @@
       </li> --}}
     </ul>
 
-   
+
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -174,7 +174,7 @@
 
 
       <!-- Messages Dropdown Menu -->
-      {{-- <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
@@ -257,9 +257,9 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li> --}}
+      </li>
     </ul>
-    
+
     <a class="btn btn-danger ml-4" href="{{ route('logout') }}"
         onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
@@ -269,7 +269,7 @@
             @csrf
     </form>
 
-    
+
       </div>
 
   </nav>
@@ -311,7 +311,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-       
+
       <!-- Navbar Search -->
       {{-- <li class="nav-item">
         <div class="navbar-search">
@@ -436,17 +436,17 @@
             </ul>
         </li>
 
-        
-    
+
+
     </ul>
 
-    
-    
-    
 
-    
+
+
+
+
       </div>
 
-  </nav>    
+  </nav>
 
 @endif
