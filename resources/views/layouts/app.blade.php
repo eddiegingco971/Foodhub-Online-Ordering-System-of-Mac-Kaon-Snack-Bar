@@ -39,10 +39,10 @@
 <!-- summernote -->
 <link rel="stylesheet" href="{{asset('/plugins')}}/summernote/summernote-bs4.min.css">
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
-<body class="anti">
+<body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
     <div id="app">
 
@@ -81,11 +81,53 @@
 <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/dist')}}/js/adminlte.js"></script>
+<script src="{{asset('/dist')}}/js/bootstrap.min.js"></script>
 {{-- <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/dist')}}/js/demo.js"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('/dist')}}/js/pages/dashboard.js"></script>
-
 <script src="{{asset('/dist')}}/js/script.js"></script>
+
+@push('styles')
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
+    <style>
+        /* Banner Sliding */
+        #Gslider .carousel-inner {
+        background: #000000;
+        color:black;
+        }
+
+        #Gslider .carousel-inner{
+        height: 550px;
+        }
+        #Gslider .carousel-inner img{
+            width: 100% !important;
+            opacity: .8;
+        }
+
+        #Gslider .carousel-inner .carousel-caption {
+        bottom: 60%;
+        }
+
+        #Gslider .carousel-inner .carousel-caption h1 {
+        font-size: 50px;
+        font-weight: bold;
+        line-height: 100%;
+        color: #F7941D;
+        }
+
+        #Gslider .carousel-inner .carousel-caption p {
+        font-size: 18px;
+        color: black;
+        margin: 28px 0 28px 0;
+        }
+
+        #Gslider .carousel-indicators {
+        bottom: 70px;
+        }
+    </style>
+@endpush
+
 </body>
 </html>

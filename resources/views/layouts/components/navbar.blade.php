@@ -16,6 +16,12 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/')}}">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="badge badge-danger navbar-badge"></span>
+              </a>
+        </li>
       <!-- Navbar Search -->
       <li class="nav-item">
         <div class="navbar-search">
@@ -156,6 +162,12 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/')}}">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="badge badge-danger navbar-badge"></span>
+              </a>
+        </li>
       <!-- Navbar Search -->
       {{-- <li class="nav-item">
         <div class="navbar-search">
@@ -311,7 +323,12 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/')}}">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="badge badge-danger navbar-badge"></span>
+              </a>
+        </li>
       <!-- Navbar Search -->
       {{-- <li class="nav-item">
         <div class="navbar-search">

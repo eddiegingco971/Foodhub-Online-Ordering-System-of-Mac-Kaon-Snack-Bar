@@ -37,13 +37,27 @@
 
       @if (Route::has('login'))
       @auth
+        @if (Auth::user()->user_type == 'admin')
+            <a href="{{url('/home')}}" class="btn text-white mt-1 d-none d-sm-inline-block"><strong>Dashboard</strong></a>
+        @elseif(Auth::user()->user_type == 'staff')
+            <a href="{{url('/staff')}}" class="btn text-white mt-1 d-none d-sm-inline-block"><strong>Dashboard</strong></a>
+        @else
+            <a href="{{url('/user')}}" class="btn text-white mt-1 d-none d-sm-inline-block"><strong>Dashboard</strong></a>
+        @endif
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
-                {{-- <strong>{{Auth::user()->name}}</strong> --}}
+                <strong>{{Auth::user()->name}}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Account Settings</a></li>
+                @if (Auth::user()->user_type == 'admin')
+                <li><a class="dropdown-item" href="{{url('/home')}}">Dashboard</a></li>
+                @elseif(Auth::user()->user_type == 'staff')
+                <li><a class="dropdown-item" href="{{url('/staff')}}">Dashboard</a></li>
+                @else
+                <li><a class="dropdown-item" href="{{url('/user')}}">Dashboard</a></li>
+                @endif
+
                 <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
@@ -59,10 +73,10 @@
         </li>
         @else
 
-            <a href="{{ route('login') }}" class="btn text-white">Sign in</a>
+            <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a>
 
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="mr-3 text-white btn btn-outline-primary">Sign up</a>
+                <a href="{{ route('register') }}" class="mr-3 text-white btn btn-sm btn-outline-primary">Sign up</a>
             @endif
         @endauth
         @endif
@@ -73,7 +87,7 @@
 </nav>
 
     <!-- Main content -->
-    <div class="content bg-primary py-2">
+    <div class="content py-2">
         <div class="container-fluid">
             <div class="row justify-content-center">
 
@@ -94,15 +108,49 @@
                 </div>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                <div class="col-4 offset-md-2">
-                    <div class="input-group-append">
+                     <a class="nav-link" data-toggle="dropdown" href="#">
+                        <div class="col-4 offset-md-2">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-lg btn-default">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                      <span class="dropdown-item dropdown-header">Cart</span>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item dropdown-footer bg-dark">Checkout</a>
+                    </div>
+
+                </ul>
+                </nav>
+
+                {{-- <ul class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <div class="col-4 offset-md-2">
                         <button type="submit" class="btn btn-lg btn-default">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </button>
+                        </div>
+                      <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                      <span class="dropdown-item dropdown-header">Cart</span>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item dropdown-footer bg-dark">Checkout</a>
                     </div>
-                </div>
-                </ul>
-                </nav>
+                  </ul > --}}
 
             </div>
         </div>
@@ -111,32 +159,35 @@
 
   <!-- Content Wrapper. Contains page content -->
 <div class="content">
-    <div class="container mt-2">
+    <div class="container bg-primary mt-2">
         <div class="row">
             {{-- <div class="row justify-content-center"> --}}
 
             @php
             $categories=DB::table('categories')->where('status','active')->get();
             @endphp
+
             <div class="single-banner ml-2 p-2">
-                <strong><a href="#" class="text-dark">Home</a></strong>
+                <strong><a href="#" class="text-white">Home</a></strong>
             </div>
 
             @if($categories)
-            @foreach($categories as $category)
+
                 <!-- Example single danger button -->
                 <div class="dropdown">
-                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    <strong>Categories</strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">{{$category->category_name}}</a></li>
-                </ul>
-            </div>
-                @endforeach
+                    <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <strong>Categories</strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        @foreach($categories as $category)
+                        <li><a class="dropdown-item" href="#!">{{$category->category_name}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+
             @endif
             <div class="single-banner ml-1 p-2">
-                <strong><a href="#"  class="text-dark">About Us</a></strong>
+                <strong><a href="#"  class="text-white">About Us</a></strong>
             </div>
 
 
@@ -152,79 +203,173 @@
         </div>
     </div>
 </div>
-{{-- <div class="content">
-    <div class="row">
-        <section id="Gslider" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                @foreach($sliders as $slider)
-                    <li data-target="#Gslider" data-slide-to="{{$key}}" class="{{(($key==0)? 'active' : '')}}"></li>
-                @endforeach
 
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                    @foreach($sliders as $slider)
-                    <div class="carousel-item">
-                        <div class="carousel-item {{(($key==0)? 'active' : '')}}">
-                        <img class="first-slide" src="{{asset('dist/img/slider/'.$slider->image)}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block text-left">
-                            <h1 class="wow fadeInDown">{{$slider->name}}</h1>
-                            <p>{!! html_entity_decode($banner->description) !!}</p>
-                            <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <a class="carousel-control-prev" href="#Gslider" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#Gslider" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
-        </section>
+
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            @foreach ($sliders as $slider)
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                <div class="text"  id="t1">{{$slider->name}}</div>
+                    <img src="{{asset('dist/img/slider/'.$slider->image)}}" style="width:100%; height:70vh;">
+                </div>
+
+            <style>
+                #t1{
+                /* background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent; */
+                text-align: center;
+                display: inline-block;
+                color: white;
+                text-shadow: 2px 3px red;
+                font-weight: bold;
+                font-size: 40px;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                }
+
+                /* Hide the images by default */
+                .mySlides {
+                position: relative;
+                display: none;
+                width: 100%;
+                height: 80%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                }
+
+                /* Fading animation */
+                .fade {
+                animation-name: fade;
+                animation-duration: 8.5s;
+                }
+
+                @keyframes fade {
+                from {opacity: .3}
+                to {opacity: 1}
+                }
+            </style>
+            @endforeach
+        </div>
     </div>
-</div> --}}
+</div>
 
-@push('styles')
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
-    <style>
-        /* Banner Sliding */
-        #Gslider .carousel-inner {
-        background: #000000;
-        color:black;
-        }
 
-        #Gslider .carousel-inner{
-        height: 550px;
-        }
-        #Gslider .carousel-inner img{
-            width: 100% !important;
-            opacity: .8;
-        }
+{{-- @if (Route::has('login'))
+    @auth
+        <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
+    @endauth
+@endif --}}
 
-        #Gslider .carousel-inner .carousel-caption {
-        bottom: 60%;
-        }
+<div class="content">
+    @php
+    $products=DB::table('products')->where('status','active')->get();
+    $carts=DB::table('carts')->where('status')->get();
+    @endphp
 
-        #Gslider .carousel-inner .carousel-caption h1 {
-        font-size: 50px;
-        font-weight: bold;
-        line-height: 100%;
-        color: #F7941D;
-        }
+    <div class="py-1 bg-primary">
+        <h3 class="ml-3">Best Deals</h3>
+    </div>
+ <div class="container">
+    <div class="row justify-content-center">
+        @foreach ($products as $product)
+            <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:400px;">
+              <div class="card-body">
+                <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
+                  @csrf
 
-        #Gslider .carousel-inner .carousel-caption p {
-        font-size: 18px;
-        color: black;
-        margin: 28px 0 28px 0;
-        }
+                  @if (Route::has('login'))
+                    @auth
+                     <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
+                    @endauth
+                  @endif
+                  <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
+                  <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
+                  <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
+              </div>
 
-        #Gslider .carousel-indicators {
-        bottom: 70px;
-        }
-    </style>
-@endpush
+                <div class="card-footer mt-2">
+                <h6>Price: {{$product->price}}</h6>
+                <input type="hidden" name="price" id="price" value="{{$product->price}}">
+                <div class="form-group text-dark">
+
+                  <input class="form-control" type="number" name="quantity" id="quantity" class="form-control" value="1">
+
+                </div>
+                <div class="form-group text-dark">
+                  @foreach ($orders as $order)
+                    <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
+                  @endforeach
+
+                  @foreach ($carts as $cart)
+                    <input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
+                  @endforeach
+
+                </div>
+                  <button class="btn btn-light" type="submit">Add Cart</button>
+                  <button class="btn btn-success float-right">Order</button>
+
+              </div>
+            </form>
+            </div>
+          @endforeach
+    </div>
+ </div>
+</div>
+
+{{-- @foreach ($carts as $cart)
+<input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
+@endforeach --}}
+
+<div class="content">
+    <section class="shop-services section">
+		<div class="container">
+			<div class="row">
+				<div class="card col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-rocket"></i>
+						<h4>Free shiping</h4>
+						<p>Orders over $100</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="card col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-reload"></i>
+						<h4>Free Return</h4>
+						<p>Within 30 days returns</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="card col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-lock"></i>
+						<h4>Sucure Payment</h4>
+						<p>100% secure payment</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="card col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-tag"></i>
+						<h4>Best Peice</h4>
+						<p>Guaranteed price</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
 
 @endsection

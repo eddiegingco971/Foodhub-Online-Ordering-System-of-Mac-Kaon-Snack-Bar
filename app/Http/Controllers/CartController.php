@@ -15,12 +15,12 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
- 
-    public function index()
-    {
-        $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
-        return view('user.cart.index', compact('carts'));
-    }
+
+    // public function index()
+    // {
+    //     $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
+    //     return view('user.cart.index', compact('carts'));
+    // }
 
     public function addCart(Request $request){
         $request->validate([

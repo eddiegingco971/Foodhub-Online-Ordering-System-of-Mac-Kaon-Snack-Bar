@@ -27,11 +27,12 @@ class UserController extends Controller
 
     public function index()
     {
-    
-        $products = DB::table('products')->get();
-        $sliders = DB::table('sliders')->get();
-        $orders = DB::table('orders')->where('quantity')->get();
-        return view('user', compact('products','sliders', 'orders'));
+
+        // $products = DB::table('products')->get();
+        // $sliders = DB::table('sliders')->get();
+        // $orders = DB::table('orders')->where('quantity')->get();
+        $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
+        return view('user', compact('carts'));
     }
 
     public function userOrder(){

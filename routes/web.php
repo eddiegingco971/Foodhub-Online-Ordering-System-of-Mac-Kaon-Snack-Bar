@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth', 'user']], function (){
     Route::get('/user-order', [UserController::class, 'userOrder']);
 
     Route::post('/cart-create', [CartController::class, 'addCart']);
-    Route::get('/user-cart/{id}', [CartController::class, 'index'])->name('cart');
+    // Route::get('/user-cart/{id}', [CartController::class, 'index'])->name('cart');
 });
 
 });

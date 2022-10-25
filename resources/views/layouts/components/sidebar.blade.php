@@ -2,7 +2,7 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{url('/')}}" class="brand-link">
       <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Mac Kaon Foodhub</span>
     </a>
@@ -65,7 +65,7 @@
                   <p>Cart</p>
                 </a>
               </li>
-             
+
             </ul>
           </li>
 
@@ -89,9 +89,9 @@
               <p>User Management</p>
             </a>
           </li>
-          
-          
-        
+
+
+
           <li class="nav-header">Banner</li>
 
           <li class="nav-item">
@@ -114,7 +114,7 @@
               </p>
             </a>
           </li>
-          
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -126,7 +126,7 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link">
+  <a href="{{url('/')}}" class="brand-link">
     <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Mac Kaon Foodhub</span>
   </a>
@@ -171,8 +171,8 @@
             <i class="nav-icon fas fa-clipboard-check"></i>
             <p>Order History</p>
           </a>
-        </li> 
-        
+        </li>
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -197,7 +197,7 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{url('/')}}" class="brand-link">
       <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Mac Kaon Foodhub</span>
     </a>
@@ -214,7 +214,7 @@
         </div>
       </div>
 
-     
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -223,15 +223,15 @@
           <li class="nav-item">
             <a href="{{url('/user')}}" class="nav-link active">
               <i class="nav-icon fas fa-briefcase"></i>
-              <p>Products</p>
+              <p>Cart</p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{url('/user-cart/{id}')}}" class="nav-link active">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>Cart</p>
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
             <a href="{{url('/user-order')}}" class="nav-link active">
@@ -250,7 +250,7 @@
               </p>
             </a>
           </li>
-          
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
