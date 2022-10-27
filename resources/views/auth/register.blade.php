@@ -74,7 +74,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <div class="content">
+  <div class="content bg-primary">
     <div class="container mt-2">
         <div class="row">
             {{-- <div class="row justify-content-center"> --}}
@@ -83,24 +83,26 @@
             $categories=DB::table('categories')->where('status','active')->get();
             @endphp
             <div class="single-banner ml-2 p-2">
-                <strong><a href="{{url('/')}}" class="text-dark">Home</a></strong>
+                <strong><a href="{{url('/')}}" class="text-light">Home</a></strong>
             </div>
 
             @if($categories)
-            @foreach($categories as $category)
+
                 <!-- Example single danger button -->
                 <div class="dropdown">
-                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-light" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     <strong>Categories</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    @foreach($categories as $category)
                     <li><a class="dropdown-item" href="#!">{{$category->category_name}}</a></li>
+                    @endforeach
                 </ul>
             </div>
-                @endforeach
+
             @endif
             <div class="single-banner ml-1 p-2">
-                <strong><a href="#"  class="text-dark">About Us</a></strong>
+                <strong><a href="#"  class="text-light">About Us</a></strong>
             </div>
 
 
@@ -185,6 +187,11 @@
                                         {{ __('Register') }}
                                     </button>
                                 </div>
+                            </div>
+                            <div class="row mt-3">
+                                <a href="{{url('/login')}}">
+                                    <p class="underline">Already have an account?</p>
+                                </a>
                             </div>
                         </form>
                     </div>
