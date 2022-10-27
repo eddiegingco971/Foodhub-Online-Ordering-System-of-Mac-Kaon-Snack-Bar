@@ -158,8 +158,8 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-<div class="content">
-    <div class="container bg-primary mt-2">
+<div class="content bg-primary">
+    <div class="container mt-2">
         <div class="row">
             {{-- <div class="row justify-content-center"> --}}
 
