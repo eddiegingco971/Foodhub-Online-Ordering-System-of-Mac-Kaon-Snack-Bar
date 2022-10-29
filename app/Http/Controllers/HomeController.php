@@ -25,13 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
+
         $orders = DB::table('orders')->count();
         $products = DB::table('products')->count();
         $users = DB::table('users')->count();
         $carts = DB::table('carts')->count();
-        return view('home' ,compact('orders','products','users','carts'));
-    
+        return view('admin.master' ,compact('orders','products','users','carts'));
+
     }
 
 

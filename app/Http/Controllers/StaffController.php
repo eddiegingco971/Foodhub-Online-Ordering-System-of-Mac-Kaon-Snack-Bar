@@ -20,6 +20,6 @@ class StaffController extends Controller
     public function index()
     {
         $orders = Order::get();
-        return view('staff', compact('orders'));
+        return view('staff.index', compact('orders'));
     }
 }

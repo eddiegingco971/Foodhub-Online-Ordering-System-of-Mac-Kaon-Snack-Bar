@@ -37,6 +37,8 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth', 'verified']], function (){
 
+Route::get('/profile', [SiteController::class, 'profileSetting']);
+
 Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 

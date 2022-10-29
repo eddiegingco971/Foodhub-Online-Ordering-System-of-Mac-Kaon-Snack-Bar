@@ -59,10 +59,10 @@
         </li>
         @else
 
-            <a href="{{ route('login') }}" class="btn text-white">Sign in</a>
+            <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a>
 
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="mr-3 text-white btn btn-outline-primary">Sign up</a>
+                <a href="{{ route('register') }}" class="mr-3 text-white btn btn-sm btn-outline-primary">Sign up</a>
             @endif
         @endauth
         @endif

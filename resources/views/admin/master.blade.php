@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   @include('layouts.components.head')
-  
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -13,7 +13,7 @@
   <!-- Navbar -->
   @include('layouts.components.navbar')
   <!-- /.navbar -->
-  
+
   <!-- Main Sidebar Container -->
   @include('layouts.components.sidebar')
 
@@ -29,6 +29,7 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
+
 <!-- ./wrapper -->
 
 <!-- jQuery -->
