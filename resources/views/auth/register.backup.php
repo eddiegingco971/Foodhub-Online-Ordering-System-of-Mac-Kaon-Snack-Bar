@@ -122,12 +122,8 @@
   <!-- Content Wrapper. Contains page content -->
 <div class="content">
     <div class="container mt-4">
-        <div class="row justify-content-center m-5 border elevation-3">
-            <div class="col-md-4 p-5 d-none d-md-block">
-                <img src="{{asset('/dist')}}/img/Logo.png" width="350" height="350" class="img-circle elevation-2" alt="User Image">
-            </div>
-
-            <div class="col-md-6 offset-md-1 mt-4 p-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header text-center bg-primary"><h2><strong>{{ __('Register') }}</strong></h2></div>
 
@@ -136,10 +132,10 @@
                             @csrf
 
                             <div class="row mb-3">
-                                {{-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
-                                <div class="col-md-12">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Fullname">
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -150,10 +146,10 @@
                             </div>
 
                             <div class="row mb-3">
-                                {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> --}}
+                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
-                                <div class="col-md-12">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address">
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -164,10 +160,10 @@
                             </div>
 
                             <div class="row mb-3">
-                                {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
+                                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
-                                <div class="col-md-12">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -178,24 +174,25 @@
                             </div>
 
                             <div class="row mb-3">
-                                {{-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> --}}
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
-                                <div class="col-md-12">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
 
                             <div class="row mb-0">
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary w-100 font-weight-bold mt-1">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
                                         {{ __('Register') }}
                                     </button>
-                                    <a href="{{url('/login')}}">
-                                        <p class=" text-center mt-2">Already have an account?</p>
-                                    </a>
                                 </div>
                             </div>
-
+                            <div class="row mt-3">
+                                <a href="{{url('/login')}}">
+                                    <p class="underline">Already have an account?</p>
+                                </a>
+                            </div>
                         </form>
                     </div>
                 </div>
