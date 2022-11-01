@@ -44,24 +44,28 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
 
             <!-- Profile Image -->
+
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
+                    @foreach ($profiles as $profile)
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
+                       src="{{asset('dist/img/user-profile/'.$profile->user_pic)}}"
                        alt="User profile picture">
+                    @endforeach
                 </div>
+                @foreach ($profiles as $profile)
+                <h3 class="profile-username text-center">{{$profile->firstname}} {{$profile->middlename}} {{$profile->lastname}}</h3>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
-
-                <p class="text-muted text-center">Software Engineer</p>
-
+                <p class="text-muted text-center">{{$profile->email}}</p>
+                @endforeach
               </div>
               <!-- /.card-body -->
             </div>
+
             <!-- /.card -->
 
             <!-- About Me Box -->
@@ -69,7 +73,7 @@
             <!-- /.card -->
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-8">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
@@ -81,38 +85,107 @@
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form  class="form-horizontal" action="{{url('profile-create')}}" method="POST" enctype="multipart/form-data">
                         {{-- <input type="hidden" name="user_id" value="{{}}"> --}}
+
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputFirstname" class="col-sm-2 col-form-label">First Name</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                            <input type="text" name="firstname" class="form-control" id="inputFirstname">
                         </div>
+                        @error('firstname')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
                       </div>
+
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <label for="inputLastname" class="col-sm-2 col-form-label">Lastname</label>
+                        <div class="col-sm-4">
+                          <input type="text" name="lastname" class="form-control" id="inputLastname">
                         </div>
+                        @error('firstname')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
+
+                        <label for="inputMiddlename" class="col-sm-2 col-form-label">Middlename</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="middlename" class="form-control" id="inputMiddlename">
+                        </div>
+                        @error('middlename')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
+
                       </div>
+
+                      {{-- <div class="form-group row">
+                        <label for="inputMiddlename" class="col-sm-2 col-form-label">Middlename</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="middlename" class="form-control" id="inputMiddlename" value="@foreach ($profiles as $profile)
+                            {{$profile->firstname}} @endforeach">
+                        </div>
+                        @error('middlename')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
+                      </div> --}}
+
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+
+                        <label for="inputAge" class="col-sm-2 col-form-label">Age</label>
+                        <div class="col-sm-4">
+                            <input type="number" name="age" class="form-control" id="inputAge">
                         </div>
+                        @error('age')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
+
+                        <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
+                        <div class="col-sm-4">
+                            <select  type="text" name="gender" class="form-select form-control" id="inputGender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                               </select>
+                        </div>
+                        @error('gender')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
                       </div>
+
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                            <textarea type="text" name="address" class="form-control" id="inputAddress" placeholder="Please! make sure to complete your address."></textarea>
                         </div>
+                        @error('address')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
                       </div>
+
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+
+                        <label for="inputBarangay" class="col-sm-2 col-form-label">Barangay</label>
+                        <div class="col-sm-4">
+                            <select  type="text" name="barangay" class="form-select form-control" id="inputBarangay" >
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                               </select>
                         </div>
+                        @error('barangay')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
+
+
+                        <label for="inputBarangay" class="col-sm-2 col-form-label">Barangay</label>
+                        <div class="col-sm-4">
+                            <select  type="text" name="barangay" class="form-select form-control" id="inputBarangay" >
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                               </select>
+                        </div>
+                        @error('barangay')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror
                       </div>
+
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <div class="checkbox">
@@ -122,6 +195,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <button type="submit" class="btn btn-danger">Submit</button>

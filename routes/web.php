@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
@@ -37,7 +38,10 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth', 'verified']], function (){
 
-Route::get('/profile', [SiteController::class, 'profileSetting']);
+Route::get('/profile', [ProfileController::class, 'profileSetting']);
+Route::post('/profile-create', [ProfileController::class, 'store']);
+Route::get('/edit-profile/{id}', [ProfileController::class, 'edit']);
+Route::put('/update-profile/{id}', [ProfileController::class, 'update']);
 
 Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/home', [HomeController::class, 'index'])->name('home');

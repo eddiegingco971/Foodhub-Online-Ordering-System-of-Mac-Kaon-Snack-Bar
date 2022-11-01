@@ -90,10 +90,8 @@
     <div class="content py-2">
         <div class="container-fluid">
             <div class="row justify-content-center">
-
-
                 <nav class="navbar navbar-expand justify-content-center">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mx-auto">
                 <div class="col-12 offset-md-0">
                     <form action="simple-results.html">
                         <div class="input-group">
@@ -109,21 +107,29 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                      <a class="nav-link" data-toggle="dropdown" href="#">
-                        <div class="col-4 offset-md-2">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-lg btn-default">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </button>
-                            </div>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-lg btn-default">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
                         </div>
+                        <span class="badge badge-warning navbar-badge">15</span>
                      </a>
+
                      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                      <span class="dropdown-item dropdown-header">Cart</span>
+                      <span class="dropdown-item dropdown-header">Your Cart</span>
+                      @if (Route::has('login'))
+                      @foreach ($carts as $cart)
                       <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item">
-                        <i class="fas fa-file mr-2"></i> 3 new reports
-                        <span class="float-right text-muted text-sm">2 days</span>
-                      </a>
+                        <div class="container">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-file mr-2"></i>{{$cart->product_id}}
+                                <i class="fas fa-file mr-2"></i>{{$cart->quantity}}
+                                <span class="float-right text-muted text-sm">Price: {{$cart->price}}</span>
+                            </a>
+                        </div>
+                      @endforeach
+                      @endif
+
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item dropdown-footer bg-dark">Checkout</a>
                     </div>
@@ -271,6 +277,7 @@
     @php
     $products=DB::table('products')->where('status','active')->get();
     $carts=DB::table('carts')->where('status')->get();
+    // $total = ($product->price*$product->quantity);
     @endphp
 
     <div class="py-1 bg-primary">
@@ -303,13 +310,15 @@
 
                 </div>
                 <div class="form-group text-dark">
-                  @foreach ($orders as $order)
+                  {{-- @foreach ($orders as $order)
                     <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
-                  @endforeach
+                  @endforeach --}}
 
-                  @foreach ($carts as $cart)
+                  <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder="Price * Quantity">
+                  <input type="hidden" name="status" id="status" class="form-control" value="new">
+                  {{-- @foreach ($carts as $cart)
                     <input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
-                  @endforeach
+                  @endforeach --}}
 
                 </div>
                   <button class="btn btn-light" type="submit">Add Cart</button>

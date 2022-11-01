@@ -61,13 +61,13 @@ class ProductController extends Controller
         $products->status = $request->input('status');
 
         $request->validate([
-            'product_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'product_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg,jfif,webp|max:2048',
             'product_name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'category_id'=> 'required',
             'status'=> 'required'
         ]);
-       
+
         if($request->hasFile('product_photo')){
           $file = $request->file('product_photo');
           $extention = $file->getClientOriginalExtension();
@@ -75,12 +75,12 @@ class ProductController extends Controller
           $file->move('dist/img/product/', $filename);
           $products->product_photo = $filename;
         }
-  
+
         $products->save();
-     
-       
+
+
         return redirect('/product')->with('status', 'Product Added Successfully!');
-            
+
     }
 
     /**
@@ -123,7 +123,7 @@ class ProductController extends Controller
         $products->status = $request->input('status');
 
         if($request->hasFile('product_photo')){
-  
+
           $destination = 'dist/img/product/'.$products->product_photo;
           if(File::exists($destination)){
               File::delete($destination);
@@ -133,15 +133,15 @@ class ProductController extends Controller
           $filename = time().'.'. $extention;
           $file->move('dist/img/product/', $filename);
           $products->product_photo = $filename;
-        
+
         }
-  
+
         $products->update();
         return redirect('/product')->with('status', 'Product Updated Successfully!');
     }
 
-  
-   
+
+
 
     /**
      * Remove the specified resource from storage.

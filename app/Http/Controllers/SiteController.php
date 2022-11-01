@@ -15,13 +15,8 @@ class SiteController extends Controller
         $products = DB::table('products')->get();
         $sliders = Slider::get();
         $orders = DB::table('orders')->where('quantity')->get();
-        return view('base', compact('products','sliders', 'orders', 'users'));
-    }
-
-    public function profileSetting(){
-        $users = User::get();
-        // $users = DB::table('users')->where('user_id', auth()->user()->id)->get();
-
-        return view('layouts.profiling.index', compact('users'));
+        $categories = DB::table('categories')->get();
+        $carts = DB::table('carts')->where('user_id')->get();
+        return view('base', compact('products','sliders', 'orders', 'users', 'categories', 'carts'));
     }
 }

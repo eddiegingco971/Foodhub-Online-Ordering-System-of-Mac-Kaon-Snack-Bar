@@ -22,7 +22,11 @@ class CartController extends Controller
     //     return view('user.cart.index', compact('carts'));
     // }
 
+
+
+
     public function addCart(Request $request){
+
         $request->validate([
            'product_id' => 'required',
            'user_id' => 'required',
@@ -37,7 +41,7 @@ class CartController extends Controller
            'user_id' => auth()->user()->id,
            'price' => $request->price,
            'quantity' => $request->quantity,
-           'total_amount' => $request->total_amount,
+           'total_amount' =>  $request->total_amount,
            'status' => $request->status,
         ]);
 

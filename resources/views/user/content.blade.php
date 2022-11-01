@@ -45,7 +45,6 @@
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                       <tr>
-                        <th>User ID</th>
                         <th>Product ID</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -59,7 +58,6 @@
                       <tbody>
                         @foreach ($carts as $cart)
                           <tr>
-                            <td>{{$cart->user_id}}</td>
                             <td>{{$cart->product_id}}</td>
                             <td>{{$cart->price}}</td>
                             <td>{{$cart->quantity}}</td>

@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('user_pic');
-            $table->string('age');
+            $table->string('email')->unique();
+            $table->string('user_pic')->nullable();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('middlename');
+            $table->string('age'); //more than 18
             $table->enum('gender',['male','female']);
             $table->string('address');
             $table->enum('barangay',['Villa Anunciado','Cabatuan','Cantubod','Carbon','San Carlos','Concepcion','Dagohoy','Sta. Fe','Hibale',

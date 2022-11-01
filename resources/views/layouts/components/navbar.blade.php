@@ -39,7 +39,7 @@
       </li>
 
 
-      <!-- Messages Dropdown Menu -->
+      {{-- <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
@@ -123,7 +123,7 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> --}}
     </ul>
 
     <a class="btn btn-danger ml-4" href="{{ route('logout') }}"
@@ -162,14 +162,16 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="{{url('/')}}">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <span class="badge badge-danger navbar-badge"></span>
-              </a>
-        </li>
+        <!-- Home -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/')}}">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span class="badge badge-danger navbar-badge"></span>
+          </a>
+      </li>
+
       <!-- Navbar Search -->
-      {{-- <li class="nav-item">
+      <li class="nav-item">
         <div class="navbar-search">
           <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
@@ -182,10 +184,11 @@
             </div>
           </div>
         </div>
-      </li> --}}
+      </li>
 
 
-      <!-- Messages Dropdown Menu -->
+
+      {{-- <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
@@ -269,7 +272,9 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> --}}
+
+
     </ul>
 
     <a class="btn btn-danger ml-4" href="{{ route('logout') }}"
@@ -346,7 +351,7 @@
       </li> --}}
 
 
-      <!-- Messages Dropdown Menu -->
+      {{-- <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
@@ -430,7 +435,7 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> --}}
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
