@@ -141,6 +141,7 @@
                         <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-4">
                             <select  type="text" name="gender" class="form-select form-control" id="inputGender">
+                                <option hidden="true" value="#">--Select Gender--</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                </select>
@@ -165,8 +166,24 @@
                         <label for="inputBarangay" class="col-sm-2 col-form-label">Barangay</label>
                         <div class="col-sm-4">
                             <select  type="text" name="barangay" class="form-select form-control" id="inputBarangay" >
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                <option hidden="true" value="#">--Select Barangay--</option>
+                                <option value="Cabatuan">Cabatuan</option>
+                                <option value="Cantubod">Cantubod</option>
+                                <option value="Carbon">Carbon</option>
+                                <option value="San Carlos">San Carlos</option>
+                                <option value="Concepcion">Concepcion</option>
+                                <option value="Dagohoy">Dagohoy</option>
+                                <option value="Sta. Fe">Sta. Fe</option>
+                                <option value="Hibale">Hibale</option>
+                                <option value="Magtangtang">Magtangtang</option>
+                                <option value="San Miguel">San Miguel</option>
+                                <option value="Nahud">Nahud</option>
+                                <option value="Sto. Niño">Sto. Niño</option>
+                                <option value="Poblacion">Poblacion</option>
+                                <option value="Remedios">Remedios</option>
+                                <option value="Tabok">Tabok</option>
+                                <option value="Taming">Taming</option>
+                                <option value="Villa Anunciado">Villa Anunciado</option>
                                </select>
                         </div>
                         @error('barangay')
@@ -174,14 +191,11 @@
                         @enderror
 
 
-                        <label for="inputBarangay" class="col-sm-2 col-form-label">Barangay</label>
+                        <label for="inputPhonenumber" class="col-sm-2 col-form-label">Phone No. </label>
                         <div class="col-sm-4">
-                            <select  type="text" name="barangay" class="form-select form-control" id="inputBarangay" >
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                               </select>
+                            <input type="phone_number" name="age" class="form-control" id="inputPhonenumber" placeholder="09xxxxxxxxx">
                         </div>
-                        @error('barangay')
+                        @error('phone_number')
                             <div class="text-danger">{{$message}}</div>
                         @enderror
                       </div>

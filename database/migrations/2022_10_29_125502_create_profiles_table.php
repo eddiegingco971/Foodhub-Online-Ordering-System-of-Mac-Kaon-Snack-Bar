@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('age'); //more than 18
             $table->enum('gender',['male','female']);
             $table->string('address');
-            $table->enum('barangay',['Villa Anunciado','Cabatuan','Cantubod','Carbon','San Carlos','Concepcion','Dagohoy','Sta. Fe','Hibale',
-            'Magtangtang','San Miguel','Nahud','Sto. Niño','Poblacion','Remedios','Tabok','Taming'
+            $table->enum('barangay',['Cabatuan','Cantubod','Carbon','San Carlos','Concepcion','Dagohoy','Sta. Fe','Hibale',
+            'Magtangtang','San Miguel','Nahud','Sto. Niño','Poblacion','Remedios','Tabok','Taming','Villa Anunciado'
         ]);
             $table->string('phone_number');
             $table->timestamps();
