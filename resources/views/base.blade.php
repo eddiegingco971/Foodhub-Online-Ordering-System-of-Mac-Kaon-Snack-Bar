@@ -51,14 +51,15 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 @if (Auth::user()->user_type == 'admin')
+                <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
                 <li><a class="dropdown-item" href="{{url('/home')}}">Dashboard</a></li>
                 @elseif(Auth::user()->user_type == 'staff')
+                <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
                 <li><a class="dropdown-item" href="{{url('/staff')}}">Dashboard</a></li>
                 @else
+                <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
                 <li><a class="dropdown-item" href="{{url('/user')}}">Dashboard</a></li>
                 @endif
-
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
