@@ -89,6 +89,74 @@
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
+            @php
+            $orders=DB::table('orders')->where('status','new')->get();
+            @endphp
+
+
+        <div class="col-12">
+
+          <div class="card elevation-3">
+            <div class="card-header">
+              <h3 class="card-title">Today's Order</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Order ID#</th>
+                  <th>User ID#</th>
+                  <th>Order Date</th>
+                  <th>Quantity</th>
+                  <th>Total Amount</th>
+                  <th>Payment Method</th>
+                  <th>Payment Status</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                  @foreach ($orders as $order)
+                    <tr>
+                      <td>{{$order->id}}</td>
+                      <td>{{$order->user_id}}</td>
+                      <td>{{$order->order_date}}</td>
+                      <td>{{$order->quantity}}</td>
+                      <td>{{$order->total_amount}}</td>
+                      <td>{{$order->payment_method}}</td>
+                      <td>{{$order->payment_status}}</td>
+                      <td>{{$order->status}}</td>
+                      <td>
+                        <a href="{{url('delete-order/'.$order->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                      </td>
+                    </tr>
+                  @endforeach
+
+                </tbody>
+                {{-- <tfoot>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                </tr>
+                </tfoot> --}}
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+
+
+
+
+
+
           <!-- Left col -->
 
           {{-- <section class="col-lg-7 connectedSortable">

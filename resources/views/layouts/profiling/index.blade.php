@@ -65,8 +65,8 @@
                             <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
 
                           <div class="form-group row">
-                            <label for="inputFirstname" class="col-sm-2 col-form-label">Current Password</label>
-                            <div class="col-sm-10">
+                            <label for="inputFirstname" class="col-sm-3 col-form-label">Current Password</label>
+                            <div class="col-sm-8">
                                 <input type="text" name="firstname" class="form-control" id="inputFirstname">
                             </div>
                             @error('firstname')
@@ -75,8 +75,8 @@
                           </div>
 
                           <div class="form-group row">
-                            <label for="inputFirstname" class="col-sm-2 col-form-label">New Password</label>
-                            <div class="col-sm-10">
+                            <label for="inputFirstname" class="col-sm-3 col-form-label">New Password</label>
+                            <div class="col-sm-8">
                                 <input type="text" name="firstname" class="form-control" id="inputFirstname">
                             </div>
                             @error('firstname')
@@ -85,8 +85,8 @@
                           </div>
 
                           <div class="form-group row">
-                            <label for="inputFirstname" class="col-sm-2 col-form-label">Confirm Password</label>
-                            <div class="col-sm-10">
+                            <label for="inputFirstname" class="col-sm-3 col-form-label">Confirm Password</label>
+                            <div class="col-sm-8">
                                 <input type="text" name="firstname" class="form-control" id="inputFirstname">
                             </div>
                             @error('firstname')
@@ -143,8 +143,8 @@
                             <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
 
                           <div class="form-group row">
-                            <label for="inputFirstname" class="col-sm-2 col-form-label">Current Password</label>
-                            <div class="col-sm-10">
+                            <label for="inputFirstname" class="col-sm-3 col-form-label">Current Password</label>
+                            <div class="col-sm-8">
                                 <input type="text" name="firstname" class="form-control" id="inputFirstname">
                             </div>
                             @error('firstname')
@@ -153,8 +153,8 @@
                           </div>
 
                           <div class="form-group row">
-                            <label for="inputFirstname" class="col-sm-2 col-form-label">New Password</label>
-                            <div class="col-sm-10">
+                            <label for="inputFirstname" class="col-sm-3 col-form-label">New Password</label>
+                            <div class="col-sm-8">
                                 <input type="text" name="firstname" class="form-control" id="inputFirstname">
                             </div>
                             @error('firstname')
@@ -163,8 +163,8 @@
                           </div>
 
                           <div class="form-group row">
-                            <label for="inputFirstname" class="col-sm-2 col-form-label">Confirm Password</label>
-                            <div class="col-sm-10">
+                            <label for="inputFirstname" class="col-sm-3 col-form-label">Confirm Password</label>
+                            <div class="col-sm-8">
                                 <input type="text" name="firstname" class="form-control" id="inputFirstname">
                             </div>
                             @error('firstname')
@@ -219,21 +219,30 @@
 
                       <div class="tab-pane" id="settings">
                         <form  class="form-horizontal" action="{{url('profile-create')}}" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                            <input type="hidden" name="user_id" value="{{auth()->user()->id}} === 'male' ? '/dist/img/male.png' : '/dist/img/female.png' "  >
+
+                            <div class="form-group row">
+                              <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                              <div class="col-sm-10">
+                                  <input type="text" name="email" class="form-control" id="inputEmail">
+                              </div>
+                              @error('email')
+                                  <div class="text-danger">{{$message}}</div>
+                              @enderror
+                            </div>
 
                           <div class="form-group row">
+
                             <label for="inputFirstname" class="col-sm-2 col-form-label">First Name</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-2">
                                 <input type="text" name="firstname" class="form-control" id="inputFirstname">
                             </div>
                             @error('firstname')
                                 <div class="text-danger">{{$message}}</div>
                             @enderror
-                          </div>
 
-                          <div class="form-group row">
                             <label for="inputLastname" class="col-sm-2 col-form-label">Lastname</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                               <input type="text" name="lastname" class="form-control" id="inputLastname">
                             </div>
                             @error('firstname')
@@ -241,7 +250,7 @@
                             @enderror
 
                             <label for="inputMiddlename" class="col-sm-2 col-form-label">Middlename</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                                 <input type="text" name="middlename" class="form-control" id="inputMiddlename">
                             </div>
                             @error('middlename')
