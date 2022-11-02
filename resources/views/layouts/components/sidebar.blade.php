@@ -19,8 +19,8 @@
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
-      {{-- <div class="form-inline">
+      {{-- <!-- SidebarSearch Form -->
+      <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -104,7 +104,7 @@
             </a>
           </li>
 
-          <li class="nav-header">Game Events</li>
+          <li class="nav-header">Events</li>
           <li class="nav-item">
             <a href="{{url('/calendar')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -143,8 +143,8 @@
       </div>
     </div>
 
-    <!-- SidebarSearch Form -->
-    {{-- <div class="form-inline">
+    {{-- <!-- SidebarSearch Form -->
+    <div class="form-inline">
       <div class="input-group" data-widget="sidebar-search">
         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -214,6 +214,18 @@
         </div>
       </div>
 
+      {{-- <!-- SidebarSearch Form -->
+    <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+    </div> --}}
+
 
 
       <!-- Sidebar Menu -->
@@ -240,7 +252,7 @@
             </a>
           </li>
 
-          <li class="nav-header">Game Events</li>
+          <li class="nav-header">Events</li>
           <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>

@@ -8,7 +8,6 @@
 
   <nav class="navbar navbar-expand navbar-dark navbar-light py-0">
     <!-- Left navbar links -->
-    <div class="container-fluid">
     <ul class="navbar-nav">
         {{-- <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -45,16 +44,16 @@
             <a href="{{url('/user')}}" class="btn text-white mt-1 d-none d-sm-inline-block"><strong>Dashboard</strong></a>
         @endif
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
-                <strong>{{Auth::user()->name}}</strong>
+                <strong class="d-none d-sm-inline-block">{{Auth::user()->name}}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 @if (Auth::user()->user_type == 'admin')
-                <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
+                <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
                 <li><a class="dropdown-item" href="{{url('/home')}}">Dashboard</a></li>
                 @elseif(Auth::user()->user_type == 'staff')
-                <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
+                <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
                 <li><a class="dropdown-item" href="{{url('/staff')}}">Dashboard</a></li>
                 @else
                 <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
@@ -83,8 +82,7 @@
         @endif
 
     </ul>
-</div>
-    </div>
+
 </nav>
 
     <!-- Main content -->
