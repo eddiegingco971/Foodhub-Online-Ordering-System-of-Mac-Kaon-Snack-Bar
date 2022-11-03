@@ -42,6 +42,7 @@ Route::get('/profile', [ProfileController::class, 'profileSetting']);
 Route::post('/profile-create', [ProfileController::class, 'store']);
 Route::get('/edit-profile/{id}', [ProfileController::class, 'edit']);
 Route::put('/update-profile/{id}', [ProfileController::class, 'update']);
+Route::post('/product/search', [SiteController::class, 'productSearch'])->name('product.search');
 
 Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/home', [HomeController::class, 'index'])->name('home');

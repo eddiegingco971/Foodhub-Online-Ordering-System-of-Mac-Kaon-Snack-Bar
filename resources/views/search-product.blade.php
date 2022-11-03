@@ -91,6 +91,17 @@
             <div class="row justify-content-center">
                 <nav class="navbar navbar-expand justify-content-center">
                 <ul class="navbar-nav mx-auto">
+                    {{-- <div class="col-4">
+                        @php
+                            $categories = DB::table('categories')->get();
+                        @endphp
+                        <select>
+                            <option>All Category</option>
+                            @foreach($categories as $category)
+                                <option>{{$category->category_name}}</option>
+                            @endforeach
+                        </select>
+                    </div> --}}
                 <div class="col-12 offset-md-0">
 
                     <form method="POST" action="{{route('product.search')}}">
@@ -119,6 +130,10 @@
                      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                       <span class="dropdown-item dropdown-header">Your Cart</span>
                       @if (Route::has('login'))
+                      @php
+                      $carts=DB::table('carts')->where('status', 'new')->get();
+                      // $total = ($product->price*$product->quantity);
+                      @endphp
                       @foreach ($carts as $cart)
                       <div class="dropdown-divider"></div>
                         <div class="container">
@@ -165,6 +180,15 @@
 
 
   <!-- Content Wrapper. Contains page content -->
+
+
+
+{{-- @if (Route::has('login'))
+    @auth
+        <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
+    @endauth
+@endif --}}
+
 <div class="content bg-primary">
     <div class="container mt-2">
         <div class="row">
@@ -210,125 +234,55 @@
         </div>
     </div>
 </div>
-
-
-
-<div class="content">
-    <div class="container">
-        <div class="row">
-            @foreach ($sliders as $slider)
-
-                <!-- Full-width images with number and caption text -->
-                <div class="mySlides fade">
-                <div class="text"  id="t1">{{$slider->name}}</div>
-                    <img src="{{asset('dist/img/slider/'.$slider->image)}}" style="width:100%; height:70vh;">
-                </div>
-
-            <style>
-                #t1{
-                /* background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent; */
-                text-align: center;
-                display: inline-block;
-                color: white;
-                text-shadow: 2px 3px red;
-                font-weight: bold;
-                font-size: 40px;
-                position: absolute;
-                top: 40%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                }
-
-                /* Hide the images by default */
-                .mySlides {
-                position: relative;
-                display: none;
-                width: 100%;
-                height: 80%;
-                background-repeat: no-repeat;
-                background-size: cover;
-                }
-
-                /* Fading animation */
-                .fade {
-                animation-name: fade;
-                animation-duration: 8.5s;
-                }
-
-                @keyframes fade {
-                from {opacity: .3}
-                to {opacity: 1}
-                }
-            </style>
-            @endforeach
-        </div>
-    </div>
-</div>
-
-
-{{-- @if (Route::has('login'))
-    @auth
-        <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
-    @endauth
-@endif --}}
-
-<div class="content">
-    @php
-    $products=DB::table('products')->where('status','active')->get();
-    $carts=DB::table('carts')->where('status')->get();
-    // $total = ($product->price*$product->quantity);
-    @endphp
-
-    <div class="py-1 bg-primary">
-        <h3 class="ml-3">Best Deals</h3>
-    </div>
  <div class="container">
     <div class="row justify-content-center">
-        @foreach ($products as $product)
-            <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:400px;">
-              <div class="card-body">
-                <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
+        @if(count($products)>0)
+            @foreach($products as $product)
+                <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:400px;">
+                <div class="card-body">
+                    <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
 
-                  @if (Route::has('login'))
-                    @auth
-                     <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
-                    @endauth
-                  @endif
-                  <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
-                  <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
-                  <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
-              </div>
+                    @if (Route::has('login'))
+                        @auth
+                        <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
+                        @endauth
+                    @endif
+                    <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
+                    <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
+                    <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
+                </div>
 
-                <div class="card-footer mt-2">
-                <h6>Price: {{$product->price}}</h6>
-                <input type="hidden" name="price" id="price" value="{{$product->price}}">
-                <div class="form-group text-dark">
+                    <div class="card-footer mt-2">
+                    <h6>Price: {{$product->price}}</h6>
+                    <input type="hidden" name="price" id="price" value="{{$product->price}}">
+                    <div class="form-group text-dark">
 
-                  <input class="form-control" type="number" name="quantity" id="quantity" class="form-control" value="1">
+                    <input class="form-control" type="number" name="quantity" id="quantity" class="form-control" value="1">
+
+                    </div>
+                    <div class="form-group text-dark">
+                    {{-- @foreach ($orders as $order)
+                        <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
+                    @endforeach --}}
+
+                    <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder="Price * Quantity">
+                    <input type="hidden" name="status" id="status" class="form-control" value="new">
+                    {{-- @foreach ($carts as $cart)
+                        <input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
+                    @endforeach --}}
+
+                    </div>
+                    <button class="btn btn-light" type="submit">Add Cart</button>
+                    <button class="btn btn-success float-right">Order</button>
 
                 </div>
-                <div class="form-group text-dark">
-                  {{-- @foreach ($orders as $order)
-                    <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
-                  @endforeach --}}
-
-                  <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder="Price * Quantity">
-                  <input type="hidden" name="status" id="status" class="form-control" value="new">
-                  {{-- @foreach ($carts as $cart)
-                    <input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
-                  @endforeach --}}
-
+                </form>
                 </div>
-                  <button class="btn btn-light" type="submit">Add Cart</button>
-                  <button class="btn btn-success float-right">Order</button>
-
-              </div>
-            </form>
-            </div>
-          @endforeach
+            @endforeach
+        @else
+          <h4 class="text-warning" style="margin:100px auto;">There are no products.</h4>
+        @endif
     </div>
  </div>
 </div>
@@ -337,49 +291,5 @@
 <input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
 @endforeach --}}
 
-<div class="content">
-    <section class="shop-services section">
-		<div class="container">
-			<div class="row">
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
-						<p>Within 30 days returns</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-lock"></i>
-						<h4>Sucure Payment</h4>
-						<p>100% secure payment</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-tag"></i>
-						<h4>Best Peice</h4>
-						<p>Guaranteed price</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
 
 @endsection
