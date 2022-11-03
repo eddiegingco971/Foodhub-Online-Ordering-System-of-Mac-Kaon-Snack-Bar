@@ -245,7 +245,7 @@
                             <div class="col-sm-2">
                               <input type="text" name="lastname" class="form-control" id="inputLastname">
                             </div>
-                            @error('firstname')
+                            @error('lastname')
                                 <div class="text-danger">{{$message}}</div>
                             @enderror
 

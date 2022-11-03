@@ -18,7 +18,15 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'middlename',
+        'age',
+        'birthdate',
+        'gender',
+        'address',
+        'barangay',
+        'phone_number',
         'email',
         'password',
         'user_type',
@@ -43,7 +51,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public function customers(){
         return $this->hasMany(Customer::class);
     }

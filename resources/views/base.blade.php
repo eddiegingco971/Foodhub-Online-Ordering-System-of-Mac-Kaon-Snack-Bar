@@ -45,8 +45,16 @@
         @endif
         <li class="nav-item dropdown">
             <a class="nav-link" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
-                <strong class="d-none d-sm-inline-block">{{Auth::user()->name}}</strong>
+                @if (Auth::user()->user_type == 'admin')
+                <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                <strong class="d-none d-sm-inline-block">{{Auth::user()->lastname}}</strong>
+                @elseif(Auth::user()->user_type == 'staff')
+                <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                <strong class="d-none d-sm-inline-block">{{Auth::user()->lastname}}</strong>
+                @else
+                <img src="{{asset('/dist/img/user-profile/user-avatar.jpg')}}" alt="" width="30" height="30" class="rounded-circle">
+                <strong class="d-none d-sm-inline-block">{{Auth::user()->firstname}} {{Auth::user()->lastname}}</strong>
+                @endif
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 @if (Auth::user()->user_type == 'admin')

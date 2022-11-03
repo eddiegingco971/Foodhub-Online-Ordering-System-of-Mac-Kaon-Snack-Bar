@@ -122,9 +122,9 @@
   <!-- Content Wrapper. Contains page content -->
 <div class="content">
     <div class="container mt-4">
-        <div class="row justify-content-center m-5 border elevation-3">
-            <div class="col-md-4 p-5 d-none d-md-block">
-                <img src="{{asset('/dist')}}/img/Logo.png" width="350" height="350" class="img-circle elevation-2" alt="User Image">
+        <div class="row justify-content-center border elevation-3">
+            <div class="col-md-4 p-5 mt-3 d-none d-md-block">
+                <img src="{{asset('/dist')}}/img/Logo.png" width="350" height="800" class="img-circle elevation-2" alt="User Image">
             </div>
 
             <div class="col-md-6 offset-md-1 mt-4 p-3">
@@ -132,11 +132,11 @@
                     <div class="card-header text-center bg-primary"><h2><strong>{{ __('Register') }}</strong></h2></div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <div class="tab-pane" id="settings">
+                        <form  class="form-horizontal" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="row mb-3">
-                                {{-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
+                            {{-- <div class="row mb-3">
 
                                 <div class="col-md-12">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Fullname">
@@ -150,7 +150,6 @@
                             </div>
 
                             <div class="row mb-3">
-                                {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> --}}
 
                                 <div class="col-md-12">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address">
@@ -164,7 +163,6 @@
                             </div>
 
                             <div class="row mb-3">
-                                {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
                                 <div class="col-md-12">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
@@ -178,12 +176,161 @@
                             </div>
 
                             <div class="row mb-3">
-                                {{-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> --}}
 
                                 <div class="col-md-12">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                                 </div>
-                            </div>
+                            </div> --}}
+
+
+
+
+
+                                <div class="form-group row">
+                                    <label for="firstname" class="col-sm-3 col-form-label">Firstname</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Firstname">
+                                        </div>
+                                        @error('firstname')
+                                            <div class="text-danger">{{$message}}</div>
+                                        @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="middlename" class="col-sm-3 col-form-label">Middlename</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" id="middlename" name="middlename" class="form-control" placeholder="Middlename">
+                                    </div>
+                                    @error('middlename')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="lastname" class="col-sm-3 col-form-label">Lastname</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Lastname">
+                                      </div>
+                                      @error('lastname')
+                                          <div class="text-danger">{{$message}}</div>
+                                      @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+                                    <div class="offset-sm-1 col-sm-10">
+                                      <div class="radio" id="gender" name="gender">
+                                            <input type="radio" name="gender" value="Male"><a> Male</a>
+                                            <input type="radio" name="gender" value="Female"><a> Female</a>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                                  <div class="form-group row">
+                                    <label for="age" class="col-sm-2 col-form-label">Age</label>
+                                    <div class="col-sm-4">
+                                        <input type="age" id="age" name="age" class="form-control" placeholder="18 Above only">
+                                    </div>
+                                    @error('age')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+
+                                    <label for="birthdate" class="col-sm-2 col-form-label text-md-end text-dark">{{ __('Birthdate') }}</label>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="birthdate" name="birthdate" class="form-control">
+                                    </div>
+                                    @error('birtdate')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="address" class="col-sm-2 col-form-label">Address</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="address" name="address" class="form-control" placeholder="Complete Address">
+                                    </div>
+                                    @error('address')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="barangay" class="col-sm-2 col-form-label">Barangay</label>
+                                    <div class="col-sm-4">
+                                        <select  type="text" id="barangay" name="barangay" class="form-select form-control">
+                                            <option hidden="true" value="#">--Select Barangay--</option>
+                                            <option value="Cabatuan">Cabatuan</option>
+                                            <option value="Cantubod">Cantubod</option>
+                                            <option value="Carbon">Carbon</option>
+                                            <option value="San Carlos">San Carlos</option>
+                                            <option value="Concepcion">Concepcion</option>
+                                            <option value="Dagohoy">Dagohoy</option>
+                                            <option value="Sta. Fe">Sta. Fe</option>
+                                            <option value="Hibale">Hibale</option>
+                                            <option value="Magtangtang">Magtangtang</option>
+                                            <option value="San Miguel">San Miguel</option>
+                                            <option value="Nahud">Nahud</option>
+                                            <option value="Sto. Niño">Sto. Niño</option>
+                                            <option value="Poblacion">Poblacion</option>
+                                            <option value="Remedios">Remedios</option>
+                                            <option value="Tabok">Tabok</option>
+                                            <option value="Taming">Taming</option>
+                                            <option value="Villa Anunciado">Villa Anunciado</option>
+                                           </select>
+                                    </div>
+                                    @error('barangay')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+
+                                    <label for="phone_number" class="col-sm-3 col-form-label">Phone Number</label>
+                                    <div class="col-sm-3">
+                                        <input type="phone_number" id="phone_number" name="phone_number" class="form-control" placeholder="09xxxxxxxxx">
+                                    </div>
+                                    @error('phone_number')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                                    </div>
+                                    @error('email')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="Atleat 8 characters or above">
+                                    </div>
+                                    @error('password')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label for="password_confirmation" class="col-sm-4 col-form-label">Confirm Password</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" id="password-confirm" name="password_confirmation" required autocomplete="new-password" class="form-control">
+                                    </div>
+                                    @error('password_confirmation')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-sm-10 m-1">
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
 
                             <div class="row mb-0">
                                 <div class="col-md-12">
@@ -197,6 +344,7 @@
                             </div>
 
                         </form>
+                    </div>
                     </div>
                 </div>
             </div>

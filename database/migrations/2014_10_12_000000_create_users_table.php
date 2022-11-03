@@ -15,8 +15,18 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('middlename');
             $table->string('email')->unique();
+            $table->integer('age'); //more than 18
+            $table->date('birthdate');
+            $table->enum('gender',['male','female']);
+            $table->string('address');
+            $table->enum('barangay',['Cabatuan','Cantubod','Carbon','San Carlos','Concepcion','Dagohoy','Sta. Fe','Hibale',
+            'Magtangtang','San Miguel','Nahud','Sto. Niño','Poblacion','Remedios','Tabok','Taming','Villa Anunciado'
+            ]);
+            $table->string('phone_number');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('user_type',['admin','staff','user'])->default('user');
