@@ -31,7 +31,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
     @include('layouts.components.preloader')
 
     @if (session('status'))
@@ -44,7 +44,7 @@
             {{ session('error') }}
         </div>
     @endif
-   
+
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -67,15 +67,35 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="name" class="col-form-label">Product Name</label>
-                                <input type="name" name="name" class="form-control" value="{{$sliders->name}}" id="name" placeholder="Product Name">
+                                <label for="title" class="col-form-label">Slider Title</label>
+                                <input type="title" name="title" class="form-control" value="{{$sliders->title}}" id="title" placeholder="Title">
                             </div>
+                            <div class="form-group">
+                                <label for="description" class="col-form-label">Description</label>
+                                <textarea type="description" name="description" row="5" col="5" class="form-control" id="description">{{$sliders->title}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="link" class="col-form-label">Slider Link</label>
+                                <input type="link" name="link" class="form-control" value="{{$sliders->link}}" id="title" placeholder="link">
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-form-label">Status</label>
+                                <select class="form-select form-control" type="status" name="status">
+                                  <option hidden="true" selected value="{{$sliders->status}}">--Default Status--</option>
+                                      <option value="active">Active</option>
+                                      <option value="inactive">Inactive</option>
+
+                                </select>
+                                @error('status')
+                                    <div class="text-danger">{{$message}}</div>
+                                  @enderror
+                              </div>
 
                             <div class="form-group">
                                 <a type="button" class="btn btn-secondary" href="{{url('/slider')}}">Back</a>
                                 <button type="submit" class="btn btn-info">Update</button>
                             </div>
-        
+
                           </form>
                         </div>
                         <!-- /.card-body -->
@@ -88,7 +108,7 @@
         </div>
       </div>
     </div>
-   
+
     <!-- Main content -->
   </section>
     <!-- /.content -->

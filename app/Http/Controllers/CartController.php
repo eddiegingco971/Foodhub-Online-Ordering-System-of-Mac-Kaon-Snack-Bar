@@ -45,6 +45,6 @@ class CartController extends Controller
            'status' => $request->status,
         ]);
 
-        return redirect('/user')->with('status', 'Added Product Successfully');
+        return redirect('/')->with('status', 'Added Product Successfully');
    }
 }

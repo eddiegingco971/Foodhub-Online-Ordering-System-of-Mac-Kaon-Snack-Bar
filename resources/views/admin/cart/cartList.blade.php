@@ -81,21 +81,21 @@
                     <th>Quantity</th>
                     <th>Total Amount</th>
                     <th>Status</th>
-                  
-                   
+
+
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($carts as $cart)
                       <tr>
-                        <td>{{$cart->user_id}}</td>
-                        <td>{{$cart->product_id}}</td>
+                        <td>{{$cart->users->firstname}} {{$cart->users->lastname}}</td>
+                        <td>{{$cart->products->product_name}}</td>
                         <td>{{$cart->price}}</td>
                         <td>{{$cart->quantity}}</td>
                         <td>{{$cart->total_amount}}</td>
                         <td>{{$cart->status}}</td>
-                    
+
                         <td>
                           {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
                           <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">Delete</a>

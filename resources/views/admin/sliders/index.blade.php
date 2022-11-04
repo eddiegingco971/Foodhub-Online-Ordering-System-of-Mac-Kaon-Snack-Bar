@@ -29,7 +29,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
     @include('layouts.components.preloader')
 
     @if (session('status'))
@@ -57,10 +57,10 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
             @include('admin.sliders.create')
           </div>
-          <div class="col-md-9">
+          <div class="col-md-8">
 
             <div class="card elevation-3">
               <div class="card-header">
@@ -71,18 +71,22 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Slider ID#</th>
-                    <th>Slider Name</th>
+                    <th>Slider Title</th>
                     <th>Slider Image</th>
+                    <th>Slider Description</th>
+                    <th>Slider Link</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($sliders as $slider)
                         <tr>
-                          <td>{{$slider->id}}</td>
-                          <td>{{$slider->name}}</td>
+                          <td>{{$slider->title}}</td>
                           <td class="text-center"><img src="{{asset('dist/img/slider/'.$slider->image)}}" width="50px" height="50px" alt="Image" style="border-radius: 10%"></td>
+                          <td>{{$slider->description}}</td>
+                          <td>{{$slider->link}}</td>
+                          <td>{{$slider->status}}</td>
                           <td>
                             <a href="{{url('edit-slider/' .$slider->id)}}" class="btn btn-info btn-sm">Edit</a>
                             <a href="{{url('delete-slider/'.$slider->id)}}" class="btn btn-danger btn-sm">Delete</a>

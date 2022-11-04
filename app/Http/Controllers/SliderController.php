@@ -29,7 +29,7 @@ class SliderController extends Controller
     public function create()
     {
         // return view('admin.sliders.create');
-        
+
     }
 
     /**
@@ -41,25 +41,31 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $sliders = new Slider;
-        $sliders->name = $request->input('name');
+        $sliders->title = $request->input('title');
+        $sliders->description = $request->input('description');
+        $sliders->link = $request->input('link');
+        $sliders->status = $request->input('status');
 
         $request->validate([
-            'name' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+            'title'=> 'required|string|max:50',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif|max:2048',
+            'description'=> 'required|string',
+            'link'=> 'required|string',
+            'status'=> 'required',
         ]);
         if($request->hasFile('image')){
-  
+
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
             $filename = time().'.'. $extention;
             $file->move('dist/img/slider/', $filename);
             $sliders->image = $filename;
-          
+
           }
 
         $sliders->save();
-     
-       
+
+
         return redirect('/slider')->with('status', 'Banner Added Successfully!');
     }
 
@@ -95,10 +101,13 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id){
         $sliders = Slider::find($id);
-        $sliders->name = $request->input('name');
-        
+        $sliders->title = $request->input('title');
+        $sliders->description = $request->input('description');
+        $sliders->link = $request->input('link');
+        $sliders->status = $request->input('status');
+
         if($request->hasFile('image')){
-  
+
           $destination = 'dist/img/product/'.$sliders->image;
           if(File::exists($destination)){
               File::delete($destination);
@@ -108,9 +117,9 @@ class SliderController extends Controller
           $filename = time().'.'. $extention;
           $file->move('dist/img/slider/', $filename);
           $sliders->image = $filename;
-        
+
         }
-  
+
         $sliders->update();
         return redirect('/slider')->with('status', 'Banner Updated Successfully!');
     }
