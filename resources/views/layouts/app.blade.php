@@ -89,45 +89,47 @@
 <script src="{{asset('/dist')}}/js/script.js"></script>
 
 @push('styles')
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
-    <style>
-        /* Banner Sliding */
-        #Gslider .carousel-inner {
-        background: #000000;
-        color:black;
-        }
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
+<style>
+/* Banner Sliding */
+    #Gslider .carousel-inner {
+    background: #000000;
+    color:black;
+    }
 
-        #Gslider .carousel-inner{
-        height: 550px;
-        }
-        #Gslider .carousel-inner img{
-            width: 100% !important;
-            opacity: .8;
-        }
+    #Gslider .carousel-inner{
+    height: 200px;
+    }
+    #Gslider .carousel-inner img{
+        width: 60% !important;
+        opacity: .8;
+    }
 
-        #Gslider .carousel-inner .carousel-caption {
-        bottom: 60%;
-        }
+    #Gslider .carousel-inner .carousel-caption {
+    bottom: 60%;
+    }
 
-        #Gslider .carousel-inner .carousel-caption h1 {
-        font-size: 50px;
-        font-weight: bold;
-        line-height: 100%;
-        color: #F7941D;
-        }
+    #Gslider .carousel-inner .carousel-caption h1 {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 100%;
+    color: #F7941D;
+    }
 
-        #Gslider .carousel-inner .carousel-caption p {
-        font-size: 18px;
-        color: black;
-        margin: 28px 0 28px 0;
-        }
+    #Gslider .carousel-inner .carousel-caption p {
+    font-size: 18px;
+    color: black;
+    margin: 28px 0 28px 0;
+    }
 
-        #Gslider .carousel-indicators {
-        bottom: 70px;
-        }
-    </style>
-@endpush
+    #Gslider .carousel-indicators {
+    bottom: 70px;
+    }
+</style>
+ @endpush
+
+
 
 </body>
 </html>

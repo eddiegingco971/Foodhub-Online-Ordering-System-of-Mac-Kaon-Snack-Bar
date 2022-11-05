@@ -1,393 +1,432 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Mac Kaon FoodHub</title>
 
-@section('content')
-  {{-- <!-- Preloader -->
-  @include('layouts.components.preloader') --}}
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+<link href="{{asset('/base')}}/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-  <!-- Navbar -->
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 
-  <nav class="navbar navbar-expand navbar-dark navbar-light py-0">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-        {{-- <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-          </li> --}}
-      {{-- <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li> --}}
-      {{-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li> --}}
-       <!-- Navbar Search -->
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
 
-      <a href="{{url('/')}}" class="brand-link">
-        <img src="{{asset('/dist')}}/img/Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8" >
-        <span class="brand-text font-weight-light">Mac Kaon Foodhub</span>
-      </a>
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
 
-    </ul>
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
 
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
 
-      @if (Route::has('login'))
-      @auth
-        @if (Auth::user()->user_type == 'admin')
-            <a href="{{url('/home')}}" class="btn text-white mt-1 d-none d-sm-inline-block"><strong>Dashboard</strong></a>
-        @elseif(Auth::user()->user_type == 'staff')
-            <a href="{{url('/staff')}}" class="btn text-white mt-1 d-none d-sm-inline-block"><strong>Dashboard</strong></a>
-        @else
-            <a href="{{url('/user')}}" class="btn text-white mt-1 d-none d-sm-inline-block"><strong>Dashboard</strong></a>
-        @endif
-        <li class="nav-item dropdown">
-            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                @if (Auth::user()->user_type == 'admin')
-                <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                <strong class="d-none d-sm-inline-block">{{Auth::user()->lastname}}</strong>
-                @elseif(Auth::user()->user_type == 'staff')
-                <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                <strong class="d-none d-sm-inline-block">{{Auth::user()->lastname}}</strong>
-                @else
-                <img src="{{asset('/dist/img/user-profile/user-avatar.jpg')}}" alt="" width="30" height="30" class="rounded-circle">
-                <strong class="d-none d-sm-inline-block">{{Auth::user()->firstname}} {{Auth::user()->lastname}}</strong>
-                @endif
+    <!-- Custom styles for this template -->
+    <link href="{{asset('/base')}}/css/carousel.css" rel="stylesheet">
+    {{-- <link href="{{asset('/base')}}/css/navbar-top-fixed.css" rel="stylesheet"> --}}
+
+    {{-- <style>
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          right: 0;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1;}
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+    </style> --}}
+
+  </head>
+  <body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="{{url('/')}}">
+                <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                Mac Kaon Foodhub
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                @if (Auth::user()->user_type == 'admin')
-                <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
-                <li><a class="dropdown-item" href="{{url('/home')}}">Dashboard</a></li>
-                @elseif(Auth::user()->user_type == 'staff')
-                <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
-                <li><a class="dropdown-item" href="{{url('/staff')}}">Dashboard</a></li>
-                @else
-                <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
-                <li><a class="dropdown-item" href="{{url('/user')}}">Dashboard</a></li>
-                @endif
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                </form>
-                </li>
-            </ul>
-        </li>
-        @else
+            {{-- <div class="dropdown">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                </button>
 
-            <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a>
+            </div> --}}
 
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="mr-3 text-white btn btn-sm btn-outline-primary">Sign up</a>
-            @endif
-        @endauth
-        @endif
-
-    </ul>
-
-</nav>
-
-    <!-- Main content -->
-    <div class="content py-2">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <nav class="navbar navbar-expand justify-content-center">
-                <ul class="navbar-nav mx-auto">
-                <div class="col-12 offset-md-0">
-
-                    <form method="POST" action="{{route('product.search')}}">
-                        @csrf
-                        <div class="input-group">
-                            <input type="search" class="form-control form-control-lg" placeholder="Search">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-lg btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            {{-- <div class="dropdown d-lg-none" style="float:right;">
+                <button class="btn btn-sm">
+                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                </button>
+                <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
                 </div>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-lg btn-default">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                     </a>
+            </div> --}}
+            @if (Route::has('login'))
+            @auth
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                </button>
 
-                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                      <span class="dropdown-item dropdown-header">Your Cart</span>
-                      @if (Route::has('login'))
-                      @foreach ($carts as $cart)
-                      <div class="dropdown-divider"></div>
-                        <div class="container">
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-file mr-2"></i>{{$cart->product_id}}
-                                <i class="fas fa-file mr-2"></i>{{$cart->quantity}}
-                                <span class="float-right text-muted text-sm">Price: {{$cart->price}}</span>
+                <div class="offcanvas-lg offcanvas-end d-lg-none bg-dark text-white card" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style="width: 300px;height:250px;border-radius:5px;margin:5px;">
+                    <div class="offcanvas-header">
+                        <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                        {{Auth::user()->firstname}} {{Auth::user()->lastname}}
+                        <button type="button" class=" btn btn-secondary btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="row">
+                            @if (Auth::user()->user_type == 'admin')
+                               <a class="btn btn-lg  btn-outline-primary text-white mb-2" href="{{url('/profile')}}">Password Settings</a>
+                               <a class="btn btn-lg btn-outline-primary text-white" href="{{url('/home')}}">Dashboard</a>
+                            @elseif(Auth::user()->user_type == 'staff')
+                               <a class="btn btn-lg btn-outline-primary text-white mb-2" href="{{url('/profile')}}">Password Settings</a>
+                               <a class="btn btn-lg btn-outline-primary text-white" href="{{url('/staff')}}">Dashboard</a>
+                            @else
+                               <a class="btn btn-lg btn-outline-primary text-white mb-2" href="{{url('/profile')}}">Account Settings</a>
+                               <a class="btn btn-lg btn-outline-primary text-white" href="{{url('/user')}}">Dashboard</a>
+                            @endif
+
+
+                            <a class="btn btn-lg text-white btn-outline-danger mt-2" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
                             </a>
-                        </div>
-                      @endforeach
-                      @endif
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                            </form>
 
-                      <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item dropdown-footer bg-dark">Checkout</a>
                     </div>
+                    </div>
+
+                </div>
+            @else
+                {{-- <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a> --}}
+                <ul class="navbar-nav ml-auto mb-2 d-lg-none">
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a>
+                        @if (Route::has('register'))
+                        {{-- <a class="nav-link" href="{{ route('register') }}" >Sign up</a> --}}
+                            <a href="{{ route('register') }}" class="mr-3 text-white btn btn-sm btn-outline-primary">Sign up</a>
+                        @endif
+                    </li>
 
                 </ul>
-                </nav>
-
-                {{-- <ul class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <div class="col-4 offset-md-2">
-                        <button type="submit" class="btn btn-lg btn-default">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        </button>
-                        </div>
-                      <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                      <span class="dropdown-item dropdown-header">Cart</span>
-                      <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item">
-                        <i class="fas fa-file mr-2"></i> 3 new reports
-                        <span class="float-right text-muted text-sm">2 days</span>
-                      </a>
-                      <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item dropdown-footer bg-dark">Checkout</a>
-                    </div>
-                  </ul > --}}
-
-            </div>
-        </div>
-    </div>
-
-
-  <!-- Content Wrapper. Contains page content -->
-<div class="content bg-primary">
-    <div class="container mt-2">
-        <div class="row">
-            {{-- <div class="row justify-content-center"> --}}
-
-            @php
-            $categories=DB::table('categories')->where('status','active')->get();
-            @endphp
-
-            <div class="single-banner ml-2 p-2">
-                <strong><a href="#" class="text-white">Home</a></strong>
-            </div>
-
-            @if($categories)
-
-                <!-- Example single danger button -->
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <strong>Categories</strong>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        @foreach($categories as $category)
-                        <li><a class="dropdown-item" href="#!">{{$category->category_name}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-
+            @endauth
             @endif
-            <div class="single-banner ml-1 p-2">
-                <strong><a href="#"  class="text-white">About Us</a></strong>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                {{-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item d-flex justify-content-end">
+                    <a class="nav-link disabled">Disabled</a>
+                </li> --}}
+                </ul>
+
+             <ul class="navbar-nav ml-auto mb-2 mb-md-0">
+                @if (Route::has('login'))
+                @auth
+                <li class="nav-item">
+                    @if (Auth::user()->user_type == 'admin')
+                    <a class="nav-link active" aria-current="page" href="{{url('/home')}}">Dashboard &VerticalLine; </a>
+                    @elseif(Auth::user()->user_type == 'staff')
+                    <a class="nav-link active" aria-current="page" href="{{url('/staff')}}">Dashboard &VerticalLine; </a>
+                    @else
+                    <a class="nav-link active" aria-current="page" href="{{url('/user')}}">Dashboard &VerticalLine; </a>
+                    @endif
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        @if (Auth::user()->user_type == 'admin')
+                            <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                            {{Auth::user()->firstname}} {{Auth::user()->lastname}}
+                        @elseif(Auth::user()->user_type == 'staff')
+                            <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                            {{Auth::user()->firstname}} {{Auth::user()->lastname}}
+                        @else
+                            <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                            {{Auth::user()->firstname}}
+                        @endif
+                    </a>
+                    <ul class="dropdown-menu">
+                      @if (Auth::user()->user_type == 'admin')
+                        <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
+                        <li><a class="dropdown-item" href="{{url('/home')}}">Dashboard</a></li>
+                        @elseif(Auth::user()->user_type == 'staff')
+                        <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
+                        <li><a class="dropdown-item" href="{{url('/staff')}}">Dashboard</a></li>
+                        @else
+                        <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
+                        <li><a class="dropdown-item" href="{{url('/user')}}">Dashboard</a></li>
+                      @endif
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                        </form>
+                        </li>
+                    </ul>
+                </li>
+                @else
+                {{-- <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a> --}}
+                <ul class="navbar-nav ml-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Sign in</a>
+                    </li>
+                <li class="nav-item">
+                    @if (Route::has('register'))
+                    {{-- <a class="nav-link" href="{{ route('register') }}" >Sign up</a> --}}
+                        <a href="{{ route('register') }}" class="mr-3 text-white btn btn-outline-primary">Sign up</a>
+                    @endif
+                </li>
+
+                </ul>
+
+
+            @endauth
+            @endif
+
+             </ul>
+
+
+                {{-- <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> --}}
+             </div>
             </div>
+        </nav>
+    </header>
 
+    <main>
 
-
-            {{-- @if($categories)
-                @foreach($categories as $category)
-                <div class="single-banner ml-3 p-2">
-                    <strong>{{$category->category_name}}</strong>
-                </div>
-                @endforeach
-            @endif --}}
-
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        {{-- @foreach ($sliders as $slider)
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $slider->id}}" class="active" aria-current="true" aria-label="Slide 1">{{ $slider->id}}</button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-    </div>
-</div>
-
-
-
-<div class="content">
-    <div class="container">
-        <div class="row">
+        @endforeach --}}
+        <div class="carousel-inner">
             @foreach ($sliders as $slider)
-
-                <!-- Full-width images with number and caption text -->
-                <div class="mySlides fade">
-                <div class="text"  id="t1">{{$slider->name}}</div>
-                    <img src="{{asset('dist/img/slider/'.$slider->image)}}" style="width:100%; height:70vh;">
-                </div>
-
-            <style>
-                #t1{
-                /* background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent; */
-                text-align: center;
-                display: inline-block;
-                color: white;
-                text-shadow: 2px 3px red;
-                font-weight: bold;
-                font-size: 40px;
-                position: absolute;
-                top: 40%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                }
-
-                /* Hide the images by default */
-                .mySlides {
-                position: relative;
-                display: none;
-                width: 100%;
-                height: 80%;
-                background-repeat: no-repeat;
-                background-size: cover;
-                }
-
-                /* Fading animation */
-                .fade {
-                animation-name: fade;
-                animation-duration: 8.5s;
-                }
-
-                @keyframes fade {
-                from {opacity: .3}
-                to {opacity: 1}
-                }
-            </style>
-            @endforeach
-        </div>
-    </div>
-</div>
-
-
-{{-- @if (Route::has('login'))
-    @auth
-        <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
-    @endauth
-@endif --}}
-
-<div class="content">
-    @php
-    $products=DB::table('products')->where('status','active')->get();
-    $carts=DB::table('carts')->where('status')->get();
-    // $total = ($product->price*$product->quantity);
-    @endphp
-
-    <div class="py-1 bg-primary">
-        <h3 class="ml-3">Best Deals</h3>
-    </div>
- <div class="container">
-    <div class="row justify-content-center">
-        @foreach ($products as $product)
-            <div class="card bg-dark m-1 elevation-3" style="justify-content: space-between; height:400px;">
-              <div class="card-body">
-                <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-
-                  @if (Route::has('login'))
+        <div class="carousel-item active">
+            <img class="bd-placeholder-img" src="{{asset('dist/img/slider/'.$slider->image)}}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" width="100%" height="100%" fill="#777"/>
+            <div class="container">
+            <div class="carousel-caption text-start">
+                <h1>{{ $slider->title}}</h1>
+                <p>{{ $slider->description}}</p>
+                @if (Route::has('login'))
                     @auth
-                     <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
+                        <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Buy now!</a></p>
+                    @else
+                        <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Sign up</a></p>
                     @endauth
-                  @endif
-                  <img for="product_id" src="{{asset('dist/img/product/'.$product->product_photo)}}" width="200px" height="180px" alt="Image" >
-                  <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
-                  <h4 class="text-center"><strong>{{$product->product_name}}</strong></h4>
-              </div>
-
-                <div class="card-footer mt-2">
-                <h6>Price: {{$product->price}}</h6>
-                <input type="hidden" name="price" id="price" value="{{$product->price}}">
-                <div class="form-group text-dark">
-
-                  <input class="form-control" type="number" name="quantity" id="quantity" class="form-control" value="1">
-
-                </div>
-                <div class="form-group text-dark">
-                  {{-- @foreach ($orders as $order)
-                    <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
-                  @endforeach --}}
-
-                  <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder="Price * Quantity">
-                  <input type="hidden" name="status" id="status" class="form-control" value="new">
-                  {{-- @foreach ($carts as $cart)
-                    <input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
-                  @endforeach --}}
-
-                </div>
-                  <button class="btn btn-light" type="submit">Add Cart</button>
-                  <button class="btn btn-success float-right">Order</button>
-
-              </div>
-            </form>
+                @endif
             </div>
-          @endforeach
+            </div>
+        </div>
+        @endforeach
+        {{-- <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+            <div class="container">
+            <div class="carousel-caption">
+                <h1>Another example headline.</h1>
+                <p>Some representative placeholder content for the second slide of the carousel.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+            <div class="container">
+            <div class="carousel-caption text-end">
+                <h1>One more for good measure.</h1>
+                <p>Some representative placeholder content for the third slide of this carousel.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            </div>
+            </div>
+        </div> --}}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
     </div>
- </div>
-</div>
 
-{{-- @foreach ($carts as $cart)
-<input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
-@endforeach --}}
 
-<div class="content">
-    <section class="shop-services section">
-		<div class="container">
-			<div class="row">
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
-						<p>Within 30 days returns</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-lock"></i>
-						<h4>Sucure Payment</h4>
-						<p>100% secure payment</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="card col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-tag"></i>
-						<h4>Best Peice</h4>
-						<p>Guaranteed price</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
 
-@endsection
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+            <h2 class="fw-normal">Heading</h2>
+            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+            <h2 class="fw-normal">Heading</h2>
+            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+            <h2 class="fw-normal">Heading</h2>
+            <p>And lastly this, the third column of representative placeholder content.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+        </div>
+        <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+        </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+        </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+        </div>
+        <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+        </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+    </main>
+
+
+    <script src="{{asset('/base')}}/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+</html>

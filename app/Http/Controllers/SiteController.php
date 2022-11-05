@@ -14,7 +14,7 @@ class SiteController extends Controller
     {
         $users = DB::table('users')->get();
         $products = DB::table('products')->get();
-        $sliders = Slider::get();
+        $sliders = Slider::where('status', 'active')->get();
         $orders = DB::table('orders')->where('quantity')->get();
         $categories = DB::table('categories')->get();
         $carts = DB::table('carts')->where('user_id')->get();
