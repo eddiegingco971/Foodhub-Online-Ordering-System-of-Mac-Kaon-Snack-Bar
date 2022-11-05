@@ -8,6 +8,7 @@
     <meta name="generator" content="Hugo 0.104.2">
     <title>Mac Kaon FoodHub</title>
 
+<link rel="stylesheet" href="{{asset('/plugins')}}/fontawesome-free/css/all.min.css">
 <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
 <link href="{{asset('/base')}}/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
@@ -100,38 +101,46 @@
         }
     </style> --}}
 
+
   </head>
   <body>
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/')}}">
+            {{-- <a class="navbar-brand d-lg-none" href="{{url('/')}}">
                 <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
                 Mac Kaon Foodhub
-            </a>
-            {{-- <div class="dropdown">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                </button>
-
-            </div> --}}
-
-            {{-- <div class="dropdown d-lg-none" style="float:right;">
-                <button class="btn btn-sm">
-                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                </button>
-                <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                </div>
-            </div> --}}
+            </a> --}}
             @if (Route::has('login'))
             @auth
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
-                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                </button>
+            <a class="navbar-brand d-lg-none" href="{{url('/')}}">
+                <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                {{-- Mac Kaon Foodhub --}}
+            </a>
+            <ul class="navbar-nav col-6 d-lg-none text-sm">
+                <form role="search">
+                    <div class="input-group">
+                        <input type="search" placeholder="Search Product" class="form-control" />
+                        <button class="btn btn-secondary" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </ul>
+
+
+            {{-- <a class="nav-item"> --}}
+                <a class="btn btn-lg-default bg-light d-lg-none" href="#">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+                {{-- <span class="badge navbar-badge text-danger">0</span> --}}
+            {{-- </a> --}}
+
+                <a class="dropdown-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+                    {{-- <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle"> --}}
+                    <i class="far fa-user-circle"></i>
+                </a>
 
                 <div class="offcanvas-lg offcanvas-end d-lg-none bg-dark text-white card" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style="width: 300px;height:250px;border-radius:5px;margin:5px;">
                     <div class="offcanvas-header">
@@ -167,43 +176,107 @@
 
                 </div>
             @else
-                {{-- <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a> --}}
-                <ul class="navbar-nav ml-auto mb-2 d-lg-none">
-                    <li class="nav-item">
-                        <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a>
-                        @if (Route::has('register'))
-                        {{-- <a class="nav-link" href="{{ route('register') }}" >Sign up</a> --}}
-                            <a href="{{ route('register') }}" class="mr-3 text-white btn btn-sm btn-outline-primary">Sign up</a>
-                        @endif
-                    </li>
 
+                {{-- <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a> --}}
+                <ul class="navbar-nav col-6 d-lg-none text-sm">
+                    <form role="search">
+                        <div class="input-group">
+                            <input type="search" placeholder="Search Product" class="form-control" />
+                            <button class="btn btn-secondary" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
                 </ul>
+
+
+                {{-- <a class="nav-item"> --}}
+                    <a class="btn btn-lg-default bg-light d-lg-none" href="#">
+                        <i class="fa fa-shopping-cart"></i>
+                    </a>
+                    {{-- <span class="badge navbar-badge text-danger">0</span> --}}
+                {{-- </a> --}}
+                    <a href="{{ route('login') }}" class="btn btn-sm text-white d-lg-none">Sign in</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="text-white btn btn-sm btn-outline-primary d-lg-none">Sign up</a>
+                    @endif
+
+
+
             @endauth
             @endif
 
+
+
+            {{-- <div class="dropdown">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                </button>
+
+            </div> --}}
+
+            {{-- <div class="dropdown d-lg-none" style="float:right;">
+                <button class="btn btn-sm">
+                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                </button>
+                <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                </div>
+            </div> --}}
+
+
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                {{-- <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
                 <li class="nav-item">
+                    <a class="navbar-brand" href="{{url('/')}}">
+                        <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                        Mac Kaon Foodhub
+                    </a>
+                </li>
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item d-flex justify-content-end">
                     <a class="nav-link disabled">Disabled</a>
                 </li> --}}
+
+                </ul>
+
+                <ul class="col-md-6 mx-auto mt-2">
+                    <form role="search">
+                        <div class="input-group my-auto">
+                            <input type="search" placeholder="Search your product" class="form-control" />
+                            <button class="btn bg-white" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
                 </ul>
 
              <ul class="navbar-nav ml-auto mb-2 mb-md-0">
+                <li class="nav-item active">
+                    <a class="nav-link active " aria-current="page" href="#">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="badge navbar-badge text-danger">0</span>
+                    </a>
+                </li>
                 @if (Route::has('login'))
                 @auth
                 <li class="nav-item">
                     @if (Auth::user()->user_type == 'admin')
-                    <a class="nav-link active" aria-current="page" href="{{url('/home')}}">Dashboard &VerticalLine; </a>
+                    <a class="nav-link active" aria-current="page" href="{{url('/home')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
                     @elseif(Auth::user()->user_type == 'staff')
-                    <a class="nav-link active" aria-current="page" href="{{url('/staff')}}">Dashboard &VerticalLine; </a>
+                    <a class="nav-link active btn btn-lg-default " href="#">
+                        <i class="fa fa-shopping-cart"></i>
+                    </a>
+                    <a class="nav-link active" aria-current="page" href="{{url('/staff')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
                     @else
-                    <a class="nav-link active" aria-current="page" href="{{url('/user')}}">Dashboard &VerticalLine; </a>
+                    <a class="nav-link active btn btn-lg-default " href="#">
+                        <i class="fa fa-shopping-cart"></i>
+                    </a>
+                    <a class="nav-link active" aria-current="page" href="{{url('/user')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
                     @endif
                 </li>
                 <li class="nav-item dropdown">
@@ -270,6 +343,7 @@
                 </form> --}}
              </div>
             </div>
+
         </nav>
     </header>
 
@@ -289,8 +363,8 @@
             <img class="bd-placeholder-img" src="{{asset('dist/img/slider/'.$slider->image)}}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" width="100%" height="100%" fill="#777"/>
             <div class="container">
             <div class="carousel-caption text-start">
-                <h1>{{ $slider->title}}</h1>
-                <p>{{ $slider->description}}</p>
+                <h1 class="text-dark">{{ $slider->title}}</h1>
+                <p class="text-dark">{{ $slider->description}}</p>
                 @if (Route::has('login'))
                     @auth
                         <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Buy now!</a></p>
