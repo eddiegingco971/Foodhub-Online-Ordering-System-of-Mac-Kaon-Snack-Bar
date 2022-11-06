@@ -20,7 +20,6 @@ class UserFactory extends Factory
         return [
             'firstname' => fake()->firstName(),
             'lastname' => fake()->lastName(),
-            'middlename' => fake()->name(),
             'age' => fake()->numberBetween('min:18' ,'max:100'),
             'birthdate' => fake()->date(),
             'gender' => fake()->randomElement(['male','female']),

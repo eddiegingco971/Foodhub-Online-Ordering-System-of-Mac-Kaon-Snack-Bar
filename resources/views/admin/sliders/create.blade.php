@@ -30,6 +30,13 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="button_name" id="button_name">Button Name</label>
+                    <input type="button_name" name="button_name" class="form-control" placeholder="Follow or Click here! or Buy now!">
+                    @error('button_name')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="status" class="col-form-label">Status</label>
                     <select class="form-select form-control" name="status">
                       <option hidden="true" value="">--Select Status--</option>

@@ -21,7 +21,6 @@ class AdminSeeder extends Seeder
             [
                 'firstname' => 'Mac',
                 'lastname' => 'Administrator',
-                'middlename' => 'Kaon',
                 'age' => '40',
                 'birthdate' =>  Date::now(),
                 'gender' => 'male',
@@ -37,7 +36,6 @@ class AdminSeeder extends Seeder
             [
                 'firstname' => 'Mac',
                 'lastname' => 'Staff',
-                'middlename' => 'Kaon',
                 'age' => '30',
                 'birthdate' =>  Date::now(),
                 'gender' => 'male',
@@ -53,7 +51,6 @@ class AdminSeeder extends Seeder
             [
                 'firstname' => 'Mac',
                 'lastname' => 'User',
-                'middlename' => 'Kaon',
                 'age' => '20',
                 'birthdate' => Date::now(),
                 'gender' => 'male',

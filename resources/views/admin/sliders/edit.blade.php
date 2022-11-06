@@ -68,7 +68,7 @@
 
                             <div class="form-group">
                                 <label for="title" class="col-form-label">Slider Title</label>
-                                <input type="title" name="title" class="form-control" value="{{$sliders->title}}" id="title" placeholder="Title">
+                                <input type="title" name="title" class="form-control" value="{{$sliders->title}}" id="title">
                             </div>
                             <div class="form-group">
                                 <label for="description" class="col-form-label">Description</label>
@@ -76,8 +76,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="link" class="col-form-label">Slider Link</label>
-                                <input type="link" name="link" class="form-control" value="{{$sliders->link}}" id="title" placeholder="link">
+                                <input type="link" name="link" class="form-control" value="{{$sliders->link}}" id="title">
                             </div>
+                            <div class="form-group">
+                                <label for="button_name" id="button_name">Button Name</label>
+                                <input type="button_name" name="button_name" class="form-control" value="{{$sliders->button_name}}" id="title">
+                                @error('button_name')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
                             <div class="form-group">
                                 <label for="status" class="col-form-label">Status</label>
                                 <select class="form-select form-control" type="status" name="status">

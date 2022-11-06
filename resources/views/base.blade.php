@@ -137,12 +137,12 @@
                 {{-- <span class="badge navbar-badge text-danger">0</span> --}}
             {{-- </a> --}}
 
-                <a class="dropdown-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
-                    {{-- <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle"> --}}
-                    <i class="far fa-user-circle"></i>
+                <a class="d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                    {{-- <i class="far fa-user-circle"></i> --}}
                 </a>
 
-                <div class="offcanvas-lg offcanvas-end d-lg-none bg-dark text-white card" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style="width: 300px;height:250px;border-radius:5px;margin:5px;">
+                <div class="offcanvas-lg offcanvas-end d-lg-none bg-dark text-white card" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style="width: 300px;height:255px;margin:5px;">
                     <div class="offcanvas-header">
                         <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
                         {{Auth::user()->firstname}} {{Auth::user()->lastname}}
@@ -200,8 +200,6 @@
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="text-white btn btn-sm btn-outline-primary d-lg-none">Sign up</a>
                     @endif
-
-
 
             @endauth
             @endif
@@ -268,14 +266,8 @@
                     @if (Auth::user()->user_type == 'admin')
                     <a class="nav-link active" aria-current="page" href="{{url('/home')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
                     @elseif(Auth::user()->user_type == 'staff')
-                    <a class="nav-link active btn btn-lg-default " href="#">
-                        <i class="fa fa-shopping-cart"></i>
-                    </a>
                     <a class="nav-link active" aria-current="page" href="{{url('/staff')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
                     @else
-                    <a class="nav-link active btn btn-lg-default " href="#">
-                        <i class="fa fa-shopping-cart"></i>
-                    </a>
                     <a class="nav-link active" aria-current="page" href="{{url('/user')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
                     @endif
                 </li>
@@ -289,7 +281,7 @@
                             {{Auth::user()->firstname}} {{Auth::user()->lastname}}
                         @else
                             <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                            {{Auth::user()->firstname}}
+                            {{Auth::user()->firstname}} {{Auth::user()->lastname}}
                         @endif
                     </a>
                     <ul class="dropdown-menu">
@@ -367,9 +359,9 @@
                 <p class="text-dark">{{ $slider->description}}</p>
                 @if (Route::has('login'))
                     @auth
-                        <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Buy now!</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">{{ $slider->button_name}}</a></p>
                     @else
-                        <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Sign up</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}">Sign up</a></p>
                     @endauth
                 @endif
             </div>
@@ -409,6 +401,7 @@
         <span class="visually-hidden">Next</span>
         </button>
     </div>
+
 
 
     <!-- Marketing messaging and featurettes

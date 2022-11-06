@@ -14,7 +14,6 @@ class Profile extends Model
         'user_pic',
         'firstname',
         'lastname',
-        'middlename',
         'age',
         'gender',
         'address',

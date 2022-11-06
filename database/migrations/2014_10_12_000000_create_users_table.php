@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('middlename');
             $table->string('email')->unique();
             $table->integer('age'); //more than 18
             $table->date('birthdate');

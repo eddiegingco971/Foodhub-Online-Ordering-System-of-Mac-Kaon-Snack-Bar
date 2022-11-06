@@ -44,6 +44,7 @@ class SliderController extends Controller
         $sliders->title = $request->input('title');
         $sliders->description = $request->input('description');
         $sliders->link = $request->input('link');
+        $sliders->button_name = $request->input('button_name');
         $sliders->status = $request->input('status');
 
         $request->validate([
@@ -51,6 +52,7 @@ class SliderController extends Controller
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif|max:2048',
             'description'=> 'required|string',
             'link'=> 'required|string',
+            'button_name'=> 'required|string',
             'status'=> 'required',
         ]);
         if($request->hasFile('image')){
@@ -104,6 +106,7 @@ class SliderController extends Controller
         $sliders->title = $request->input('title');
         $sliders->description = $request->input('description');
         $sliders->link = $request->input('link');
+        $sliders->button_name = $request->input('button_name');
         $sliders->status = $request->input('status');
 
         if($request->hasFile('image')){

@@ -15,7 +15,7 @@
           <img src="{{asset('/dist')}}/img/user2-160x160.jpg" width="50" height="50" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{url('/profile')}}" class="d-block">{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}</a>
+          <a href="{{url('/profile')}}" class="d-block">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a>
         </div>
       </div>
 
@@ -139,7 +139,7 @@
         <img src="{{asset('/dist')}}/img/user2-160x160.jpg" width="50" height="50" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="{{url('/profile')}}" class="d-block">{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}</a>
+        <a href="{{url('/profile')}}" class="d-block">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a>
       </div>
     </div>
 
@@ -210,7 +210,7 @@
           <img src="{{asset('/dist')}}/img/user-profile/user-avatar.jpg" width="50" height="50" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="{{url('/profile')}}" class="d-block">{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}</a>
+            <a href="{{url('/profile')}}" class="d-block">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a>
         </div>
       </div>
 

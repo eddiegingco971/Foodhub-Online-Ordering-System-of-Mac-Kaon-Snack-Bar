@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('user_pic');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('middlename');
             $table->string('age'); //more than 18
             $table->enum('gender',['male','female']);
             $table->string('address');

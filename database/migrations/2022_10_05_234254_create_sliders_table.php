@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->mediumText('description');
             $table->string('link');
+            $table->string('button_name');
             $table->enum('status',['active','inactive']);
             $table->timestamps();
         });

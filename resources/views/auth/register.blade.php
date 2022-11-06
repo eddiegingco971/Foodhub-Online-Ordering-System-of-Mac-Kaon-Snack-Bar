@@ -124,7 +124,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center border elevation-3">
             <div class="col-md-4 p-5 mt-3 d-none d-md-block">
-                <img src="{{asset('/dist')}}/img/Logo.png" width="350" height="800" class="img-circle elevation-2" alt="User Image">
+                <img src="{{asset('/dist')}}/img/Logo.png" width="350" height="600" class="img-circle elevation-2" alt="User Image">
             </div>
 
             <div class="col-md-6 offset-md-1 mt-4 p-3">
@@ -182,13 +182,9 @@
                                 </div>
                             </div> --}}
 
-
-
-
-
                                 <div class="form-group row">
                                     <label for="firstname" class="col-sm-3 col-form-label">Firstname</label>
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-9">
                                             <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Firstname">
                                         </div>
                                         @error('firstname')
@@ -197,18 +193,8 @@
                                   </div>
 
                                   <div class="form-group row">
-                                    <label for="middlename" class="col-sm-3 col-form-label">Middlename</label>
-                                    <div class="col-sm-12">
-                                        <input type="text" id="middlename" name="middlename" class="form-control" placeholder="Middlename">
-                                    </div>
-                                    @error('middlename')
-                                        <div class="text-danger">{{$message}}</div>
-                                    @enderror
-                                  </div>
-
-                                  <div class="form-group row">
                                     <label for="lastname" class="col-sm-3 col-form-label">Lastname</label>
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-9">
                                         <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Lastname">
                                       </div>
                                       @error('lastname')
