@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
@@ -17,7 +18,8 @@ class SiteController extends Controller
         $sliders = Slider::where('status', 'active')->get();
         $orders = DB::table('orders')->where('quantity')->get();
         $categories = DB::table('categories')->get();
-        $carts = DB::table('carts')->where('user_id')->get();
+        // $carts = User::where('user_id', 'id')->get();
+        $carts = DB::table('carts')->where('user_id', 'id')->get();
         return view('base', compact('products','sliders', 'orders', 'users', 'categories', 'carts'));
     }
 
@@ -25,7 +27,25 @@ class SiteController extends Controller
         $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $products=Product::orwhere('product_name','like','%'.$request->search.'%')
                     ->orderBy('id','DESC')
-                    ->paginate('9');
+                    ->simplePaginate('9');
         return view('search-product')->with('products',$products)->with('recent_products',$recent_products);
+    }
+
+    public function collectionCategory()
+    {
+        $categories = Category::where('status','active')->simplePaginate(4);
+        return view('collections.category.index',compact('categories'));
+    }
+
+    public function specificProduct($cat_name)
+    {
+        $categories = Category::where('category_name', $cat_name)->first();
+
+        if($categories){
+            $products = $categories->products()->simplePaginate(4);
+            return view('collections.product.index', compact('products','categories'));
+        }else{
+            return redirect()->back();
+        }
     }
 }

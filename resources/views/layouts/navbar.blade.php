@@ -69,7 +69,8 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('/base')}}/css/carousel.css" rel="stylesheet">
+    <link href="{{asset('/base')}}/css/custom.css" rel="stylesheet">
+    {{-- <link href="{{asset('/base')}}/css/carousel.css" rel="stylesheet"> --}}
     {{-- <link href="{{asset('/base')}}/css/navbar-top-fixed.css" rel="stylesheet"> --}}
 
     {{-- <style>
@@ -137,6 +138,15 @@
                                     <i class="fas fa-home"></i> Home
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/collections')}}">
+                                    <i class="fas fa-home"></i> Collections
+                                </a>
+                            </li>
+                            @php
+                            $categories=DB::table('categories')->where('status','active')->get();
+                            @endphp
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -134,4 +134,5 @@ class CategoryController extends Controller
 
         return redirect('/category')->with('status', 'Product Deleted Successfully!');
     }
+
 }

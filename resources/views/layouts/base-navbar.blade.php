@@ -15,8 +15,9 @@
                     </a>
                 </div>
                 <div class="col-md-6 my-auto">
-                    <form role="search">
-                        <div class="input-group">
+                    <form method="POST" action="{{route('product.search')}}">
+                        @csrf
+                        <div class="input-group" role="search">
                             <input type="search" placeholder="Search your product" class="form-control" />
                             <button class="btn bg-white" type="submit">
                                 <i class="fa fa-search"></i>
@@ -110,6 +111,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/')}}">
                             <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/collections')}}">
+                            <i class="fas fa-home"></i> Collections
                         </a>
                     </li>
 
