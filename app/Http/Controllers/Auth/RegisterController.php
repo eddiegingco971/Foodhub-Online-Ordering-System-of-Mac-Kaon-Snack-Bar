@@ -33,13 +33,13 @@ class RegisterController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo(){
         if(Auth::user()-> user_type == 'admin'){
-            return '/home';
+            return '/admin';
 
         }else if(Auth::user()-> user_type == 'staff'){
             return '/staff';
 
         }else{
-            return '/user';
+            return '/user-cart';
         }
       }
 

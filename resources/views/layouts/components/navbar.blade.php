@@ -132,10 +132,10 @@
         <a class="nav-link" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
             @if (Auth::user()->user_type == 'admin')
             <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-            <strong class="d-none d-sm-inline-block">{{Auth::user()->lastname}}</strong>
+            <strong class="d-none d-sm-inline-block">{{Auth::user()->firstname}} {{Auth::user()->lastname}}</strong>
             @elseif(Auth::user()->user_type == 'staff')
             <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-            <strong class="d-none d-sm-inline-block">{{Auth::user()->lastname}}</strong>
+            <strong class="d-none d-sm-inline-block">{{Auth::user()->firstname}} {{Auth::user()->lastname}}</strong>
             @else
             <img src="{{asset('/dist/img/user-profile/user-avatar.jpg')}}" alt="" width="30" height="30" class="rounded-circle">
             <strong class="d-none d-sm-inline-block">{{Auth::user()->firstname}} {{Auth::user()->lastname}}</strong>
@@ -143,14 +143,11 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             @if (Auth::user()->user_type == 'admin')
-            <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
-            <li><a class="dropdown-item" href="{{url('/home')}}">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
             @elseif(Auth::user()->user_type == 'staff')
-            <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
-            <li><a class="dropdown-item" href="{{url('/staff')}}">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
             @else
             <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
-            <li><a class="dropdown-item" href="{{url('/user')}}">Dashboard</a></li>
             @endif
 
             <li><hr class="dropdown-divider" /></li>

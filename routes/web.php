@@ -89,7 +89,7 @@ Route::group(['middleware' => ['auth', 'staff']], function (){
 });
 
 Route::group(['middleware' => ['auth', 'user']], function (){
-    Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::get('/user-cart', [UserController::class, 'index'])->name('user');
 
     Route::get('/user-order', [UserController::class, 'userOrder']);
 

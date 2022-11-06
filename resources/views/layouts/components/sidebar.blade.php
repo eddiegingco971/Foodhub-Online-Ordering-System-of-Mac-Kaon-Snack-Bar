@@ -98,7 +98,7 @@
             <a href="{{url('/slider')}}" class="nav-link">
               <i class="nav-icon far fa-images"></i>
               <p>
-                Photo Slider
+                Home Slider
                 <span class="badge badge-danger right"></span>
               </p>
             </a>
@@ -233,7 +233,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-header">Account Setting</li>
           <li class="nav-item">
-            <a href="{{url('/user')}}" class="nav-link active">
+            <a href="{{url('/user-cart')}}" class="nav-link active">
               <i class="nav-icon fas fa-briefcase"></i>
               <p>Cart</p>
             </a>
