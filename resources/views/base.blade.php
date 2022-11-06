@@ -106,302 +106,214 @@
   <body>
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-            {{-- <a class="navbar-brand d-lg-none" href="{{url('/')}}">
-                <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                Mac Kaon Foodhub
-            </a> --}}
-            @if (Route::has('login'))
-            @auth
-            <a class="navbar-brand d-lg-none" href="{{url('/')}}">
-                <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                {{-- Mac Kaon Foodhub --}}
-            </a>
-            <ul class="navbar-nav col-6 d-lg-none text-sm">
-                <form role="search">
-                    <div class="input-group">
-                        <input type="search" placeholder="Search Product" class="form-control" />
-                        <button class="btn btn-secondary" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </form>
-            </ul>
-
-
-            {{-- <a class="nav-item"> --}}
-                <a class="btn btn-lg-default bg-light d-lg-none" href="#">
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
-                {{-- <span class="badge navbar-badge text-danger">0</span> --}}
-            {{-- </a> --}}
-
-                <a class="d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
-                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                    {{-- <i class="far fa-user-circle"></i> --}}
-                </a>
-
-                <div class="offcanvas-lg offcanvas-end d-lg-none bg-dark text-white card" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style="width: 300px;height:255px;margin:5px;">
-                    <div class="offcanvas-header">
-                        <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                        {{Auth::user()->firstname}} {{Auth::user()->lastname}}
-                        <button type="button" class=" btn btn-secondary btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="row">
-                            @if (Auth::user()->user_type == 'admin')
-                               <a class="btn btn-lg  btn-outline-primary text-white mb-2" href="{{url('/profile')}}">Password Settings</a>
-                               <a class="btn btn-lg btn-outline-primary text-white" href="{{url('/home')}}">Dashboard</a>
-                            @elseif(Auth::user()->user_type == 'staff')
-                               <a class="btn btn-lg btn-outline-primary text-white mb-2" href="{{url('/profile')}}">Password Settings</a>
-                               <a class="btn btn-lg btn-outline-primary text-white" href="{{url('/staff')}}">Dashboard</a>
-                            @else
-                               <a class="btn btn-lg btn-outline-primary text-white mb-2" href="{{url('/profile')}}">Account Settings</a>
-                               <a class="btn btn-lg btn-outline-primary text-white" href="{{url('/user')}}">Dashboard</a>
-                            @endif
-
-
-                            <a class="btn btn-lg text-white btn-outline-danger mt-2" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
+        <div class="main-navbar shadow-sm sticky-top">
+            <div class="top-navbar">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 my-auto d-none d-sm-none d-md-block d-lg-block">
+                            <h5 class="brand-name">
+                                <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                                Mac Kaon FoodHub
+                            </h5>
+                        </div>
+                        <div class="col-md-6 my-auto">
+                            <form role="search">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Search your product" class="form-control" />
+                                    <button class="btn bg-white" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
                             </form>
-
-                    </div>
-                    </div>
-
-                </div>
-            @else
-
-                {{-- <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a> --}}
-                <ul class="navbar-nav col-6 d-lg-none text-sm">
-                    <form role="search">
-                        <div class="input-group">
-                            <input type="search" placeholder="Search Product" class="form-control" />
-                            <button class="btn btn-secondary" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
                         </div>
-                    </form>
-                </ul>
+                        <div class="col-md-3 my-auto">
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="fa fa-shopping-cart"></i> Cart (0)
+                                    </a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    @if (Route::has('login'))
+                                    @auth
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
+                                        <i class="fa fa-user"></i> {{Auth::user()->firstname}} {{Auth::user()->lastname}}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out"></i> {{ __('Logout') }}</a>
+                                        </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </ul>
+
+                                    @else
+
+                                    <li class="nav-item">
+                                        <a class="nav-link btn btn-sm text-sm" href="{{ route('login') }}">
+                                           Login
+                                        </a>
+                                    </li>
+
+                                    @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link btn btn-sm text-sm" href="{{ route('register') }}">
+                                            Register
+                                        </a>
+                                    </li>
+                                    @endif
+
+                                    @endauth
+                                    @endif
 
 
-                {{-- <a class="nav-item"> --}}
-                    <a class="btn btn-lg-default bg-light d-lg-none" href="#">
-                        <i class="fa fa-shopping-cart"></i>
-                    </a>
-                    {{-- <span class="badge navbar-badge text-danger">0</span> --}}
-                {{-- </a> --}}
-                    <a href="{{ route('login') }}" class="btn btn-sm text-white d-lg-none">Sign in</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="text-white btn btn-sm btn-outline-primary d-lg-none">Sign up</a>
-                    @endif
-
-            @endauth
-            @endif
-
-
-
-            {{-- <div class="dropdown">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                </button>
-
-            </div> --}}
-
-            {{-- <div class="dropdown d-lg-none" style="float:right;">
-                <button class="btn btn-sm">
-                    <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                </button>
-                <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                </div>
-            </div> --}}
-
-
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <a class="navbar-brand" href="{{url('/')}}">
-                        <img type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                        Mac Kaon Foodhub
-                    </a>
-                </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item d-flex justify-content-end">
-                    <a class="nav-link disabled">Disabled</a>
-                </li> --}}
-
-                </ul>
-
-                <ul class="col-md-6 mx-auto mt-2">
-                    <form role="search">
-                        <div class="input-group my-auto">
-                            <input type="search" placeholder="Search your product" class="form-control" />
-                            <button class="btn bg-white" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
+                                </li>
+                            </ul>
                         </div>
-                    </form>
-                </ul>
-
-             <ul class="navbar-nav ml-auto mb-2 mb-md-0">
-                <li class="nav-item active">
-                    <a class="nav-link active " aria-current="page" href="#">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span class="badge navbar-badge text-danger">0</span>
-                    </a>
-                </li>
-                @if (Route::has('login'))
-                @auth
-                <li class="nav-item">
-                    @if (Auth::user()->user_type == 'admin')
-                    <a class="nav-link active" aria-current="page" href="{{url('/home')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
-                    @elseif(Auth::user()->user_type == 'staff')
-                    <a class="nav-link active" aria-current="page" href="{{url('/staff')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
-                    @else
-                    <a class="nav-link active" aria-current="page" href="{{url('/user')}}">  &VerticalLine; <i class="fas fa-layer-group"></i> Dashboard &VerticalLine;  </a>
-                    @endif
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        @if (Auth::user()->user_type == 'admin')
-                            <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                            {{Auth::user()->firstname}} {{Auth::user()->lastname}}
-                        @elseif(Auth::user()->user_type == 'staff')
-                            <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                            {{Auth::user()->firstname}} {{Auth::user()->lastname}}
-                        @else
-                            <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
-                            {{Auth::user()->firstname}} {{Auth::user()->lastname}}
-                        @endif
-                    </a>
-                    <ul class="dropdown-menu">
-                      @if (Auth::user()->user_type == 'admin')
-                        <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
-                        <li><a class="dropdown-item" href="{{url('/home')}}">Dashboard</a></li>
-                        @elseif(Auth::user()->user_type == 'staff')
-                        <li><a class="dropdown-item" href="{{url('/profile')}}">Password Settings</a></li>
-                        <li><a class="dropdown-item" href="{{url('/staff')}}">Dashboard</a></li>
-                        @else
-                        <li><a class="dropdown-item" href="{{url('/profile')}}">Account Settings</a></li>
-                        <li><a class="dropdown-item" href="{{url('/user')}}">Dashboard</a></li>
-                      @endif
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                        </form>
-                        </li>
-                    </ul>
-                </li>
-                @else
-                {{-- <a href="{{ route('login') }}" class="btn btn-sm text-white">Sign in</a> --}}
-                <ul class="navbar-nav ml-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Sign in</a>
-                    </li>
-                <li class="nav-item">
-                    @if (Route::has('register'))
-                    {{-- <a class="nav-link" href="{{ route('register') }}" >Sign up</a> --}}
-                        <a href="{{ route('register') }}" class="mr-3 text-white btn btn-outline-primary">Sign up</a>
-                    @endif
-                </li>
-
-                </ul>
-
-
-            @endauth
-            @endif
-
-             </ul>
-
-
-                {{-- <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> --}}
-             </div>
+                    </div>
+                </div>
             </div>
 
-        </nav>
+            <div class="bot-navbar">
+                <div class="row">
+                    <div class="col-md-5 my-auto">
+                        <ul class="nav justify-content-start">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-shopping-cart"></i> Cart (0)
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-heart"></i> Wishlist (0)
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i> All Categories
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            {{-- <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+
+                    <div class="col-md-5 my-auto">
+                        <ul class="nav justify-content-start">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                   Cart (0)
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Wishlist (0)
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i> All Categories
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> --}}
+        </div>
     </header>
 
     <main>
+        <div class="content">
+        <div class="container-fluid">
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                {{-- @foreach ($sliders as $slider)
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $slider->id}}" class="active" aria-current="true" aria-label="Slide 1">{{ $slider->id}}</button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                @endforeach --}}
+                <div class="carousel-inner">
+                    @foreach ($sliders as $slider)
+                <div class="carousel-item active">
+                    <img class="bd-placeholder-img" src="{{asset('dist/img/slider/'.$slider->image)}}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" width="100%" height="100%" fill="#777"/>
+                    <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1 class="text-dark">{{ $slider->title}}</h1>
+                        <p class="text-dark">{{ $slider->description}}</p>
+                        @if (Route::has('login'))
+                            @auth
+                                <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Buy now!</a></p>
+                            @else
+                                <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Sign up</a></p>
+                            @endauth
+                        @endif
+                    </div>
+                    </div>
+                </div>
+                @endforeach
+                {{-- <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
 
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        {{-- @foreach ($sliders as $slider)
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $slider->id}}" class="active" aria-current="true" aria-label="Slide 1">{{ $slider->id}}</button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        @endforeach --}}
-        <div class="carousel-inner">
-            @foreach ($sliders as $slider)
-        <div class="carousel-item active">
-            <img class="bd-placeholder-img" src="{{asset('dist/img/slider/'.$slider->image)}}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" width="100%" height="100%" fill="#777"/>
-            <div class="container">
-            <div class="carousel-caption text-start">
-                <h1 class="text-dark">{{ $slider->title}}</h1>
-                <p class="text-dark">{{ $slider->description}}</p>
-                @if (Route::has('login'))
-                    @auth
-                        <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">{{ $slider->button_name}}</a></p>
-                    @else
-                        <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}">Sign up</a></p>
-                    @endauth
-                @endif
-            </div>
-            </div>
-        </div>
-        @endforeach
-        {{-- <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                    <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Some representative placeholder content for the second slide of the carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                    </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
 
-            <div class="container">
-            <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Some representative placeholder content for the second slide of the carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-            </div>
+                    <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>One more for good measure.</h1>
+                        <p>Some representative placeholder content for the third slide of this carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                    </div>
+                    </div>
+                </div> --}}
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
-        <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-            <div class="container">
-            <div class="carousel-caption text-end">
-                <h1>One more for good measure.</h1>
-                <p>Some representative placeholder content for the third slide of this carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-            </div>
-            </div>
-        </div> --}}
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-        </button>
     </div>
-
 
 
     <!-- Marketing messaging and featurettes
