@@ -17,6 +17,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
+            'image' => fake()->image(),
             'category_name' => fake()->name(),
             'status'=>fake()->randomElement(['active','inactive'])
         ];

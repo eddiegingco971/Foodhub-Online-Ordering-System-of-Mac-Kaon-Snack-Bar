@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
+        $categories = Category::all();
         return view('admin.category.index', compact('categories'));
     }
 
@@ -36,15 +37,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
-        $category->category_name = $request->input('category_name');
-        $category->status = $request->input('status');
+        $categories = new Category;
+        $categories->category_name = $request->input('category_name');
+        $categories->status = $request->input('status');
+
         $request->validate([
             'category_name' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif|max:2048',
             'status' => 'required|string',
         ]);
 
-        $category->save();
+        if($request->hasFile('image')){
+
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'. $extention;
+            $file->move('dist/img/category/', $filename);
+            $categories->image = $filename;
+
+          }
+
+
+        $categories->save();
 
         return redirect('/category')->with('status', 'Category Added Successfully');   ;
     }
@@ -85,6 +99,20 @@ class CategoryController extends Controller
         $categories->category_name = $request->input('category_name');
         $categories->status = $request->input('status');
 
+        if($request->hasFile('image')){
+
+            $destination = 'dist/img/category/'.$categories->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'. $extention;
+            $file->move('dist/img/category/', $filename);
+            $categories->image = $filename;
+
+          }
+
         $categories->update();
 
         return redirect('/category')->with('status', 'Product Updated Successfully!');
@@ -98,6 +126,10 @@ class CategoryController extends Controller
    public function destroy($id)
     {
         $categories = Category::find($id);
+        $destination = 'dist/img/category/'.$categories->image;
+        if(File::exists($destination)){
+            File::delete($destination);
+        }
         $categories->delete();
 
         return redirect('/category')->with('status', 'Product Deleted Successfully!');

@@ -29,7 +29,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
     @include('layouts.components.preloader')
 
     @if (session('status'))
@@ -42,7 +42,7 @@
             {{ session('error') }}
         </div>
     @endif
-   
+
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -55,16 +55,20 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                          <form action="{{url('update-category/'.$categories->id)}}" method="POST">
+                          <form action="{{url('update-category/'.$categories->id)}}" method="POST" enctype="multipart/form-data">
                               @csrf
                               @method('PUT')
-            
+
+                              <div class="form-group">
+                                <label for="image" class="col-form-label">Category Image</label>
+                                <input type="file" name="image" class="form-control" id="image">
+                                <img src="{{asset('dist/img/category/'.$categories->image)}}" width="150px" height="100px" alt="Image" style="border-radius: 10%; margin-top: 2px;">
+                              </div>
+
                               <div class="form-group">
                                   <label for="category_name" id="category_name"> Category Name</label>
                                   <input type="category_name" name="category_name" class="form-control" value="{{$categories->category_name}}">
                               </div>
-                             
-                               
 
                               <div class="form-group">
                                 <label for="status" id="status">Status</label>
@@ -73,7 +77,7 @@
                                   <option value="active">Active</option>
                                   <option value="inactive">Inactive</option>
                                  </select>
-            
+
                                 @error('status')
                                   <div class="text-danger">{{$message}}</div>
                                 @enderror
@@ -84,7 +88,7 @@
                               {{-- <button type="submit" class="btn btn-info" style="position: relative; left:78%;">Save</button> --}}
                               <button type="submit" class="btn btn-info">Save</button>
                           </div>
-            
+
                             </form>
                         </div>
                         <!-- /.card-body -->
@@ -97,7 +101,7 @@
         </div>
       </div>
     </div>
-   
+
     <!-- Main content -->
   </section>
     <!-- /.content -->

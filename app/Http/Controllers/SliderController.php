@@ -111,7 +111,7 @@ class SliderController extends Controller
 
         if($request->hasFile('image')){
 
-          $destination = 'dist/img/product/'.$sliders->image;
+          $destination = 'dist/img/slider/'.$sliders->image;
           if(File::exists($destination)){
               File::delete($destination);
           }

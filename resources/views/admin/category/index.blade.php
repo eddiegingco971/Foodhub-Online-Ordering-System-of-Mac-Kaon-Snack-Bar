@@ -31,7 +31,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
     @include('layouts.components.preloader')
 
     @if (session('status'))
@@ -59,10 +59,10 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
             @include('admin.category.create')
           </div>
-          <div class="col-md-9">
+          <div class="col-md-8">
 
             <div class="card elevation-3">
               <div class="card-header">
@@ -73,6 +73,8 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>Category ID</th>
+                    <th>Category Image</th>
                     <th>Category Name</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -81,6 +83,8 @@
                   <tbody>
                     @foreach ($categories as $category)
                         <tr>
+                          <td>{{$category->id}}</td>
+                          <td class="text-center"><img src="{{asset('dist/img/category/'.$category->image)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
                           <td>{{$category->category_name}}</td>
                           <td>{{$category->status}}</td>
                           <td>
@@ -207,7 +211,7 @@
           </thead>
           <tbody>
           <tr>
-          
+
             @foreach ($categories as $category)
               <tr>
                 <td>{{$category->id}}</td>
