@@ -116,7 +116,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/collections')}}">
-                            <i class="fas fa-home"></i> Collections
+                            <i class="fas fa-home"></i> Products
                         </a>
                     </li>
 
@@ -126,18 +126,17 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-user"></i> All Categories
+                            <i class="fa fa-user"></i> All Category
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($categories as $category)
-                                <li><a class="dropdown-item" href="#"></i> {{$category->category_name}}</a></li>
-
+                                <li><a class="dropdown-item" href="{{url('/collections/'.$category->category_name)}}"></i> {{$category->category_name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{url('/about')}}">
                             <i class="fas fa-info-circle"></i> About Us
                         </a>
                     </li>
@@ -146,35 +145,5 @@
 
 
     </div>
-    {{-- <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
 
-            <div class="col-md-5 my-auto">
-                <ul class="nav justify-content-start">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                           Cart (0)
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Wishlist (0)
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-user"></i> All Categories
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> --}}
 </div>

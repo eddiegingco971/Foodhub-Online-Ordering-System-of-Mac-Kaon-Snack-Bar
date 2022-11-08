@@ -1,90 +1,49 @@
 @extends('layouts.app')
 @section('content')
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        @foreach ($sliders as $keys => $slider)
+        @foreach ($sliders as $key => $slider)
+        <div class="carousel-item {{$key == 0 ? 'active':''}}">
 
-        <div class="carousel-item {{$keys == 0 ? 'active':''}}">
-            <img src="{{asset('dist/img/slider/'.$slider->image)}}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="custom-carousel-content">
-                    <h1>
-                        <span>{{ $slider->title}}</span>
-                        to Boost your Brand Name &amp; Sales
-                    </h1>
-                    <p>
-                        {{ $slider->description}}
-                    </p>
-                    <div>
-                    @if (Route::has('login'))
+            <img class="bd-placeholder-img" width="100%" height="100%" src="{{asset('dist/img/slider/'.$slider->image)}}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>{{ $slider->title}}</h1>
+                <p>{{ $slider->description}}</p>
+                @if (Route::has('login'))
                         @auth
-                        <a href="{{ $slider->link}}" class="btn btn-slider">
+                        <a href="{{ $slider->link}}" class="btn btn-lg btn-primary">
                             {{ $slider->button_name}}
                         </a>
                         @else
-                        <a href="{{url('/register')}}" class="btn btn-slider">
+                        <a href="{{url('/register')}}" class="btn btn-lg btn-primary">
                             Sign up
                         </a>
                         @endauth
                     @endif
-                    </div>
-                </div>
+
+              </div>
             </div>
-        </div>
+          </div>
         @endforeach
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
-
-{{-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-
-    <div class="carousel-inner">
-        @foreach ($sliders as $slider)
-    <div class="carousel-item active">
-        <img class="bd-placeholder-img" src="{{asset('dist/img/slider/'.$slider->image)}}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" width="100%" height="100%" fill="#777"/>
-        <div class="container">
-        <div class="carousel-caption text-start">
-            <h1 class="text-dark">{{ $slider->title}}</h1>
-            <p class="text-dark">{{ $slider->description}}</p>
-            @if (Route::has('login'))
-                @auth
-                    <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">{{ $slider->button_name}}</a></p>
-                @else
-                    <p><a class="btn btn-lg btn-primary" href="{{ $slider->link}}">Sign up</a></p>
-                @endauth
-            @endif
-        </div>
-        </div>
-    </div>
-    @endforeach
 
     </div>
-
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
     </button>
-</div> --}}
+  </div>
 
+@include('collections.category.collectionCategory')
 
-{{--
-<div class="container marketing">
+{{-- <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
@@ -157,7 +116,7 @@
 
     <!-- /END THE FEATURETTES -->
 
-</div><!-- /.container -->
- --}}
+</div><!-- /.container --> --}}
+
 
 @endsection

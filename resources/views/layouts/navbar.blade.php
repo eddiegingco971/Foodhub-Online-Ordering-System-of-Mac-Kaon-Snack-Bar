@@ -160,7 +160,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{url('/about')}}">
                                     <i class="fas fa-info-circle"></i> About Us
                                 </a>
                             </li>

@@ -17,14 +17,14 @@ class SiteController extends Controller
         $products = DB::table('products')->get();
         $sliders = Slider::where('status', 'active')->get();
         $orders = DB::table('orders')->where('quantity')->get();
-        $categories = DB::table('categories')->get();
+        $categories = Category::where('status','active')->get();
         // $carts = User::where('user_id', 'id')->get();
         $carts = DB::table('carts')->where('user_id', 'id')->get();
         return view('base', compact('products','sliders', 'orders', 'users', 'categories', 'carts'));
     }
 
     public function productSearch(Request $request){
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
+        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->exists();
         $products=Product::orwhere('product_name','like','%'.$request->search.'%')
                     ->orderBy('id','DESC')
                     ->simplePaginate('9');
@@ -33,19 +33,30 @@ class SiteController extends Controller
 
     public function collectionCategory()
     {
-        $categories = Category::where('status','active')->simplePaginate(4);
+        $categories = Category::where('status','active')->get();
         return view('collections.category.index',compact('categories'));
     }
+
+    // public function collectionCategory()
+    // {
+    //     $categories = Category::where('status','active')->get();
+    //     return view('collections.category.collectionCategory',compact('categories'));
+    // }
 
     public function specificProduct($cat_name)
     {
         $categories = Category::where('category_name', $cat_name)->first();
 
         if($categories){
-            $products = $categories->products()->simplePaginate(4);
+            $products = $categories->products()->get();
             return view('collections.product.index', compact('products','categories'));
         }else{
             return redirect()->back();
         }
+    }
+
+    public function about()
+    {
+       return view('about');
     }
 }

@@ -27,10 +27,6 @@ class UserController extends Controller
 
     public function index()
     {
-
-        // $products = DB::table('products')->get();
-        // $sliders = DB::table('sliders')->get();
-        // $orders = DB::table('orders')->where('quantity')->get();
         $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
         return view('user.user-cart.index', compact('carts'));
     }

@@ -21,7 +21,7 @@
 @endif --}}
 
 
- <div class="container">
+ {{-- <div class="container">
     <div class="row justify-content-center">
         @if(count($products)>0)
             @foreach($products as $product)
@@ -49,15 +49,10 @@
 
                     </div>
                     <div class="form-group text-dark">
-                    {{-- @foreach ($orders as $order)
-                        <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" value="{{($product->price)*($order->quantity)}}">
-                    @endforeach --}}
+
 
                     <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder="Price * Quantity">
                     <input type="hidden" name="status" id="status" class="form-control" value="new">
-                    {{-- @foreach ($carts as $cart)
-                        <input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
-                    @endforeach --}}
 
                     </div>
                     <button class="btn btn-light" type="submit">Add Cart</button>
@@ -72,11 +67,74 @@
         @endif
     </div>
  </div>
-</div>
+</div> --}}
 
-{{-- @foreach ($carts as $cart)
-<input type="hidden" name="status" id="status" class="form-control" value="{{$cart->status}}">
-@endforeach --}}
+
+<div class="py-3 py-md-5 bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="mb-4">Search Product</h4>
+            </div>
+                <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data" style="justify-content: space-between;">
+                    @csrf
+                    @forelse ($products as $product)
+                    <div class="col-6 col-md-3">
+                        <div class="product-card card">
+                            <div class="product-card-img">
+                                @if ($product->status == 'active')
+                                    <label class="stock bg-success">Available</label>
+                                @else
+                                    <label class="stock bg-danger">Not Available</label>
+                                @endif
+
+                                @if (Route::has('login'))
+                                    @auth
+                                <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
+                                    @endauth
+                                @endif
+
+                                <a href="{{url('/collections/'.$product->categories->category_name.'/'.$product->product_name)}}">
+                                    <img src="{{asset('dist/img/product/'.$product->product_photo)}}" alt="Laptop">
+                                </a>
+
+                            </div>
+                            <div class="product-card-body">
+                                <h5 class="product-name">
+                                <a href="{{url('/collections/'.$product->categories->category_name.'/'.$product->product_name)}}">
+                                    {{$product->product_name}}
+                                </a>
+                                </h5>
+                                <div>
+                                    <span class="selling-price">₱{{$product->price}}</span>
+                                    <span class="original-price">₱799</span>
+                                </div>
+                                <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder="Price * Quantity">
+                                <div class="mt-2">
+
+                                    <button type="submit" class="btn btn-md btn-primary">Add Cart</button>
+                                    {{-- <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
+                                    <a href="" class="btn btn1"> View </a> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        @empty
+                        <div class="col-md-12">
+                            <div class="p-2">
+                                <h4>No products available for {{$categories->category_name}}</h4>
+                            </div>
+                        </div>
+                    @endforelse
+                </form>
+
+
+        </div>
+        {{-- <div class="col-md-12 offset-md-5">
+            <div class=" btn btn-primary">{{$products->links()}}</div>
+        </div> --}}
+    </div>
+</div>
 
 
 @endsection

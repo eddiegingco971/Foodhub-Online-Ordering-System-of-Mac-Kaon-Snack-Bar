@@ -32,6 +32,7 @@ Route::get('/', [SiteController::class, 'index'])->name('base');
 Route::post('/product/search', [SiteController::class, 'productSearch'])->name('product.search');
 Route::get('/collections', [SiteController::class, 'collectionCategory']);
 Route::get('/collections/{cat_name}', [SiteController::class, 'specificProduct']);
+Route::get('/about', [SiteController::class, 'about']);
 
 
 
