@@ -114,12 +114,12 @@
                                 </div>
                                 <input type="hidden" name="price" class="form-control" value="{{$product->price}}">
 
-                                <div class="col-md-2 col-7 my-auto">
+                                <div class="col-md-12 my-auto">
                                     <div class="quantity">
                                         <div class="input-group">
-                                            <span class="btn btn1"><i class="fa fa-minus"></i></span>
+                                            <span class="btn btn1 btn-warning"><i class="fa fa-minus"></i></span>
                                             <input type="text" name="quantity" value="1" class="input-quantity" />
-                                            <span class="btn btn1"><i class="fa fa-plus"></i></span>
+                                            <span class="btn btn1 btn-warning"><i class="fa fa-plus"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                 <input type="hidden" name="status" id="status" class="form-control" value="new">
                                 <div class="mt-2">
 
-                                    <button type="submit" class="btn btn-md btn-primary">Add Cart</button>
+                                    <button type="submit" class="btn btn1 btn-success">Add Cart</button>
                                     {{-- <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
                                     <a href="" class="btn btn1"> View </a> --}}
                                 </div>
