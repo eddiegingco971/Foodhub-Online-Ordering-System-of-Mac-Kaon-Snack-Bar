@@ -105,7 +105,7 @@
                             <div class="row">
 
                                 <div class="col-md-6">
-                                    <label for="firstname" class="col-sm-4 col-form-label text-md-start text-dark">{{ __('Firstname') }}</label>
+                                    <label for="firstname" class="col-sm-6 col-form-label text-md-start text-dark">{{ __('Firstname') }}</label>
                                     <input id="firstname" type="firstname" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus placeholder="Firstname">
                                     @error('firstname')
                                         <span class="invalid-feedback" role="alert">
@@ -115,7 +115,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="lastname" class="col-sm-4 col-form-label text-md-start text-dark">{{ __('Lastname') }}</label>
+                                    <label for="lastname" class="col-sm-6 col-form-label text-md-start text-dark">{{ __('Lastname') }}</label>
                                     <input id="lastname" type="lastname" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus placeholder="Lastname">
                                     @error('lastname')
                                         <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                             <div class="row">
 
                                 <div class="col-md-6">
-                                    <label for="age" class="col-sm-2 col-form-label text-md-start text-dark">{{ __('Age') }}</label>
+                                    <label for="age" class="col-sm-6 col-form-label text-md-start text-dark">{{ __('Age') }}</label>
                                     <input id="age" type="age" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus placeholder="Age">
                                     @error('age')
                                         <span class="invalid-feedback" role="alert">
@@ -140,7 +140,7 @@
 
 
                                 <div class="col-md-6">
-                                    <label for="gender" class="col-sm-4 col-form-label text-md-start text-dark">{{ __('Gender') }}</label>
+                                    <label for="gender" class="col-sm-6 col-form-label text-md-start text-dark">{{ __('Gender') }}</label>
                                     <select class="form-select form-control" name="gender">
                                         <option hidden="true" value="">--Select Gender--</option>
                                         <option value="male">Male</option>
@@ -157,7 +157,7 @@
 
                             <div class="row">
                             <div class="col-sm-6">
-                                <label for="birthdate" class="col-sm-4 col-form-label text-md-start text-dark">{{ __('Birthdate') }}</label>
+                                <label for="birthdate" class="col-sm-6 col-form-label text-md-start text-dark">{{ __('Birthdate') }}</label>
                                 <input type="date" id="birthdate" name="birthdate" class="form-control">
                                 @error('birtdate')
                                     <div class="text-danger">{{$message}}</div>
@@ -167,7 +167,7 @@
 
 
                             <div class="col-sm-6">
-                                <label for="phone_number" class="col-sm-6 col-form-label text-md-start">{{ __('Phone Number') }}</label>
+                                <label for="phone_number" class="col-sm-8 col-form-label text-md-start">{{ __('Phone Number') }}</label>
                                 <input type="phone_number" id="phone_number" name="phone_number" class="form-control" placeholder="09xxxxxxxxx">
                                 @error('phone_number')
                                     <div class="text-danger">{{$message}}</div>
@@ -183,7 +183,7 @@
 
 
                             <div class="col-sm-6">
-                                <label for="address" class="col-sm-4 col-form-label">Address</label>
+                                <label for="address" class="col-sm-6 col-form-label">Address</label>
                                 <textarea type="text" id="address" name="address" class="form-control" placeholder="Complete Address"></textarea>
                                 @error('address')
                                     <div class="text-danger">{{$message}}</div>
@@ -232,7 +232,7 @@
 
                             <div class="row">
                             <div class="col-sm-6">
-                                <label for="password" class="col-sm-4 col-form-label">Password</label>
+                                <label for="password" class="col-sm-6 col-form-label">Password</label>
                                 <input type="password" id="password" name="password" class="form-control" placeholder="Atleat 8 characters or above">
                                 @error('password')
                                     <div class="text-danger">{{$message}}</div>
@@ -257,7 +257,7 @@
                             <div class="col-sm-10 m-1">
                                 <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                    <input type="checkbox" required> I agree to the <a href="#">terms and conditions</a>
                                 </label>
                                 </div>
                             </div>

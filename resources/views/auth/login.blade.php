@@ -7,9 +7,9 @@
   <!-- Main Sidebar Container -->
 
   <!-- Content Wrapper. Contains page content -->
-<div class="content">
+<div class="content bg-dark">
     <div class="container p-1">
-        <div class="row justify-content-center m-5 border elevation-3">
+        <div class="row justify-content-center m-5 border elevation-3 bg-light">
             <div class="col-md-4 p-5 d-none d-md-block">
                 <img src="{{asset('/dist')}}/img/Logo.png" width="350" height="350" class="img-circle elevation-2" alt="User Image">
             </div>
@@ -60,7 +60,7 @@
                                     </div>
                                 </div> --}}
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center"><input name="remember" type="checkbox" id="name" class=" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" /> <span class="pl-2 font-weight-bold">{{ __('Remember Me') }}</span></div>
+                                    <div class="d-flex align-items-center"><input name="remember" type="checkbox" id="name" class=" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" /> <span class="pl-2 font-weight-bold text-dark">{{ __('Remember Me') }}</span></div>
                                     <div>
                                         @if (Route::has('password.request'))
                                             <a class="btn btn-link w-100 font-weight-bold" href="{{ route('password.request') }}">Forgot Password?</a></div>
