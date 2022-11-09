@@ -79,12 +79,16 @@
   -------------------------------------------------- */
 
   /* Center align the text within the three columns below the carousel */
-  .marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
+  .marketing .col-md-2 {
+    /* margin-top: 2.5rem; */
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 18px;
     text-align: center;
+    justify-content: space-between;
   }
   /* rtl:begin:ignore */
-  .marketing .col-lg-4 p {
+  .marketing .col-md-2 p {
     margin-right: .75rem;
     margin-left: .75rem;
   }
@@ -95,7 +99,7 @@
   ------------------------- */
 
   .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 2rem 0; /* Space out the Bootstrap <hr> more */
   }
 
   /* Thin out the marketing headings */
