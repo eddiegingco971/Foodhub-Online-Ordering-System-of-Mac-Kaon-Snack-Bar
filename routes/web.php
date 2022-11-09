@@ -31,9 +31,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [SiteController::class, 'index'])->name('base');
 Route::post('/product/search', [SiteController::class, 'productSearch'])->name('product.search');
 Route::get('/all-product', [SiteController::class, 'allProduct']);
-
 Route::get('/collections', [SiteController::class, 'collectionCategory']);
 Route::get('/collections/{cat_name}', [SiteController::class, 'specificProduct']);
+Route::get('//collections/{cat_name}/{pro_name}', [SiteController::class, 'viewProduct']);
 Route::get('/about', [SiteController::class, 'about']);
 
 

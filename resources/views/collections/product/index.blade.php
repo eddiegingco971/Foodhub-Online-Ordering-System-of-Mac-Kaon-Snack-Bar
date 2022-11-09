@@ -9,7 +9,7 @@ $products=DB::table('products')->where('status','active')->get();
 <div class="py-3 py-md-5 bg-dark">
     <div class="container">
          <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data" style="justify-content: space-between;">
-                        @csrf
+            @csrf
         <div class="row">
             <div class="col-md-12">
                 <h4 class="mb-4">{{$categories->category_name}} Category</h4>

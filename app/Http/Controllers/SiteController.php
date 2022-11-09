@@ -62,6 +62,24 @@ class SiteController extends Controller
         }
     }
 
+    public function viewProduct($cat_name, $pro_name){
+        $categories = Category::where('category_name', $cat_name)->first();
+
+        if($categories){
+            $products = $categories->products()->where('product_name', $pro_name)->where('status', 'active')->first();
+            if($products){
+                return view('collections.product.view', compact('products','categories'));
+            }else{
+                return redirect()->back();
+            }
+            // $products = $categories->products()->get();
+            // return view('collections.product.index', compact('products','categories'));
+        }else{
+            return redirect()->back();
+        }
+
+    }
+
     public function about()
     {
        return view('about');
