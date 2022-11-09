@@ -27,24 +27,25 @@ class CartController extends Controller
 
     public function addCart(Request $request){
 
-        $request->validate([
-           'product_id' => 'required',
-           'user_id' => 'required',
-           'price' => 'required',
-           'quantity' => 'required',
-           'total_amount' => 'required',
-           'status' => 'required|string',
-       ]);
+    //     $request->validate([
+    //        'product_id' => 'required',
+    //        'user_id' => 'required',
+    //        'price' => 'required',
+    //        'quantity' => 'required',
+    //        'total_amount' => 'required',
+    //        'status' => 'required',
+    //    ]);
 
-       Cart::create([
+       Cart::with(['products'])->create([
            'product_id' => $request->product_id,
-           'user_id' => auth()->user()->id,
-           'price' => $request->price,
+           'user_id' => $request->user_id,
            'quantity' => $request->quantity,
-           'total_amount' =>  $request->total_amount,
+           'total_amount' =>  $request->price*$request->quantity,
            'status' => $request->status,
         ]);
 
-        return redirect('/')->with('status', 'Added Product Successfully');
+
+
+        return redirect()->back()->with('status', 'Added Product Successfully');
    }
 }

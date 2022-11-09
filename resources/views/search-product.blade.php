@@ -72,13 +72,15 @@
 
 <div class="py-3 py-md-5 bg-dark">
     <div class="container">
+         <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data" style="justify-content: space-between;">
+                        @csrf
         <div class="row">
             <div class="col-md-12">
-                <h4 class="mb-4">Search Product</h4>
+                <h4 class="mb-4">All Products</h4>
             </div>
-                <form action="{{url('cart-create')}}" method="POST" enctype="multipart/form-data" style="justify-content: space-between;">
-                    @csrf
+
                     @forelse ($products as $product)
+
                     <div class="col-6 col-md-3">
                         <div class="product-card card">
                             <div class="product-card-img">
@@ -93,6 +95,7 @@
                                 <input type="hidden" name="user_id" id="email" value="{{auth()->user()->id}}">
                                     @endauth
                                 @endif
+                                <input type="hidden" name="product_id" id="product_id" class="form-control" value="{{$product->id}}">
 
                                 <a href="{{url('/collections/'.$product->categories->category_name.'/'.$product->product_name)}}">
                                     <img src="{{asset('dist/img/product/'.$product->product_photo)}}" alt="Laptop">
@@ -109,7 +112,20 @@
                                     <span class="selling-price">₱{{$product->price}}</span>
                                     <span class="original-price">₱799</span>
                                 </div>
-                                <input class="form-control" type="total_amount" name="total_amount" id="total_amount" class="form-control" placeholder="Price * Quantity">
+                                <input type="hidden" name="price" class="form-control" value="{{$product->price}}">
+
+                                <div class="col-md-2 col-7 my-auto">
+                                    <div class="quantity">
+                                        <div class="input-group">
+                                            <span class="btn btn1"><i class="fa fa-minus"></i></span>
+                                            <input type="text" name="quantity" value="1" class="input-quantity" />
+                                            <span class="btn btn1"><i class="fa fa-plus"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" class="form-control" name="total_amount" id="total_amount" class="form-control">
+                                <input type="hidden" name="status" id="status" class="form-control" value="new">
                                 <div class="mt-2">
 
                                     <button type="submit" class="btn btn-md btn-primary">Add Cart</button>
@@ -119,6 +135,7 @@
                             </div>
                         </div>
                     </div>
+
                         @empty
                         <div class="col-md-12">
                             <div class="p-2">
@@ -126,7 +143,7 @@
                             </div>
                         </div>
                     @endforelse
-                </form>
+
 
 
         </div>
@@ -134,7 +151,7 @@
             <div class=" btn btn-primary">{{$products->links()}}</div>
         </div> --}}
     </div>
+</form>
 </div>
-
 
 @endsection

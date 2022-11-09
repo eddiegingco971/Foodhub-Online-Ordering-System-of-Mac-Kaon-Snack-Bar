@@ -63,21 +63,21 @@
 
 @section('content')
 <!-- Content Header (Page header) -->
-<section class="content-header">
+{{-- <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
           <div class="col-sm-6 mt-3">
               <h1>Cart Management</h1>
           </div>
-          {{-- <div class="col-sm-6 mt-3">
+          <div class="col-sm-6 mt-3">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('product-create')}}">Add Product</a></li>
               </ol>
-          </div> --}}
+          </div>
 
       </div>
     </div><!-- /.container-fluid -->
-  </section>
+</section>
 
   <!-- Main content -->
   <section class="content">
@@ -98,7 +98,7 @@
                   <th>Price</th>
                   <th>Quantity</th>
                   <th>Total Amount</th>
-                  <th>Status</th>
+
 
 
                   <th>Action</th>
@@ -107,20 +107,20 @@
                 <tbody>
                   @foreach ($carts as $cart)
                     <tr>
-                      <td>{{$cart->product_id}}</td>
-                      <td>{{$cart->price}}</td>
+                      <td>{{$cart->products->product_name}}</td>
+                      <td>{{$cart->products->price}}</td>
                       <td>{{$cart->quantity}}</td>
                       <td>{{$cart->total_amount}}</td>
-                      <td>{{$cart->status}}</td>
+
 
                       <td>
-                        {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
+                        <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a>
                         <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">Delete</a>
                       </td>
                     </tr>
                 @endforeach
                 </tbody>
-                {{-- <tfoot>
+                <tfoot>
                 <tr>
                   <th>Rendering engine</th>
                   <th>Browser</th>
@@ -128,7 +128,7 @@
                   <th>Engine version</th>
                   <th>CSS grade</th>
                 </tr>
-                </tfoot> --}}
+                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->
@@ -140,14 +140,16 @@
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-  </section>
+  </section> --}}
 
 
 
-  <div class="py-3 py-md-5 bg-light">
+  <div class="py-3 py-md-5 bg-dark">
     <div class="container">
-
         <div class="row">
+            <div class="col-sm-6 mt-3">
+                <h1>Cart Management</h1>
+            </div>
             <div class="col-md-12">
                 <div class="shopping-cart">
 
@@ -168,24 +170,27 @@
                         </div>
                     </div>
 
+                    @foreach ($carts as $cart)
+
+
                     <div class="cart-item">
                         <div class="row">
                             <div class="col-md-6 my-auto">
                                 <a href="">
                                     <label class="product-name">
-                                        <img src="hp-laptop.jpg" style="width: 50px; height: 50px" alt="">
-                                        Hp Laptop
+                                        <img src="{{asset('dist/img/product/'.$cart->products->product_photo)}}" style="width: 50px; height: 50px" alt="">
+                                        {{$cart->products->product_name}}
                                     </label>
                                 </a>
                             </div>
                             <div class="col-md-2 my-auto">
-                                <label class="price">$569 </label>
+                                <label class="price text-dark">{{$cart->products->price}}</label>
                             </div>
                             <div class="col-md-2 col-7 my-auto">
                                 <div class="quantity">
                                     <div class="input-group">
                                         <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                        <input type="text" value="1" class="input-quantity" />
+                                        <input type="text" class="input-quantity" value="{{$cart->quantity}}" />
                                         <span class="btn btn1"><i class="fa fa-plus"></i></span>
                                     </div>
                                 </div>
@@ -199,68 +204,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cart-item">
-                        <div class="row">
-                            <div class="col-md-6 my-auto">
-                                <a href="">
-                                    <label class="product-name">
-                                        <img src="hp-laptop.jpg" style="width: 50px; height: 50px" alt="">
-                                        Hp Laptop
-                                    </label>
-                                </a>
-                            </div>
-                            <div class="col-md-2 my-auto">
-                                <label class="price">$569 </label>
-                            </div>
-                            <div class="col-md-2 col-7 my-auto">
-                                <div class="quantity">
-                                    <div class="input-group">
-                                        <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                        <input type="text" value="1" class="input-quantity" />
-                                        <span class="btn btn1"><i class="fa fa-plus"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-5 my-auto">
-                                <div class="remove">
-                                    <a href="" class="btn btn-danger btn-sm">
-                                        <i class="fa fa-trash"></i> Remove
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-item">
-                        <div class="row">
-                            <div class="col-md-6 my-auto">
-                                <a href="">
-                                    <label class="product-name">
-                                        <img src="hp-laptop.jpg" style="width: 50px; height: 50px" alt="">
-                                        Hp Laptop
-                                    </label>
-                                </a>
-                            </div>
-                            <div class="col-md-2 my-auto">
-                                <label class="price">$569 </label>
-                            </div>
-                            <div class="col-md-2 col-7 my-auto">
-                                <div class="quantity">
-                                    <div class="input-group">
-                                        <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                        <input type="text" value="1" class="input-quantity" />
-                                        <span class="btn btn1"><i class="fa fa-plus"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-5 my-auto">
-                                <div class="remove">
-                                    <a href="" class="btn btn-danger btn-sm">
-                                        <i class="fa fa-trash"></i> Remove
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    @endforeach
 
                 </div>
             </div>

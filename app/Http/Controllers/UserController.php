@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,12 +23,14 @@ class UserController extends Controller
     public function list()
     {
         $users = User::get();
-        return view('admin.user.userList', compact('users'));
+        $carts = Cart::get();
+        return view('admin.user.userList', compact('users', 'carts'));
     }
 
     public function index()
     {
-        $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
+        // $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
+        $carts = Cart::orderBy('created_at', 'desc')->where('user_id', auth()->user()->id)->get();
         return view('user.user-cart.index', compact('carts'));
     }
 

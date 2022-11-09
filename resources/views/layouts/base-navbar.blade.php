@@ -27,8 +27,10 @@
                 </div>
                 <div class="col-md-3 my-auto">
                     <ul class="nav justify-content-end">
+
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{url('/user-cart')}}">
                                 <i class="fa fa-shopping-cart"></i> Cart (0)
                             </a>
                         </li>
@@ -115,8 +117,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/collections')}}">
-                            <i class="fas fa-home"></i> Products
+                        <a class="nav-link" href="{{url('/all-product')}}">
+                            <i class="fab fa-product-hunt"></i> Products
                         </a>
                     </li>
 

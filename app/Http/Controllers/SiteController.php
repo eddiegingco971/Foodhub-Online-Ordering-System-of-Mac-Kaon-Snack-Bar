@@ -14,13 +14,20 @@ class SiteController extends Controller
     public function index()
     {
         $users = DB::table('users')->get();
-        $products = DB::table('products')->get();
+        // $products = DB::table('products')->get();
         $sliders = Slider::where('status', 'active')->get();
         $orders = DB::table('orders')->where('quantity')->get();
         $categories = Category::where('status','active')->get();
-        // $carts = User::where('user_id', 'id')->get();
-        $carts = DB::table('carts')->where('user_id', 'id')->get();
-        return view('base', compact('products','sliders', 'orders', 'users', 'categories', 'carts'));
+        // $carts = DB::table('carts', auth()->user()->id)->where('status', 'new')->count();
+        // $carts = User::where('user_id', 'id')->get()->count();
+        // $carts = DB::table('carts')->where('user_id', 'id')->get();
+        // $carts = DB::table('carts')->where('user_id', 'id')->get()->count();
+        return view('base', compact('sliders', 'orders', 'users', 'categories'));
+    }
+
+    public function allProduct(){
+        $products = Product::orderBy('created_at', 'desc')->get();
+        return view('allproduct', compact('products'));
     }
 
     public function productSearch(Request $request){

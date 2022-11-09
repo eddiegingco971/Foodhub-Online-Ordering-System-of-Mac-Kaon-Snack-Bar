@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
-            $table->float('price');
             $table->integer('quantity');
             $table->float('total_amount');
             $table->enum('status',['new','progress','delivered','cancel'])->default('new');

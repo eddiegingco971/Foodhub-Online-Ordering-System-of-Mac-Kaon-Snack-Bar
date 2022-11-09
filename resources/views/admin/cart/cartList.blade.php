@@ -76,7 +76,7 @@
                   <thead>
                   <tr>
                     <th>User ID</th>
-                    <th>Product ID</th>
+                    <th>Product Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total Amount</th>
@@ -91,7 +91,7 @@
                       <tr>
                         <td>{{$cart->users->firstname}} {{$cart->users->lastname}}</td>
                         <td>{{$cart->products->product_name}}</td>
-                        <td>{{$cart->price}}</td>
+                        <td>{{$cart->products->price}}</td>
                         <td>{{$cart->quantity}}</td>
                         <td>{{$cart->total_amount}}</td>
                         <td>{{$cart->status}}</td>

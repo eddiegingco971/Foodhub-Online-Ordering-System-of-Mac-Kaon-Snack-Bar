@@ -140,8 +140,8 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/collections')}}">
-                                    <i class="fas fa-home"></i> Collections
+                                <a class="nav-link" href="{{url('/all-product')}}">
+                                    <i class="fab fa-product-hunt"></i> Products
                                 </a>
                             </li>
                             @php

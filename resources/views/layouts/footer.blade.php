@@ -6,8 +6,8 @@
                 <h4 class="footer-heading">Mac Kaon FoodHub</h4>
                 <div class="footer-underline"></div>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    Thank you for always choosing Mac Kaon.
+
                 </p>
             </div>
             <div class="col-md-3">
@@ -31,17 +31,17 @@
                 <div class="footer-underline"></div>
                 <div class="mb-2">
                     <p>
-                        <i class="fa fa-map-marker"></i> #444, some main road, some area, some street, bangalore, india - 560077
+                        <i class="fa fa-map-marker"></i> 6344, Poblacion, Danao, Bohol.
                     </p>
                 </div>
                 <div class="mb-2">
                     <a href="" class="text-white">
-                        <i class="fa fa-phone"></i> +91 888-XXX-XXXX
+                        <i class="fa fa-phone"></i> +63 9127891836
                     </a>
                 </div>
                 <div class="mb-2">
                     <a href="" class="text-white">
-                        <i class="fa fa-envelope"></i> fundaofwebit@gmail.com
+                        <i class="fa fa-envelope"></i> mackaon@gmail.com
                     </a>
                 </div>
             </div>
