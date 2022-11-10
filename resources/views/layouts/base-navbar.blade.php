@@ -28,12 +28,42 @@
                 <div class="col-md-3 my-auto">
                     <ul class="nav justify-content-end">
 
+                        @if (Route::has('login'))
+                        @auth
+                        @if (Auth::user()->user_type == 'admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/home')}}">
+                                    <i class="fa fa-shopping-cart"></i> Dashboard
+                                </a>
+                            </li>
+                        @elseif(Auth::user()->user_type == 'staff')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/staff')}}">
+                                    <i class="fa fa-shopping-cart"></i> Dashboard
+                                </a>
+                            </li>
+                        @else
+                        @php
 
-                        <li class="nav-item">
+                            $carts = DB::table('carts')->where('user_id', auth()->user()->id)->count();
+                        @endphp
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/user-cart')}}">
+                                    <i class="fa fa-shopping-cart"></i> Cart ({{$carts}})
+                                </a>
+                            </li>
+                        @endif
+
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{url('/user-cart')}}">
                                 <i class="fa fa-shopping-cart"></i> Cart (0)
                             </a>
-                        </li>
+                        </li> --}}
+
+                        @endauth
+                        @endif
+
+
 
                         <li class="nav-item dropdown">
                             @if (Route::has('login'))

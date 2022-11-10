@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -13,8 +14,12 @@ class ProfileController extends Controller
     public function profileSetting(){
         $users = User::get();
         $profiles = DB::table('profiles')->where('user_id', auth()->user()->id)->get();
+        if(Auth::user()->user_type == 'user'){
+            return view('user.user-profile.index', compact('users', 'profiles'));
+        }else{
+            return view('layouts.profiling.index', compact('users', 'profiles'));
+        }
 
-        return view('layouts.profiling.index', compact('users', 'profiles'));
     }
 
     public function store(Request $request)

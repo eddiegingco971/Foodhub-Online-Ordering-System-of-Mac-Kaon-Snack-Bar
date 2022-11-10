@@ -241,7 +241,7 @@
 
 
                             <div class="col-sm-6">
-                                <label for="password_confirmation" class="col-sm-8 col-form-label">Confirm Password</label>
+                                <label for="password_confirmation" class="col-sm-10 col-form-label">Confirm Password</label>
                                 <input type="password" id="password-confirm" name="password_confirmation" required autocomplete="new-password" class="form-control">
                                 @error('password_confirmation')
                                     <div class="text-danger">{{$message}}</div>
