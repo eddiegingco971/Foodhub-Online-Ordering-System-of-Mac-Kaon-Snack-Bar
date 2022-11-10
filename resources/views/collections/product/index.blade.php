@@ -51,15 +51,15 @@ $products=DB::table('products')->where('status','active')->get();
                                 <input type="hidden" name="price" class="form-control" value="{{$product->price}}">
 
                                 <div class="col-md-12 my-auto">
-                                    <div class="row">
+                                    <div class="quantity">
                                         <div class="input-group">
-                                            <span class="btn btn1 btn-warning" id="decrement"><i class="fa fa-minus"></i></span>
-                                            <input type="text" name="quantity" value="1" class="input-quantity" id="show"/>
-                                            <span class="btn btn1 btn-warning" id="increment"><i class="fa fa-plus"></i></span>
+                                            <span class="btn btn1 btn-warning"><i class="fa fa-minus"></i></span>
+                                            <input type="text" name="quantity" value="1" class="input-quantity" />
+                                            <span class="btn btn1 btn-warning"><i class="fa fa-plus"></i></span>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
+
 
                                 <input type="hidden" class="form-control" name="total_amount" id="total_amount" class="form-control">
                                 <input type="hidden" name="status" id="status" class="form-control" value="new">
