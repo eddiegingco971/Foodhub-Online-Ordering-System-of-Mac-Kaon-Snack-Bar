@@ -60,7 +60,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-    <script src="{{asset('/base')}}/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="{{asset('/base')}}/js/bootstrap.bundle.min.js"></script> --}}
+    <script src="{{asset('/base')}}/js/jquery.min.js"></script>
 
     <!-- jQuery -->
 <script src="{{asset('/plugins')}}/jquery/jquery.min.js"></script>
@@ -70,15 +71,9 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('/plugins')}}/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="{{asset('/plugins')}}/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="{{asset('/plugins')}}/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="{{asset('/plugins')}}/jqvmap/jquery.vmap.min.js"></script>
-<script src="{{asset('/plugins')}}/jqvmap/maps/jquery.vmap.usa.js"></script>
+
 <!-- jQuery Knob Chart -->
 <script src="{{asset('/plugins')}}/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -92,9 +87,6 @@
 <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/dist')}}/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('/dist')}}/js/pages/dashboard.js"></script>
-
 
 
   </body>

@@ -176,6 +176,8 @@
                     <div class="cart-item">
                         <div class="row">
                             <div class="col-md-6 my-auto">
+                                {{-- /collections/{cat_name}/{pro_name} --}}
+
                                 <a href="">
                                     <label class="product-name">
                                         <img src="{{asset('dist/img/product/'.$cart->products->product_photo)}}" style="width: 50px; height: 50px" alt="">
@@ -184,7 +186,7 @@
                                 </a>
                             </div>
                             <div class="col-md-2 my-auto">
-                                <label class="price text-dark">{{$cart->products->price}}</label>
+                                <label class="price text-dark">₱{{$cart->products->price}}</label>
                             </div>
                             <div class="col-md-2 col-7 my-auto">
                                 <div class="quantity">
