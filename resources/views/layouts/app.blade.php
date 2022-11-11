@@ -12,6 +12,10 @@
 <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
 <link rel="stylesheet" href="{{asset('/base')}}/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="{{asset('/plugins')}}/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -58,10 +62,10 @@
     </main>
     @include('layouts.footer')
 
+    <script src="{{asset('/base')}}/js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-    {{-- <script src="{{asset('/base')}}/js/bootstrap.bundle.min.js"></script> --}}
-    <script src="{{asset('/base')}}/js/jquery.min.js"></script>
+    <script src="{{asset('/base')}}/js/custom.js"></script>
 
     <!-- jQuery -->
 <script src="{{asset('/plugins')}}/jquery/jquery.min.js"></script>
@@ -88,6 +92,11 @@
 <!-- AdminLTE App -->
 <script src="{{asset('/dist')}}/js/adminlte.js"></script>
 
+<script src="{{asset('/plugins')}}/datatables/jquery.dataTables.min.js"></script>
+<script src="{{asset('/plugins')}}/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{asset('/plugins')}}/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{asset('/plugins')}}/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+{{-- <script src="{{asset('/plugins')}}/datatables-buttons/js/buttons.html5.min.js"></script> --}}
 
   </body>
 </html>

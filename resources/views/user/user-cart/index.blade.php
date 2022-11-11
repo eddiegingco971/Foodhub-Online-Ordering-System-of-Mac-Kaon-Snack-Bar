@@ -63,18 +63,12 @@
 
 @section('content')
 <!-- Content Header (Page header) -->
-{{-- <section class="content-header">
+<section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
           <div class="col-sm-6 mt-3">
               <h1>Cart Management</h1>
           </div>
-          <div class="col-sm-6 mt-3">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('product-create')}}">Add Product</a></li>
-              </ol>
-          </div>
-
       </div>
     </div><!-- /.container-fluid -->
 </section>
@@ -83,86 +77,115 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
 
           <div class="card elevation-3">
             <div class="card-header">
               <h3 class="card-title">List of Cart</h3>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
+            {{-- <div class="card-body" style="height: 50vh;overflow:auto;"> --}}
+            <div class="card-body" style="height: 50vh;overflow:auto;">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Product ID</th>
+                  <th>Product</th>
                   <th>Price</th>
                   <th>Quantity</th>
-                  <th>Total Amount</th>
-
-
-
+                  <th>Amount</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                   @foreach ($carts as $cart)
                     <tr>
-                      <td>{{$cart->products->product_name}}</td>
+                      <td>
+                        <img src="{{asset('dist/img/product/'.$cart->products->product_photo)}}" style="width: 50px; height: 50px" alt="">
+                        {{$cart->products->product_name}}
+                    </td>
                       <td>{{$cart->products->price}}</td>
                       <td>{{$cart->quantity}}</td>
                       <td>{{$cart->total_amount}}</td>
 
 
                       <td>
-                        <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a>
-                        <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
+                        <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash"></i>
+                        </a>
                       </td>
                     </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </tfoot>
+
               </table>
             </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
         </div>
+
+        <div class="col-md-4">
+
+            <div class="card elevation-3">
+              <div class="card-header">
+                <h3 class="card-title">Checkout</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+                    <div class="col-sm-12">
+                        <label class="price text-dark">Name</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="price text-dark">Address</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="price text-dark">Sub-Total: ₱{{$cart->total_amount}}</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="price text-dark">Delivery Fee: ₱ </label>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label class="price text-dark">Total Payment: ₱ </label>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="col-12 price text-light btn btn-primary">Order Now</label>
+                    </div>
+
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-  </section> --}}
+  </section>
 
 
 
-  <div class="py-3 py-md-5 bg-dark">
+  {{-- <div class="py-3 py-md-5 bg-dark">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 mt-3">
-                <h1>Cart Management</h1>
-            </div>
-            <div class="col-md-12">
-                <div class="shopping-cart">
-
-                    <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
-                        <div class="row">
-                            <div class="col-md-6">
+            <div class="col-md-8">
+                <div class="shopping-cart card">
+                    <div class="cart-header d-none d-sm-none d-mb-block d-lg-block bg-info">
+                        <div class="row ">
+                            <div class="col-md-2">
                                 <h4>Products</h4>
                             </div>
                             <div class="col-md-2">
                                 <h4>Price</h4>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <h4>Quantity</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <h4>Total</h4>
                             </div>
                             <div class="col-md-2">
                                 <h4>Remove</h4>
@@ -170,13 +193,14 @@
                         </div>
                     </div>
 
+                    <div style="height: 50vh;overflow:auto;">
+
+
+
                     @foreach ($carts as $cart)
-
-
-                    <div class="cart-item">
+                    <div class="cart-item py-1">
                         <div class="row">
-                            <div class="col-md-6 my-auto">
-                                {{-- /collections/{cat_name}/{pro_name} --}}
+                            <div class="col-md-2 my-auto">
 
                                 <a href="">
                                     <label class="product-name">
@@ -188,16 +212,19 @@
                             <div class="col-md-2 my-auto">
                                 <label class="price text-dark">₱{{$cart->products->price}}</label>
                             </div>
-                            <div class="col-md-2 col-7 my-auto">
+                            <div class="col-md-4 col-8 my-auto">
                                 <div class="quantity">
                                     <div class="input-group">
-                                        <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                        <input type="text" class="input-quantity" value="{{$cart->quantity}}" />
-                                        <span class="btn btn1"><i class="fa fa-plus"></i></span>
+                                        <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
+                                        <input type="text" name="quantity" class="input-quantity qty-input" value="1"/>
+                                        <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-5 my-auto">
+                            <div class="col-md-2 my-auto">
+                                <label class="price text-dark">₱{{$cart->total_amount}}</label>
+                            </div>
+                            <div class="col-md-2 my-auto">
                                 <div class="remove">
                                     <a href="" class="btn btn-danger btn-sm">
                                         <i class="fa fa-trash"></i> Remove
@@ -208,13 +235,44 @@
                     </div>
 
                     @endforeach
+                </div>
+
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="card text-dark">
+                <div class="card-header text-center bg-info"><h3>CHECKOUT</h3></div>
+
+                <div class="card-body">
+
+                        <div class="col-sm-12">
+                            <label class="price text-dark">Name</label>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="price text-dark">Address</label>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="price text-dark">Sub-Total: ₱{{$cart->total_amount}}</label>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="price text-dark">Delivery Fee: ₱ </label>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label class="price text-dark">Total Payment: ₱ </label>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="col-12 price text-light btn btn-primary">Order Now</label>
+                        </div>
+
+
 
                 </div>
             </div>
         </div>
 
     </div>
-</div>
+</div> --}}
   <!-- /.content -->
 
 @endsection

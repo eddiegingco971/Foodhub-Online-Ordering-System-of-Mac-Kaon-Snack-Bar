@@ -10,6 +10,7 @@ use Laravel\Ui\Presets\React;
 
 class CartController extends Controller
 {
+    public $quantity = 1;
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +39,8 @@ class CartController extends Controller
 
        Cart::with(['products'])->create([
            'product_id' => $request->product_id,
-           'user_id' => $request->user_id,
+           'user_id' => auth()->user()->id,
+        //    'user_id' => $request->user_id,
            'quantity' => $request->quantity,
            'total_amount' =>  $request->price*$request->quantity,
            'status' => $request->status,

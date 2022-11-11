@@ -49,9 +49,11 @@
                                 <div class="col-md-12 my-auto">
                                     <div class="quantity">
                                         <div class="input-group">
-                                            <span class="btn btn1 btn-warning"><i class="fa fa-minus"></i></span>
-                                            <input type="text" name="quantity" value="1" class="input-quantity" />
-                                            <span class="btn btn1 btn-warning"><i class="fa fa-plus"></i></span>
+                                            {{-- <i class="fa fa-minus"> --}}
+                                                {{-- <i class="fa fa-plus"> --}}
+                                            <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
+                                            <input type="text" name="quantity" class="input-quantity qty-input" value="1"/>
+                                            <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span>
                                         </div>
                                     </div>
                                 </div>

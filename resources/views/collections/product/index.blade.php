@@ -53,9 +53,9 @@ $products=DB::table('products')->where('status','active')->get();
                                 <div class="col-md-12 my-auto">
                                     <div class="quantity">
                                         <div class="input-group">
-                                            <span class="btn btn1 btn-warning"><i class="fa fa-minus"></i></span>
-                                            <input type="text" name="quantity" value="1" class="input-quantity" />
-                                            <span class="btn btn1 btn-warning"><i class="fa fa-plus"></i></span>
+                                            <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
+                                            <input type="text" name="quantity" class="input-quantity qty-input" value="1"/>
+                                            <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -90,23 +90,4 @@ $products=DB::table('products')->where('status','active')->get();
     </div>
 </form>
 </div>
-<script>
-    var i = document.getElementById('increment');
-    var q = document.getElementById('show');
-    var d = document.getElementById('decrement');
-
-    i.addEventListener('click', calculate);
-    function calculate(){
-        var q = documentById('show').innerHTML;
-        q++;
-        document.getElementById('show').innerHTML = q++;
-    }
-    d.addEventListener('click', calculate1);
-    function calculate1(){
-        var q = documentById('show').innerHTML;
-        q--;
-        document.getElementById('show').innerHTML = q--;
-    }
-</script>
-
 @endsection
