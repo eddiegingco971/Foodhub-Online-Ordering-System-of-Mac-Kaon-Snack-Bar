@@ -104,12 +104,17 @@
                         {{$cart->products->product_name}}
                     </td>
                       <td>{{$cart->products->price}}</td>
-                      <td>{{$cart->quantity}}</td>
+                      <td>
+                        {{-- <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
+                        <input type="text" name="quantity" class="input-quantity qty-input" value="{{$cart->quantity}}"/>
+                        <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span> --}}
+                        {{$cart->quantity}}
+                    </td>
                       <td>{{$cart->total_amount}}</td>
 
 
                       <td>
-                        {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
+                        <a href="{{url('edit-cart/' .$cart->id)}}" class="btn btn-info btn-sm">Edit</a>
                         <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
                         </a>

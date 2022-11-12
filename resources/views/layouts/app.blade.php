@@ -9,18 +9,20 @@
     <title>Mac Kaon FoodHub</title>
 
 <link rel="stylesheet" href="{{asset('/plugins')}}/fontawesome-free/css/all.min.css">
-<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
-<link rel="stylesheet" href="{{asset('/base')}}/css/bootstrap.min.css" rel="stylesheet">
+{{-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/"> --}}
+<link rel="stylesheet" href="{{asset('/base')}}/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{asset('/base')}}/css/bootstrap.bundle.min.css">
+<link rel="stylesheet" href="{{asset('/base')}}/css/custom.css">
+<link rel="stylesheet" href="{{asset('/dist')}}/css/adminlte.min.css">
+<link rel="stylesheet" href="{{asset('/plugins')}}/overlayScrollbars/css/OverlayScrollbars.min.css">
+
 
 <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="{{asset('/plugins')}}/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Tempusdominus Bootstrap 4 -->
@@ -30,9 +32,9 @@
 <!-- JQVMap -->
 <link rel="stylesheet" href="{{asset('/plugins')}}/jqvmap/jqvmap.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="{{asset('/dist')}}/css/adminlte.min.css">
 
-    <link href="{{asset('/base')}}/css/custom.css" rel="stylesheet">
+
+
 
   </head>
   <body>
@@ -45,7 +47,7 @@
 
     <main>
         @if (session('status'))
-        <div class="alert alert-warning m-2 text-center" role="alert">
+        <div class="alert alert-success m-2 text-center" role="alert">
             {{ session('status') }}
         </div>
         @endif
@@ -63,9 +65,12 @@
     @include('layouts.footer')
 
     <script src="{{asset('/base')}}/js/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="{{asset('/base')}}/js/bootstrap.min.js"></script>
+    <script src="{{asset('/base')}}/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('/base')}}/js/popper.min.js"></script>
     <script src="{{asset('/base')}}/js/custom.js"></script>
+    <script src="{{asset('/dist')}}/js/adminlte.js"></script>
+    <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
     <!-- jQuery -->
 <script src="{{asset('/plugins')}}/jquery/jquery.min.js"></script>
@@ -90,7 +95,7 @@
 <!-- overlayScrollbars -->
 <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="{{asset('/dist')}}/js/adminlte.js"></script>
+
 
 <script src="{{asset('/plugins')}}/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('/plugins')}}/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

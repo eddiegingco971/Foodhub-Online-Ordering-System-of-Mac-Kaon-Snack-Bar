@@ -98,7 +98,7 @@
 
                         <td>
                           {{-- <a href="{{url('edit-customer/' .$customer->id)}}" class="btn btn-info btn-sm">Edit</a> --}}
-                          <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                          {{-- <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">Delete</a> --}}
                         </td>
                       </tr>
                   @endforeach

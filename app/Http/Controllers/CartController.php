@@ -50,4 +50,11 @@ class CartController extends Controller
 
         return redirect()->back()->with('status', 'Added Product Successfully');
    }
+
+   public function deleteCart($id)
+   {
+       $carts = Cart::find($id);
+       $carts->delete();
+       return redirect()->back()->with('status', 'Remove Product from Successfully');
+   }
 }

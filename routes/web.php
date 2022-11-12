@@ -82,8 +82,6 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/delete-user/{id}', [UserController::class, 'destroy']);
 
     Route::get('/cart-list', [HomeController::class, 'cartList']);
-    Route::get('/delete-cart/{id}', [CartController::class, 'destroy']);
-
 });
 
 Route::group(['middleware' => ['auth', 'staff']], function (){
@@ -97,6 +95,9 @@ Route::group(['middleware' => ['auth', 'user']], function (){
     Route::get('/user-order', [UserController::class, 'userOrder']);
 
     Route::post('/cart-create', [CartController::class, 'addCart']);
+    Route::get('/edit-cart/{id}', [CartController::class, 'editCart']);
+    Route::get('/delete-cart/{id}', [CartController::class, 'deleteCart']);
+
     // Route::get('/user-cart/{id}', [CartController::class, 'index'])->name('cart');
 });
 
