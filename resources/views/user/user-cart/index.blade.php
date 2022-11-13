@@ -179,13 +179,13 @@
                 <div class="shopping-cart">
                     <div class="cart-header d-none d-sm-none d-mb-block d-lg-block bg-info">
                         <div class="row ">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <h4>Products</h4>
                             </div>
                             <div class="col-md-2">
                                 <h4>Price</h4>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <h4>Quantity</h4>
                             </div>
                             <div class="col-md-2">
@@ -201,7 +201,7 @@
                     @foreach ($carts as $cart)
                     <div class="cart-item py-1">
                         <div class="row">
-                            <div class="col-md-2 my-auto">
+                            <div class="col-md-3 my-auto">
 
                                 <a href="">
                                     <label class="product-name">
@@ -213,7 +213,7 @@
                             <div class="col-md-2 my-auto">
                                 <label class="price text-dark">₱{{$cart->products->price}}</label>
                             </div>
-                            <div class="col-md-4 col-8 my-auto">
+                            <div class="col-md-3 col-8 my-auto">
                                 <div class="quantity">
                                     <div class="input-group">
                                         <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
