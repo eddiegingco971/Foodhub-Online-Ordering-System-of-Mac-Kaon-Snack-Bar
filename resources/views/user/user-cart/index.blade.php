@@ -188,7 +188,7 @@
                             <div class="col-md-3">
                                 <h4>Quantity</h4>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2  d-none d-sm-none d-mb-block d-lg-block">
                                 <h4>Total</h4>
                             </div>
                             <div class="col-md-2">
@@ -205,7 +205,7 @@
 
                                 <a href="">
                                     <label class="product-name">
-                                        <img src="{{asset('dist/img/product/'.$cart->products->product_photo)}}" style="width: 50px; height: 50px" alt="">
+                                        <img src="{{asset('dist/img/product/'.$cart->products->product_photo)}}" style="width: 100px; height: 100px" alt="">
                                         {{$cart->products->product_name}}
                                     </label>
                                 </a>
@@ -217,17 +217,17 @@
                                 <div class="quantity">
                                     <div class="input-group">
                                         <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
-                                        <input type="text" name="quantity" class="input-quantity qty-input" value="1"/>
+                                        <input type="text" name="quantity" class="input-quantity qty-input" value="{{$cart->quantity}}"/>
                                         <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 my-auto">
+                            <div class="col-md-2 my-auto  d-none d-sm-none d-mb-block d-lg-block">
                                 <label class="price text-dark">₱{{$cart->total_amount}}</label>
                             </div>
                             <div class="col-md-2 my-auto">
                                 <div class="remove">
-                                    <a href="" class="btn btn-danger btn-sm">
+                                    <a href="{{url('delete-cart/'.$cart->id)}}" class="btn btn-danger btn-sm">
                                         <i class="fa fa-trash"></i> Remove
                                     </a>
                                 </div>
