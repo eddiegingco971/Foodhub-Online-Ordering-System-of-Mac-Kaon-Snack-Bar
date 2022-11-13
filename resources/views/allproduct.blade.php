@@ -12,7 +12,7 @@
             </div>
 
                     @forelse ($products as $product)
-
+                    @csrf
                     <div class="col-6 col-md-3">
                         <div class="product-card card">
                             <div class="product-card-img">
@@ -69,11 +69,10 @@
                             </div>
                         </div>
                     </div>
-
-                        @empty
+                    @empty
                         <div class="col-md-12">
                             <div class="p-2">
-                                <h4>No products available for {{$categories->category_name}}</h4>
+                                <h4>No products available</h4>
                             </div>
                         </div>
                     @endforelse

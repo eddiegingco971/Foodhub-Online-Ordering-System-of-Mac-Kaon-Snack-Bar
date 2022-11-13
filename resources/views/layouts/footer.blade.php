@@ -31,7 +31,9 @@
                 <div class="footer-underline"></div>
                 <div class="mb-2">
                     <p>
-                        <i class="fa fa-map-marker"></i> 6344, Poblacion, Danao, Bohol.
+                        <a href="https://goo.gl/maps/5ZvTkc1UrZwgeK4W9" class="text-light">
+                           <i class="fa fa-map-marker"></i><u> 6344, G. Orapa Street, Poblacion Danao, Bohol.</u>
+                        </a>
                     </p>
                 </div>
                 <div class="mb-2">
