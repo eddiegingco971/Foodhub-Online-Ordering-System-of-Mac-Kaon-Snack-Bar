@@ -63,7 +63,7 @@
 
 @section('content')
 <!-- Content Header (Page header) -->
-<section class="content-header">
+{{-- <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
           <div class="col-sm-6 mt-3">
@@ -84,7 +84,6 @@
               <h3 class="card-title">List of Cart</h3>
             </div>
             <!-- /.card-header -->
-            {{-- <div class="card-body" style="height: 50vh;overflow:auto;"> --}}
             <div class="card-body" style="height: 50vh;overflow:auto;">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -105,9 +104,9 @@
                     </td>
                       <td>{{$cart->products->price}}</td>
                       <td>
-                        {{-- <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
+                        <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
                         <input type="text" name="quantity" class="input-quantity qty-input" value="{{$cart->quantity}}"/>
-                        <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span> --}}
+                        <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span>
                         {{$cart->quantity}}
                     </td>
                       <td>{{$cart->total_amount}}</td>
@@ -169,15 +168,15 @@
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-  </section>
+  </section> --}}
 
 
 
-  {{-- <div class="py-3 py-md-5 bg-dark">
+  <div class="py-3 py-md-5 bg-dark">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="shopping-cart card">
+            <div class="col-md-8 col-12">
+                <div class="shopping-cart">
                     <div class="cart-header d-none d-sm-none d-mb-block d-lg-block bg-info">
                         <div class="row ">
                             <div class="col-md-2">
@@ -197,9 +196,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div style="height: 50vh;overflow:auto;">
-
 
 
                     @foreach ($carts as $cart)
@@ -240,11 +236,11 @@
                     </div>
 
                     @endforeach
-                </div>
+
 
                 </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 mt-2">
                 <div class="card text-dark">
                 <div class="card-header text-center bg-info"><h3>CHECKOUT</h3></div>
 
@@ -277,7 +273,7 @@
         </div>
 
     </div>
-</div> --}}
+</div>
   <!-- /.content -->
 
 @endsection

@@ -48,7 +48,7 @@
         </div>
     </div>
 </div>
-<div class="copyright-area">
+<div class="copyright-area d-none d-sm-none d-md-block d-lg-block">
     <div class="container ">
         <div class="row">
             <div class="col-md-8">
