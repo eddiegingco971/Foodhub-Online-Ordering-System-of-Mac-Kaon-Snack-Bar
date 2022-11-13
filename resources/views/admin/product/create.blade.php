@@ -34,7 +34,7 @@
 
     @include('layouts.components.preloader')
 
-    @if (session('status'))
+    {{-- @if (session('status'))
     <div class="alert alert-success text-center" role="alert">
         {{ session('status') }}
     </div>
@@ -43,8 +43,8 @@
         <div class="alert alert-warning text-center" role="alert">
             {{ session('error') }}
         </div>
-    @endif
- 
+    @endif --}}
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -59,11 +59,11 @@
               <div class="card-body">
                 <form action="{{url('product-create')}}" method="POST" enctype="multipart/form-data">
                   @csrf
-                  
+
                   @php
                   $categories=DB::table('categories')->where('status','active')->get();
                   @endphp
-                  
+
                   <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
                     <select class="form-select form-control" name="category_id">
@@ -76,7 +76,7 @@
                         <div class="text-danger">{{$message}}</div>
                       @enderror
                   </div>
-                  
+
                   <div class="form-group mb-3">
                     <label for="product_photo" class="col-form-label">Product Image</label>
                     <input type="file" name="product_photo" class="form-control" id="product_photo">
@@ -109,7 +109,7 @@
                       <div class="text-danger">{{$message}}</div>
                     @enderror
                 </div>
-                  
+
                   <div class="form-group">
                     <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
                     <button type="submit" class="btn btn-info">Save</button>

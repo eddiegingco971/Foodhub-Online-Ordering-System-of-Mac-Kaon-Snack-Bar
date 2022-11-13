@@ -36,6 +36,7 @@ class CartController extends Controller
     //        'total_amount' => 'required',
     //        'status' => 'required',
     //    ]);
+    $products = DB::table('products')->where('status', 'active')->get();
 
        Cart::with(['products'])->create([
            'product_id' => $request->product_id,
@@ -45,8 +46,6 @@ class CartController extends Controller
            'total_amount' =>  $request->price*$request->quantity,
            'status' => $request->status,
         ]);
-
-
 
         return redirect()->back()->with('status', 'Added Product Successfully');
    }

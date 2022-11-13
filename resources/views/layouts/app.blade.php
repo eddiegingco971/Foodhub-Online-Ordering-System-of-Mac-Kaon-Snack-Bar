@@ -46,7 +46,7 @@
     </header>
 
     <main>
-        @if (session('status'))
+        {{-- @if (session('status'))
         <div class="alert alert-success m-2 text-center" role="alert">
             {{ session('status') }}
         </div>
@@ -56,7 +56,7 @@
             <div class="alert alert-warning m-2 text-center" role="alert">
                 {{ session('error') }}
             </div>
-        @endif
+        @endif --}}
 
         @yield('content')
 

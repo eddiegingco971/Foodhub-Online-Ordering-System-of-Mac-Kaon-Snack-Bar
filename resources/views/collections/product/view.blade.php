@@ -18,7 +18,7 @@ $products=DB::table('products')->where('status','active')->get();
                 <div class="product-view">
                     <h4 class="product-name">
                         {{$products->product_name}}
-                        <label class="label-stock bg-success">In Stock</label>
+                        <label class="label-stock bg-success">Available</label>
                     </h4>
                     <hr>
                     <p class="product-path">
@@ -26,7 +26,7 @@ $products=DB::table('products')->where('status','active')->get();
                     </p>
                     <div>
                         <span class="selling-price">₱{{$products->price}}</span>
-                        <span class="original-price">$499</span>
+                        {{-- <span class="original-price">$499</span> --}}
                     </div>
                     <div class="mt-2">
                         <div class="input-group">

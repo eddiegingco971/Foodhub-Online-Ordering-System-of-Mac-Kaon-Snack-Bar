@@ -46,7 +46,7 @@ $products=DB::table('products')->where('status','active')->get();
                                 </h5>
                                 <div>
                                     <span class="selling-price">₱{{$product->price}}</span>
-                                    <span class="original-price">₱799</span>
+                                    {{-- <span class="original-price">₱799</span> --}}
                                 </div>
                                 <input type="hidden" name="price" class="form-control" value="{{$product->price}}">
 
@@ -65,7 +65,12 @@ $products=DB::table('products')->where('status','active')->get();
                                 <input type="hidden" name="status" id="status" class="form-control" value="new">
                                 <div class="col-md-12 mt-2">
 
-                                    <button type="submit" class="btn btn1 btn-success">Add Cart</button>
+                                    @if ($product->status == 'active')
+                                        <button type="submit" class="btn btn1 btn-success">Add Cart</button>
+                                    @else
+                                        <div class="btn btn1  btn-danger">Not Available</div>
+                                    @endif
+
                                     {{-- <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
                                     <a href="" class="btn btn1"> View </a> --}}
                                 </div>

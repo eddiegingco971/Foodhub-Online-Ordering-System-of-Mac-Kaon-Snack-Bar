@@ -29,9 +29,9 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
-    @include('layouts.components.preloader')
 
+    @include('layouts.components.preloader')
+{{--
     @if (session('status'))
     <div class="alert alert-success text-center" role="alert">
         {{ session('status') }}
@@ -42,7 +42,7 @@
             {{ session('error') }}
         </div>
     @endif
-   
+    --}}
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -61,7 +61,7 @@
                             @php
                             $categories=DB::table('categories')->where('status','active')->get();
                             @endphp
-                    
+
                             <div class="form-group">
                               <label for="category_id" class="col-form-label">Category</label>
                               <select class="form-select form-control" type="category_id" name="category_id">
@@ -99,7 +99,7 @@
                                 <a type="button" class="btn btn-secondary" href="{{url('/product')}}">Back</a>
                                 <button type="submit" class="btn btn-info">Update</button>
                             </div>
-        
+
                           </form>
                         </div>
                         <!-- /.card-body -->
@@ -112,7 +112,7 @@
         </div>
       </div>
     </div>
-   
+
     <!-- Main content -->
   </section>
     <!-- /.content -->

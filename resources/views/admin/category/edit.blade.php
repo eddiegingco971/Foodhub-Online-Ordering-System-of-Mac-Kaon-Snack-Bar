@@ -32,7 +32,7 @@
 
     @include('layouts.components.preloader')
 
-    @if (session('status'))
+    {{-- @if (session('status'))
     <div class="alert alert-success text-center" role="alert">
         {{ session('status') }}
     </div>
@@ -41,7 +41,7 @@
         <div class="alert alert-warning text-center" role="alert">
             {{ session('error') }}
         </div>
-    @endif
+    @endif --}}
 
   <section class="content">
     <div class="container-fluid">
