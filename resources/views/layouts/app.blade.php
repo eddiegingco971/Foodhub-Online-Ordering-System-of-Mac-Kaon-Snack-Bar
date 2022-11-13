@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-<!-- Google Font: Source Sans Pro -->
+{{-- <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Ionicons -->
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="{{asset('/plugins')}}/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- JQVMap -->
 <link rel="stylesheet" href="{{asset('/plugins')}}/jqvmap/jqvmap.min.css">
-<!-- Theme style -->
+<!-- Theme style --> --}}
 
 
 
@@ -72,7 +72,7 @@
     <script src="{{asset('/dist')}}/js/adminlte.js"></script>
     <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
-    <!-- jQuery -->
+    {{-- <!-- jQuery -->
 <script src="{{asset('/plugins')}}/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('/plugins')}}/jquery-ui/jquery-ui.min.js"></script>
@@ -92,10 +92,9 @@
 <script src="{{asset('/plugins')}}/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
 <script src="{{asset('/plugins')}}/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
+<!-- overlayScrollbars --> --}}
 
+<script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
 <script src="{{asset('/plugins')}}/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('/plugins')}}/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
