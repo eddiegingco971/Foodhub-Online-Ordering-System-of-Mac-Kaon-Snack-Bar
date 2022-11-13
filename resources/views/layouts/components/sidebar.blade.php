@@ -111,7 +111,7 @@
             </a>
           </li>
 
-          <li class="nav-header">Events</li>
+          {{-- <li class="nav-header">Events</li>
           <li class="nav-item">
             <a href="{{url('/calendar')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -120,7 +120,7 @@
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
-          </li>
+          </li> --}}
 
         </ul>
       </nav>
@@ -259,7 +259,7 @@
             </a>
           </li>
 
-          <li class="nav-header">Events</li>
+          {{-- <li class="nav-header">Events</li>
           <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -268,7 +268,7 @@
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
-          </li>
+          </li> --}}
 
         </ul>
       </nav>

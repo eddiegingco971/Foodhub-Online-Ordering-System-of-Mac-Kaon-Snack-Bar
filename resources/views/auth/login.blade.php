@@ -52,7 +52,7 @@
 
                                 <div class="col-md-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} required>
 
                                         <label class="form-check-label text-dark font-weight-bold" for="remember">
                                             {{ __('Remember Me') }}

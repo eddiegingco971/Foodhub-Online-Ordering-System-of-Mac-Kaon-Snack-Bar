@@ -81,9 +81,6 @@
                     <th>Quantity</th>
                     <th>Total Amount</th>
                     <th>Status</th>
-
-
-                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>

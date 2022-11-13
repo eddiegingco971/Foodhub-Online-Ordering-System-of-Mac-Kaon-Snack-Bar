@@ -172,7 +172,7 @@
 
 
 
-  <div class="py-3 py-md-5 bg-dark">
+  <div class="py-3 py-md-3 bg-dark">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-12">

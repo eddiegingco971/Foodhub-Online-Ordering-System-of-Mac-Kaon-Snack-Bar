@@ -33,13 +33,13 @@
                         @if (Auth::user()->user_type == 'admin')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/home')}}">
-                                    <i class="fa fa-shopping-cart"></i> Dashboard
+                                    <i class="fa fa-list"></i> Dashboard
                                 </a>
                             </li>
                         @elseif(Auth::user()->user_type == 'staff')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/staff')}}">
-                                    <i class="fa fa-shopping-cart"></i> Dashboard
+                                    <i class="fa fa-list"></i> Dashboard
                                 </a>
                             </li>
                         @else
