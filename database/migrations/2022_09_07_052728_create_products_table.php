@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('product_photo');
             $table->string('product_name');
             $table->string('price');
+            $table->mediumText('description');
             $table->unsignedBigInteger('category_id');
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();

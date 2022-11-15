@@ -85,6 +85,10 @@
                                 <input type="product_name" name="product_name" class="form-control" value="{{$products->product_name}}" id="product_name" placeholder="Product Name">
                               </div>
                             <div class="form-group">
+                                <label for="description" class="col-form-label">Description</label>
+                                <input type="description" name="description" class="form-control" value="{{$products->description}}" id="product_name" placeholder="Product Name">
+                            </div>
+                            <div class="form-group">
                               <label for="price" class="col-form-label">Price</label>
                               <input type="price" name="price" class="form-control" value="{{$products->price}}" id="price" placeholder="0.00">
                             </div>

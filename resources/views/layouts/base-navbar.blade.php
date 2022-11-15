@@ -2,7 +2,8 @@
     <div class="top-navbar">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3 my-auto d-none d-sm-none d-md-block d-lg-block">
+                {{-- <div class="col-md-3 my-auto d-none d-sm-none d-md-block d-lg-block"> --}}
+                <div class="col-md-3 my-auto">
                     {{-- <a class="brand-name">
                         <img src="{{asset('/dist')}}/img/Logo.png" alt="" width="30" height="30" class="rounded-circle">
                         Mac Kaon FoodHub
@@ -14,7 +15,7 @@
                         </a>
                     </a>
                 </div>
-                <div class="col-md-6 my-auto">
+                {{-- <div class="col-md-6 my-auto">
                     <form method="POST" action="{{route('product.search')}}">
                         @csrf
                         <div class="input-group" role="search">
@@ -24,8 +25,8 @@
                             </button>
                         </div>
                     </form>
-                </div>
-                <div class="col-md-3 my-auto">
+                </div> --}}
+                <div class="col-md-3 ml-auto">
                     <ul class="nav justify-content-end">
 
                         @if (Route::has('login'))
@@ -148,11 +149,11 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{url('/all-product')}}">
                             <i class="fab fa-product-hunt"></i> Products
                         </a>
-                    </li>
+                    </li> --}}
 
                     @php
                     $categories=DB::table('categories')->where('status','active')->get();

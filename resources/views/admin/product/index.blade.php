@@ -79,6 +79,7 @@
                     <th>Product ID#</th>
                     <th>Product Image</th>
                     <th>Product Name</th>
+                    <th>Description</th>
                     <th>Category ID</th>
                     <th>Price</th>
                     <th>Status</th>
@@ -93,6 +94,7 @@
                         {{-- <td><img src="{{asset('dist/img/'.$product->product_photo)}}" width="50px" height="50px" alt="Image" style="border-radius: 50%"></td> --}}
                         <td class="text-center"><img src="{{asset('dist/img/product/'.$product->product_photo)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
                         <td>{{$product->product_name}}</td>
+                        <td>{{$product->description}}</td>
                         <td>{{$product->categories->category_name}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->status}}</td>

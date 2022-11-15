@@ -84,6 +84,7 @@
                       <div class="text-danger">{{$message}}</div>
                     @enderror
                   </div>
+
                   <div class="form-group">
                       <label for="product_name" class="col-form-label">Product Name</label>
                       <input type="product_name" name="product_name" class="form-control" id="product_name" placeholder="Product Name">
@@ -91,6 +92,13 @@
                         <div class="text-danger">{{$message}}</div>
                       @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="description" class="col-form-label">Description</label>
+                        <input type="description" name="description" class="form-control" id="description" placeholder="0.00">
+                        @error('description')
+                            <div class="text-danger">{{$message}}</div>
+                          @enderror
+                      </div>
                   <div class="form-group">
                     <label for="price" class="col-form-label">Price</label>
                     <input type="price" name="price" class="form-control" id="price" placeholder="0.00">

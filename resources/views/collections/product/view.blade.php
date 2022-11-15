@@ -40,9 +40,9 @@ $products=DB::table('products')->where('status','active')->get();
                         {{-- <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a> --}}
                     </div>
                     <div class="col-md-12 mt-2 text-dark card bg-secondary">
-                        <h5 class="card-header">Small Description</h5>
+                        <h5 class="card-header">Description</h5>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a ty
+                            {{$products->description}}
                         </p>
                     </div>
                 </div>

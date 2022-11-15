@@ -27,26 +27,18 @@ class SiteController extends Controller
         return view('base', compact('sliders', 'orders', 'users', 'categories'));
     }
 
-    public function allProduct(){
-        $products = Product::orderBy('created_at', 'desc')->get();
-        return view('allproduct', compact('products'));
-    }
+    // public function allProduct(){
+    //     $products = Product::orderBy('created_at', 'desc')->get();
+    //     return view('allproduct', compact('products'));
+    // }
 
     public function productSearch(Request $request){
-
-        // if (Auth::id()) {
-
-        // } else {
-        //     # code...
-        // }
 
         $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->exists();
         $products=Product::orwhere('product_name','like','%'.$request->search.'%')
                     ->orderBy('id','DESC')
                     ->simplePaginate('9');
         return view('search-product')->with('products',$products)->with('recent_products', $recent_products);
-
-
     }
 
     public function collectionCategory()

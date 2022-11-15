@@ -57,6 +57,7 @@ class ProductController extends Controller
         $products = new Product;
         $products->product_name = $request->input('product_name');
         $products->price = $request->input('price');
+        $products->description = $request->input('description');
         $products->category_id = $request->input('category_id');
         $products->status = $request->input('status');
 
@@ -64,6 +65,7 @@ class ProductController extends Controller
             'product_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg,jfif,webp|max:2048',
             'product_name' => 'required|string|max:255',
             'price' => 'required|numeric',
+            'description'=>'required|string|max:255',
             'category_id'=> 'required',
             'status'=> 'required'
         ]);
@@ -119,6 +121,7 @@ class ProductController extends Controller
         $products = Product::find($id);
         $products->product_name = $request->input('product_name');
         $products->price = $request->input('price');
+        $products->description = $request->input('description');
         $products->category_id = $request->input('category_id');
         $products->status = $request->input('status');
 

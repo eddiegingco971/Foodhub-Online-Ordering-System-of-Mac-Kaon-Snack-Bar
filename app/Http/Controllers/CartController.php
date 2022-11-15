@@ -36,7 +36,7 @@ class CartController extends Controller
     //        'total_amount' => 'required',
     //        'status' => 'required',
     //    ]);
-    $products = DB::table('products')->where('status', 'active')->get();
+    // $products = DB::table('products')->where('status', 'active')->get();
 
     dd($request->product_id);
        $cart = Cart::with(['products'])->create([
