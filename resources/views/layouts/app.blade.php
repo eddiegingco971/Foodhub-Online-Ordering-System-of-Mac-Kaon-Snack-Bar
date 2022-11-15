@@ -34,7 +34,7 @@
 <!-- Theme style --> --}}
 
 
-
+@livewireStyles
 
   </head>
   <body>
@@ -71,7 +71,7 @@
     <script src="{{asset('/base')}}/js/custom.js"></script>
     <script src="{{asset('/dist')}}/js/adminlte.js"></script>
     <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
+    @livewireScripts
     {{-- <!-- jQuery -->
 <script src="{{asset('/plugins')}}/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

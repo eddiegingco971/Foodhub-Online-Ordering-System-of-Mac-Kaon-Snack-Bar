@@ -38,7 +38,8 @@ class CartController extends Controller
     //    ]);
     $products = DB::table('products')->where('status', 'active')->get();
 
-       Cart::with(['products'])->create([
+    dd($request->product_id);
+       $cart = Cart::with(['products'])->create([
            'product_id' => $request->product_id,
            'user_id' => auth()->user()->id,
         //    'user_id' => $request->user_id,
@@ -46,6 +47,7 @@ class CartController extends Controller
            'total_amount' =>  $request->price*$request->quantity,
            'status' => $request->status,
         ]);
+        // dd($cart);
 
         return redirect()->back()->with('status', 'Added Product Successfully');
    }

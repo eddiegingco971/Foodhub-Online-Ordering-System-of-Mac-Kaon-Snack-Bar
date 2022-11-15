@@ -30,8 +30,9 @@ class UserController extends Controller
     public function index()
     {
         // $carts = DB::table('carts')->where('user_id', auth()->user()->id)->get();
-        $carts = Cart::orderBy('created_at', 'desc')->where('user_id', auth()->user()->id)->get();
-        return view('user.user-cart.index', compact('carts'));
+        // $carts = Cart::orderBy('created_at', 'desc')->where('user_id', auth()->user()->id)->get();
+        // return view('user.user-cart.index', compact('carts'));
+        return view('user.cart.index');
     }
 
     public function userOrder(){
