@@ -17,11 +17,12 @@ class ViewProduct extends Component
     // }
 
     public function mount(){
-        $this->product_photo = $this->product->product_photo;
-        $this->product_name = $this->product->product_name;
-        $this->price = $this->product->price;
-        $this->description = $this->product->description;
-        $this->category_id = $this->product->category_id;
+        $this->productId = $this->id;
+        $this->product_photo = $this->product_photo;
+        $this->product_name = $this->product_name;
+        $this->price = $this->price;
+        $this->description = $this->description;
+        $this->category_id = $this->category_id;
     }
 
     public function getProductProperty($productId){
