@@ -64,9 +64,8 @@ class SiteController extends Controller
             return redirect()->back();
         }
     }
-
     public function viewProduct($id){
-
+        dd($id);
         return view('collections.product.view', compact('id'));
         // $categories = Category::where('category_name', $cat_name)->first();
 

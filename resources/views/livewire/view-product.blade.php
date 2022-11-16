@@ -5,21 +5,21 @@
             <div class="row">
                 <div class="col-md-7 mt-3 mb-3">
                     <div class="bg-dark border">
-                        <img src="{{asset('dist/img/product/'.$this->product_photo)}}" class="w-100" alt="Img">
+                        <img src="{{asset('dist/img/product/'.$this->product->product_photo)}}" class="w-100" alt="Img">
                     </div>
                 </div>
                 <div class="col-md-5 mt-3">
                     <div class="product-view">
                         <h4 class="product-name">
-                            {{$this->product_name}}
+                            {{$this->product->product_name}}
                             <label class="label-stock bg-success">Available</label>
                         </h4>
                         <hr>
                         {{-- <p class="product-path">
-                            Home / {{$this->category_id}} / {{$this->product_name}}
+                            Home / {{$this->product->category_id}} / {{$this->product->product_name}}
                         </p> --}}
                         <div>
-                            <span class="selling-price">₱{{$this->price}}</span>
+                            <span class="selling-price">₱{{$this->product->price}}</span>
                             {{-- <span class="original-price">$499</span> --}}
                         </div>
                         <div class="mt-2">
@@ -36,7 +36,7 @@
                         <div class="col-md-12 mt-2 text-dark card bg-secondary">
                             <h5 class="card-header">Description</h5>
                             <p>
-                                {{$this->description}}
+                                {{$this->product->description}}
                             </p>
                         </div>
                     </div>
