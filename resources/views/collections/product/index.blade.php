@@ -12,7 +12,7 @@
             @foreach ($products as $product)
             <div class="col-6 col-md-3">
                 <div class="product-card">
-                    <a href="{{url('/collections/'.$product->categories->category_name.'/'.$product->product_name)}}">
+                    <a href="{{url('/collections/'.$product->categories->category_name.'/'.$product->id)}}">
                         <div class="product-card-img">
                             <img src="{{asset('dist/img/product/'.$product->image)}}" class="w-100" alt="Product Image">
                         </div>
@@ -23,6 +23,17 @@
                             <p>{{$product->description}}</p>
                         </div>
                     </a>
+                    {{-- <a href="{{url('/collections/'.$product->categories->category_name.'/'.$product->product_name)}}">
+                        <div class="product-card-img">
+                            <img src="{{asset('dist/img/product/'.$product->image)}}" class="w-100" alt="Product Image">
+                        </div>
+                        <div class="product-card-body">
+                            <h5>{{$product->product_name}}</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{$product->description}}</p>
+                        </div>
+                    </a> --}}
                 </div>
             </div>
             @endforeach

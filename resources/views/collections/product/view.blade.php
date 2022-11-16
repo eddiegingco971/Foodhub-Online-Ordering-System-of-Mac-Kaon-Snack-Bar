@@ -6,7 +6,7 @@
 $products=DB::table('products')->where('status','active')->get();
 @endphp --}}
 
-<div class="py-3 py-md-5 bg-dark">
+{{-- <div class="py-3 py-md-5 bg-dark">
     <div class="container card">
         <div class="row">
             <div class="col-md-7 mt-3 mb-3">
@@ -26,7 +26,7 @@ $products=DB::table('products')->where('status','active')->get();
                     </p>
                     <div>
                         <span class="selling-price">₱{{$products->price}}</span>
-                        {{-- <span class="original-price">$499</span> --}}
+                        <span class="original-price">$499</span>
                     </div>
                     <div class="mt-2">
                         <div class="input-group">
@@ -37,7 +37,8 @@ $products=DB::table('products')->where('status','active')->get();
                     </div>
                     <div class="mt-2 mb-2">
                         <a href="" class="btn btn1 btn-success"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
-                        {{-- <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a> --}}
+
+                        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a>
                     </div>
                     <div class="col-md-12 mt-2 text-dark card bg-secondary">
                         <h5 class="card-header">Description</h5>
@@ -48,7 +49,8 @@ $products=DB::table('products')->where('status','active')->get();
                 </div>
             </div>
         </div>
-        {{-- <div class="row">
+
+        <div class="row">
             <div class="col-md-12 mt-3">
                 <div class="card">
                     <div class="card-header bg-white">
@@ -61,9 +63,12 @@ $products=DB::table('products')->where('status','active')->get();
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
+
     </div>
-</div>
+</div> --}}
+
+<livewire:view-product :productId='$id'/>
 
 
 @endsection
