@@ -15,6 +15,11 @@
                     <a href="{{url('select', ['product'=>$product->id])}}">
                         <div class="product-card-img">
                             <img src="{{asset('dist/img/product/'.$product->image)}}" class="w-100" alt="Product Image">
+                            @if ($product->status == 'active')
+                                <label class="stock bg-success">Available</label>
+                            @else
+                                <label class="stock bg-danger">Not Available</label>
+                            @endif
                         </div>
                         <div class="product-card-body">
                             <h5>{{$product->product_name}}</h5>

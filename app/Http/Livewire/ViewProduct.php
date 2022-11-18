@@ -24,6 +24,7 @@ class ViewProduct extends Component
         $this->price = $product->price;
         $this->description = $product->description;
         $this->category_id = $product->category_id;
+        $this->status = $product->status;
     }
 
     // public function getProductProperty(){
@@ -33,7 +34,7 @@ class ViewProduct extends Component
     public function render()
     {
         $products=Product::get();
-        return view('livewire.view-product');
+        return view('livewire.view-product', compact('products'));
         // return view('livewire.view-product', $this->loadProducts());
     }
 }

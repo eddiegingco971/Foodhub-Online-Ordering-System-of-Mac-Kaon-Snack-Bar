@@ -38,8 +38,8 @@ class CartController extends Controller
     //    ]);
     // $products = DB::table('products')->where('status', 'active')->get();
 
-    dd($request->product_id);
-       $cart = Cart::with(['products'])->create([
+    // dd($request->product_id);
+       Cart::with(['products'])->create([
            'product_id' => $request->product_id,
            'user_id' => auth()->user()->id,
         //    'user_id' => $request->user_id,
