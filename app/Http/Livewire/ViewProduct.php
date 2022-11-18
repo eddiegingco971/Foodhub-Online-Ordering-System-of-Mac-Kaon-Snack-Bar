@@ -8,7 +8,8 @@ use Livewire\Component;
 
 class ViewProduct extends Component
 {
-    public $productId, $product, $product_photo, $product_name, $description, $price, $status, $category_id;
+    public $productId;
+    public $product, $product_photo, $product_name, $description, $price, $status, $category_id;
 
     // public function loadProducts(){
     //     $products = Product::find('id', $productId);
@@ -17,18 +18,17 @@ class ViewProduct extends Component
     // }
 
     public function mount(){
-        $this->productId = $this->id;
-        $this->product_photo = $this->product_photo;
-        $this->product_name = $this->product_name;
-        $this->price = $this->price;
-        $this->description = $this->description;
-        $this->category_id = $this->category_id;
+        $product = Product::find($this->productId);
+        $this->product_photo = $product->product_photo;
+        $this->product_name = $product->product_name;
+        $this->price = $product->price;
+        $this->description = $product->description;
+        $this->category_id = $product->category_id;
     }
 
-    public function getProductProperty($productId){
-        return Product::find($this->productId);
-
-    }
+    // public function getProductProperty(){
+    //     return Product::find($this->productId);
+    // }
 
     public function render()
     {

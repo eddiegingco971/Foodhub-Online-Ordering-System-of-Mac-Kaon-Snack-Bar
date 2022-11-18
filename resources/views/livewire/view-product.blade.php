@@ -11,7 +11,7 @@
                 <div class="col-md-5 mt-3">
                     <div class="product-view">
                         <h4 class="product-name">
-                            {{$this->product_name}}
+                            {{$product_name}}
                             <label class="label-stock bg-success">Available</label>
                         </h4>
                         <hr>

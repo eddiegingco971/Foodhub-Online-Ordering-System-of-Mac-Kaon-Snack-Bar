@@ -68,7 +68,7 @@ $products=DB::table('products')->where('status','active')->get();
     </div>
 </div> --}}
 
-<livewire:view-product :productId='$id'/>
+<livewire:view-product :productId="$id"/>
 
 
 @endsection

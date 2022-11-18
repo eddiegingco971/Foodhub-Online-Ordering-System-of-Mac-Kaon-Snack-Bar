@@ -12,7 +12,7 @@
             @foreach ($products as $product)
             <div class="col-6 col-md-3">
                 <div class="product-card">
-                    <a href="{{url('/collections/'.$product->categories->category_name.'/'.$product->id)}}">
+                    <a href="{{url('select', ['product'=>$product->id])}}">
                         <div class="product-card-img">
                             <img src="{{asset('dist/img/product/'.$product->image)}}" class="w-100" alt="Product Image">
                         </div>

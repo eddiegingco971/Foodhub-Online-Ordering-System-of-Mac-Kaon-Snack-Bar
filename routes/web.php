@@ -33,7 +33,7 @@ Route::post('/product/search', [SiteController::class, 'productSearch'])->name('
 // Route::get('/all-product', [SiteController::class, 'allProduct']);
 Route::get('/collections', [SiteController::class, 'collectionCategory']);
 Route::get('/collections/{cat_name}', [SiteController::class, 'specificProduct']);
-Route::get('/collections/{cat_name}/{id}', [SiteController::class, 'viewProduct']);
+Route::get('/select/{product}', [SiteController::class, 'viewProduct']);
 Route::get('/about', [SiteController::class, 'about']);
 
 
