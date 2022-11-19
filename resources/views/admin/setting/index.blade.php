@@ -55,19 +55,19 @@
                             <textarea name="address" class="form-control" rows="3">{{ $setting->address ?? '' }}</textarea>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Phone 1 *</label>
-                            <input type="text" name="phone1" value="{{ $setting->phone1 ?? '' }}" class="form-control" />
+                            <label>Phone Number 1</label>
+                            <input type="text" name="phone1" value="{{ $setting->phone1 ?? '' }}" class="form-control" placeholder="09xxxxxxxxx" />
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Phone No. 2</label>
-                            <input type="text" name="phone2" value="{{ $setting->phone2 ?? '' }}" class="form-control" />
+                            <label>Phone Number 2</label>
+                            <input type="text" name="phone2" value="{{ $setting->phone2 ?? '' }}" class="form-control"  placeholder="09xxxxxxxxx"/>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Email Id 1 *</label>
+                            <label>Email Address 1</label>
                             <input type="text" name="email1" value="{{ $setting->email1 ?? '' }}" class="form-control" />
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Email Id 2</label>
+                            <label>Email Address 2</label>
                             <input type="text" name="email2" value="{{ $setting->email2 ?? '' }}" class="form-control" />
                         </div>
                     </div>

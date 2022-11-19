@@ -6,7 +6,7 @@
             {{-- <img src="{{asset('/assets')}}/Logo.png" alt="" width="10" height="10" class="rounded-circle"> --}}
             Mac Kaon
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('/assets')}}/Logo.png" alt="logo"/></a>
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="mdi mdi-sort-variant"></span>
         </button>

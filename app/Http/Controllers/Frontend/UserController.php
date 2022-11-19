@@ -19,8 +19,8 @@ class UserController extends Controller
     {
         $request->validate([
             'username' => ['required','string'],
-            'phone' => ['required','digits:10'],
-            'pin_code' => ['required','digits:6'],
+            'phone' => ['required','digits:11'],
+            'pin_code' => ['required','digits:4'],
             'address' => ['required','string','max:499'],
         ]);
 

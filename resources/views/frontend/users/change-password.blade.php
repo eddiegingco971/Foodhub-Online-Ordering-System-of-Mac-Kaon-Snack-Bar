@@ -36,7 +36,7 @@
                             </div>
                             <div class="mb-3">
                                 <label>New Password</label>
-                                <input type="password" name="password" class="form-control" />
+                                <input type="password" name="password" class="form-control" placeholder="Atleast 8 characters" />
                             </div>
                             <div class="mb-3">
                                 <label>Confirm Password</label>
