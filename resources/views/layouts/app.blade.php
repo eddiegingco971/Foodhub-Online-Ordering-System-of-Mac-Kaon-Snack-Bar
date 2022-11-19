@@ -11,7 +11,7 @@
 
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keyword')">
-    <meta name="author" content="Funda of Web IT">
+    <meta name="author" content="Mac Kaon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -39,7 +39,7 @@
 </head>
 <body>
     <div id="app">
-       
+
         @include('layouts.inc.frontend.navbar')
 
         <main>
