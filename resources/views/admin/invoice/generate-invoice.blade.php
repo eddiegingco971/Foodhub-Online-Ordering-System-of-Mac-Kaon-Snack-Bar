@@ -184,7 +184,7 @@
 
     <br>
     <p class="text-center">
-        Thank your for shopping with {{ $appSetting->website_name }}
+        Thank your for ordering with {{ $appSetting->website_name }}
     </p>
 
 </body>

@@ -451,6 +451,7 @@
 
         @endif
     @else
+
     <div class="main-navbar shadow-sm sticky-top">
         <div class="top-navbar">
             <div class="container-fluid">
@@ -600,6 +601,7 @@
             </div>
         </nav> --}}
     </div>
+
     @endauth
 
 @endif
