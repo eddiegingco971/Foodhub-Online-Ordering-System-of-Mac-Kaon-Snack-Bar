@@ -59,7 +59,7 @@
                             <div class="mb-3">
                                 <label>Select Category</label>
                                 <select name="category_id" class="form-control">
-                                    <option value="">Select Category</option>
+                                    <option hidden="true" value="">--Select Category--</option>
                                     @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -76,10 +76,10 @@
                             <div class="mb-3">
                                 <label>Select Brand</label>
                                 <select name="brand" class="form-control">
-                                    <option value="">Select Brand</option>
+                                    <option value="">--Select Brand--</option>
                                     @foreach ($brands as $brand)
                                     <option value="{{ $brand->name }}">
-                                        {{ $brand->name }} 
+                                        {{ $brand->name }}
                                         @if($brand->category)
                                         - for {{ $brand->category->name }}
                                         @endif
@@ -131,24 +131,46 @@
                                         <input type="number" name="quantity" class="form-control" />
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="mb-3">
                                         <label>Trending</label><br/>
                                         <input type="checkbox" name="trending" style="width: 30px; height: 30px;" />
                                     </div>
+                                </div> --}}
+                                <div class="col-md-4 mb-3">
+                                    <label for="trending">Trending</label><br/>
+                                    <select name="trending" class="form-select form-control" id="trending" >
+                                        <option value="0">Not Trending</option>
+                                        <option value="1">Trending</option>
+                                       </select>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="mb-3">
                                         <label>Featured</label><br/>
                                         <input type="checkbox" name="featured" style="width: 30px; height: 30px;" />
                                     </div>
+                                </div> --}}
+                                <div class="col-md-4 mb-3">
+                                    <label for="featured">Featured</label><br/>
+                                    <select name="featured" class="form-select form-control" id="featured" >
+                                        <option value="0">Not Featured</option>
+                                        <option value="1">Featured</option>
+                                       </select>
                                 </div>
-                                <div class="col-md-4">
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="status">Status</label><br/>
+                                    <select name="status" class="form-select form-control" id="status" >
+                                        <option value="0">Visible</option>
+                                        <option value="1">Hidden</option>
+                                       </select>
+                                </div>
+                                {{-- <div class="col-md-4">
                                     <div class="mb-3">
                                         <label>Status</label><br/>
                                         <input type="checkbox" name="status" style="width: 30px; height: 30px;" />
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="tab-pane fade border p-3" id="image-tab-pane" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
@@ -163,8 +185,8 @@
                                 <hr/>
                                 <div class="row">
                                     @forelse ($colors as $coloritem)
-                                    <div class="col-md-3">
-                                        <div class="p-2 border mb-3">
+                                    <div class="col-md-3 mt-1">
+                                        <div class="p-2 border mb-3 bg-light elevation-3">
                                             Color: <input type="checkbox" name="colors[{{ $coloritem->id }}]" value="{{ $coloritem->id }}" />
                                             {{ $coloritem->name }}
                                             <br/>

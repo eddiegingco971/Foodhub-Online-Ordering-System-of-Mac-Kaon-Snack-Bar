@@ -74,7 +74,7 @@ class CartShow extends Component
                     ]);
                 }else{
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only ' .$cartData->product->quantity. ' Quantity Available',
+                        'text' => 'Only ' .$cartData->product->quantity. ' Quantity <label class="stock bg-danger">Out of Stock</label>',
                         'type' => 'success',
                         'status' => 200
                     ]);

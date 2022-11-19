@@ -38,10 +38,22 @@
                             <input type="file" name="image" class="form-control" />
                             @error('image') <small class="text-danger">{{$message}}</small> @enderror
                         </div>
-                        <div class="col-md-6 mb-3">
+                        {{-- <div class="col-md-6 mb-3">
                             <label>Status</label><br/>
                             <input type="checkbox" name="status"  />
                             @error('status') <small class="text-danger">{{$message}}</small> @enderror
+                        </div> --}}
+
+                        <div class="col-md-6 mb-3">
+                            <label for="status">Status</label><br/>
+                            <select name="status" class="form-select form-control" id="status" >
+                                <option value="0">Visible</option>
+                                <option value="1">Hidden</option>
+                               </select>
+                            {{-- <input type="checkbox" name="status"/> --}}
+                            @error('status')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
                         </div>
 
                         <div class="col-md-12 mt-3">

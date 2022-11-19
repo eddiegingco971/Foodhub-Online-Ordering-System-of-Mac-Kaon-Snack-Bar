@@ -31,9 +31,14 @@
                         <label>Color Code</label>
                         <input type="text" name="code" value="{{ $color->code }}" class="form-control">
                     </div>
+
                     <div class="mb-3">
-                        <label>Status</label> <br/>
-                        <input type="checkbox" name="status" {{ $color->status ? 'checked':'' }} style="width:30px;height:30px" /> Checked=Hidden,UnChecked=Visible
+                        <label for="status">Status</label><br/>
+                        <select  type="status" name="status" class="form-select form-control" id="status" >
+                            <option hidden="true" value="{{ $color->status == '1' ? 'Hidden':'Visible' }}">{{ $color->status == '1' ? 'Hidden':'Visible' }}</option>
+                            <option value="0">Visible</option>
+                            <option value="1">Hidden</option>
+                           </select>
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Update</button>

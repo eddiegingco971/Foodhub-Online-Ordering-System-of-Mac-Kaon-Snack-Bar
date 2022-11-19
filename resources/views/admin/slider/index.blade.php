@@ -41,10 +41,10 @@
                                 </td>
                                 <td>{{ $slider->status == '0' ? 'Visible':'Hidden' }}</td>
                                 <td>
-                                    <a href="{{ url('admin/sliders/'.$slider->id.'/edit') }}" class="btn btn-success">Edit</a>
-                                    <a href="{{ url('admin/sliders/'.$slider->id.'/delete') }}" 
+                                    <a href="{{ url('admin/sliders/'.$slider->id.'/edit') }}" class="btn  btn-sm btn-success">Edit</a>
+                                    <a href="{{ url('admin/sliders/'.$slider->id.'/delete') }}"
                                         onclick="return confirm('Are you sure you wnat to delete this slider?');"
-                                         class="btn btn-danger"
+                                         class="btn  btn-sm btn-danger"
                                     >
                                          Delete
                                     </a>

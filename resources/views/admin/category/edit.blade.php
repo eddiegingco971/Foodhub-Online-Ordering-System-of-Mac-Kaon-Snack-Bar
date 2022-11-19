@@ -40,10 +40,22 @@
                             <img src="{{ asset("$category->image") }}" width="60px" height="60px" />
                             @error('image') <small class="text-danger">{{$message}}</small> @enderror
                         </div>
-                        <div class="col-md-6 mb-3">
+                        {{-- <div class="col-md-6 mb-3">
                             <label>Status ( Show / Hide )</label><br/>
                             <input type="checkbox" name="status" {{ $category->status == '1' ? 'checked':'' }} style="width:40px; height:40px" />
                             @error('status') <small class="text-danger">{{$message}}</small> @enderror
+                        </div> --}}
+
+                        <div class="col-md-6 mb-3">
+                            <label for="status">Status</label><br/>
+                            <select  type="status" name="status" class="form-select form-control" id="status" >
+                                <option hidden="true" value="{{ $category->status == '1' ? 'Hidden':'Visible' }}">{{ $category->status == '1' ? 'Hidden':'Visible' }}</option>
+                                <option value="0">Visible</option>
+                                <option value="1">Hidden</option>
+                               </select>
+                            @error('status')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
                         </div>
 
                         <div class="col-md-12 mt-3">

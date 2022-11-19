@@ -65,8 +65,8 @@
                         <div class="tab-pane fade border p-3 show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                             <div class="mb-3">
                                 <label>Select Category</label>
-                                <select name="category_id" class="form-control">
-                                    <option value="">Select Category</option>
+                                <select name="category_id" class="form-select form-control">
+                                    {{-- <option value="">Select Category</option> --}}
                                     @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected':'' }} >
                                         {{ $category->name }}
@@ -85,7 +85,7 @@
                             <div class="mb-3">
                                 <label>Select Brand</label>
                                 <select name="brand" class="form-control">
-                                    <option value="">Select Brand</option>
+                                    {{-- <option value="">--Select Brand--</option> --}}
                                     @foreach ($brands as $brand)
                                     <option value="{{ $brand->name }}" {{ $brand->name == $product->brand ? 'selected':'' }} >
                                         {{ $brand->name }}
@@ -140,24 +140,48 @@
                                         <input type="number" name="quantity" value="{{ $product->quantity }}" class="form-control" />
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 mb-3">
+                                    <label for="trending">Trending</label><br/>
+                                    <select  type="trending" name="trending" class="form-select form-control" id="status" >
+                                        <option hidden="true" value="{{ $product->trending == '1' ? 'Trending':'Not-Trending' }}">{{ $product->status == '1' ? 'Trending':'Not-Trending' }}</option>
+                                        <option value="0">Not Trending</option>
+                                        <option value="1">Trending</option>
+                                       </select>
+                                </div>
+                                {{-- <div class="col-md-4">
                                     <div class="mb-3">
                                         <label>Trending</label><br/>
                                         <input type="checkbox" name="trending" {{ $product->trending == '1' ? 'checked':'' }} style="width: 30px; height: 30px;" />
                                     </div>
+                                </div> --}}
+                                <div class="col-md-4 mb-3">
+                                    <label for="featured">Featured</label><br/>
+                                    <select  type="featured" name="featured" class="form-select form-control" id="status" >
+                                        <option hidden="true" value="{{ $product->featured == '1' ? 'Featured':'Not-Featured' }}">{{ $product->featured == '1' ? 'Featured':'Not-Featured' }}</option>
+                                        <option value="0">Not Featured</option>
+                                        <option value="1">Featured</option>
+                                       </select>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="mb-3">
                                         <label>Featured</label><br/>
                                         <input type="checkbox" name="featured" {{ $product->featured == '1' ? 'checked':'' }} style="width: 30px; height: 30px;" />
                                     </div>
+                                </div> --}}
+                                <div class="col-md-4 mb-3">
+                                    <label for="status">Status</label><br/>
+                                    <select  type="status" name="status" class="form-select form-control" id="status" >
+                                        <option hidden="true" value="{{ $product->status == '1' ? 'Hidden':'Visible' }}">{{ $product->status == '1' ? 'Hidden':'Visible' }}</option>
+                                        <option value="0">Visible</option>
+                                        <option value="1">Hidden</option>
+                                       </select>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="mb-3">
                                         <label>Status</label><br/>
                                         <input type="checkbox" name="status" {{ $product->status == '1' ? 'checked':'' }} style="width: 30px; height: 30px;" />
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="tab-pane fade border p-3" id="image-tab-pane" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
@@ -220,7 +244,7 @@
                                                 @if($prodColor->color)
                                                 {{ $prodColor->color->name }}
                                                 @else
-                                                No Color Found
+                                                No Additional Color Found
                                                 @endif
                                             </td>
                                             <td>
