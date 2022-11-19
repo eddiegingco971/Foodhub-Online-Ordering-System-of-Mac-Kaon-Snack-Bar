@@ -13,8 +13,8 @@
                     @endif
 
                     <div class="p-4 shadow bg-white">
-                        <h2>Your Logo</h2>
-                        <h4 class="mb-3">Thank You for Shopping with Funda Ecommerce</h4>
+                        <h2> <img src="{{asset('/assets')}}/Logo.png" alt="" width="35" height="35" class="rounded-circle"></h2>
+                        <h4 class="mb-3">Thank You for Ordering with Mac Kaon FoodHub</h4>
                         <a href="{{ url('collections') }}" class="btn btn-primary">Shop now</a>
                     </div>
                 </div>
