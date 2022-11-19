@@ -2,19 +2,39 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
     use HasFactory;
+
+    protected $table = 'categories';
+
     protected $fillable = [
-        'category_name',
+        'name',
+        'slug',
+        'description',
         'image',
-        'status'
+        'meta_title',
+        'meta_keyword',
+        'meta_description',
+        'status',
     ];
 
-    public function products(){
+    public function products()
+    {
         return $this->hasMany(Product::class, 'category_id', 'id');
+    }
+
+    public function relatedProducts()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id')->latest()->take(16);
+    }
+
+    public function brands()
+    {
+        return $this->hasMany(Brand::class, 'category_id', 'id')->where('status','0');
     }
 }

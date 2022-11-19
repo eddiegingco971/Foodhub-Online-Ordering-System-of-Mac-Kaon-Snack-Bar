@@ -1,106 +1,76 @@
 <!doctype html>
-<html lang="en">
-  <head>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Eddie Gingco">
-    <meta name="generator" content="Hugo 0.104.2">
-    <title>Mac Kaon FoodHub</title>
 
-<link rel="stylesheet" href="{{asset('/plugins')}}/fontawesome-free/css/all.min.css">
-{{-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/"> --}}
-<link rel="stylesheet" href="{{asset('/base')}}/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{asset('/base')}}/css/bootstrap.bundle.min.css">
-<link rel="stylesheet" href="{{asset('/base')}}/css/custom.css">
-<link rel="stylesheet" href="{{asset('/dist')}}/css/adminlte.min.css">
-<link rel="stylesheet" href="{{asset('/plugins')}}/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title> @yield('title') </title>
 
-<link rel="stylesheet" href="{{asset('/plugins')}}/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="{{asset('/plugins')}}/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <meta name="description" content="@yield('meta_description')">
+    <meta name="keywords" content="@yield('meta_keyword')">
+    <meta name="author" content="Funda of Web IT">
 
-{{-- <!-- Google Font: Source Sans Pro -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Ionicons -->
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Tempusdominus Bootstrap 4 -->
-<link rel="stylesheet" href="{{asset('/plugins')}}/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-<!-- iCheck -->
-<link rel="stylesheet" href="{{asset('/plugins')}}/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- JQVMap -->
-<link rel="stylesheet" href="{{asset('/plugins')}}/jqvmap/jqvmap.min.css">
-<!-- Theme style --> --}}
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <!-- Styles -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
+    {{-- Owl Carousel --}}
+    <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet">
 
-  </head>
-  <body>
+    {{-- Exzoom - Prod Image --}}
+    <link href="{{ asset('assets/exzoom/jquery.exzoom.css') }}" rel="stylesheet">
 
-    @include('layouts.components.preloader')
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 
-    <header>
-        @include('layouts.base-navbar')
-    </header>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 
-    <main>
-        {{-- @if (session('status'))
-        <div class="alert alert-success m-2 text-center" role="alert">
-            {{ session('status') }}
-        </div>
-        @endif
+    @livewireStyles
+</head>
+<body>
+    <div id="app">
+       
+        @include('layouts.inc.frontend.navbar')
 
-        @if (session('error'))
-            <div class="alert alert-warning m-2 text-center" role="alert">
-                {{ session('error') }}
-            </div>
-        @endif --}}
+        <main>
+            @yield('content')
+        </main>
 
-        @yield('content')
+        @include('layouts.inc.frontend.footer')
 
-        {{-- @include('layouts.footer') --}}
-    </main>
-    @include('layouts.footer')
+    </div>
 
-    <script src="{{asset('/base')}}/js/jquery.min.js"></script>
-    <script src="{{asset('/base')}}/js/bootstrap.min.js"></script>
-    <script src="{{asset('/base')}}/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('/base')}}/js/popper.min.js"></script>
-    <script src="{{asset('/base')}}/js/custom.js"></script>
-    <script src="{{asset('/dist')}}/js/adminlte.js"></script>
-    <script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    {{-- <!-- jQuery -->
-<script src="{{asset('/plugins')}}/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('/plugins')}}/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- ChartJS -->
-<script src="{{asset('/plugins')}}/chart.js/Chart.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        window.addEventListener('message', event => {
+            if(event.detail){
+                alertify.set('notifier','position', 'top-right');
+                alertify.notify(event.detail.text, event.detail.type);
+            }
+        });
+    </script>
 
-<!-- jQuery Knob Chart -->
-<script src="{{asset('/plugins')}}/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="{{asset('/plugins')}}/moment/moment.min.js"></script>
-<script src="{{asset('/plugins')}}/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('/plugins')}}/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="{{asset('/plugins')}}/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars --> --}}
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 
-<script src="{{asset('/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
 
-<script src="{{asset('/plugins')}}/datatables/jquery.dataTables.min.js"></script>
-<script src="{{asset('/plugins')}}/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="{{asset('/plugins')}}/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="{{asset('/plugins')}}/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-{{-- <script src="{{asset('/plugins')}}/datatables-buttons/js/buttons.html5.min.js"></script> --}}
+    @yield('script')
 
-  </body>
+    @livewireScripts
+    @stack('scripts')
+</body>
 </html>

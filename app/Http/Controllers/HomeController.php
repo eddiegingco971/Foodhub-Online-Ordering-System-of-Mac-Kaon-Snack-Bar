@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -15,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware('auth');
     }
 
     /**
@@ -25,26 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        $orders = DB::table('orders')->count();
-        $products = DB::table('products')->count();
-        $users = DB::table('users')->count();
-        $carts = DB::table('carts')->count();
-        return view('admin.master' ,compact('orders','products','users','carts'));
-
+        return view('home');
     }
-
-
-    public function calendar()
-    {
-        return view('admin.event.calendar');
-    }
-
-    public function cartList()
-    {
-        $carts = Cart::get();
-        return view('admin.cart.cartList', compact('carts'));
-    }
-
-
 }
