@@ -95,7 +95,7 @@
             @else
                 <div class="card card-body shadow text-center p-md-5">
                     <h4>No items in cart to checkout</h4>
-                    <a href="{{ url('collections') }}" class="btn btn-warning">Shop now</a>
+                    <a href="{{ url('collections') }}" class="btn btn-warning">Order now</a>
                 </div>
             @endif
 

@@ -20,7 +20,7 @@
                     <div class="mb-2"><a href="#" class="text-white">Sitemaps</a></div> --}}
                 </div>
                 <div class="col-md-3">
-                    <h4 class="footer-heading">Shop Now</h4>
+                    <h4 class="footer-heading">Order now</h4>
                     <div class="footer-underline"></div>
                     <div class="mb-2"><a href="{{ url('/collections') }}" class="text-white">Collections</a></div>
                     <div class="mb-2"><a href="{{ url('/') }}" class="text-white">Trending Products</a></div>
