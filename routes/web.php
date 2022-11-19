@@ -15,6 +15,8 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/new-arrivals', 'newArrival');
     Route::get('/featured-products', 'featuredProducts');
 
+    Route::get('/about', 'about');
+
     Route::get('search', 'searchProducts');
 });
 

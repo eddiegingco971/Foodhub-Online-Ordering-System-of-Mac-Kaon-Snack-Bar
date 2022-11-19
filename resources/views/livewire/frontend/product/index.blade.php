@@ -35,9 +35,9 @@
                         <div class="product-card">
                             <div class="product-card-img">
                                 @if ($productItem->quantity > 0)
-                                <label class="stock bg-success">Available</label>
+                                <label class="stock bg-success">In Stock</label>
                                 @else
-                                <label class="stock bg-danger">Unavailable</label>
+                                <label class="stock bg-danger">Out of Stock</label>
                                 @endif
 
                                 @if ($productItem->productImages->count() > 0)

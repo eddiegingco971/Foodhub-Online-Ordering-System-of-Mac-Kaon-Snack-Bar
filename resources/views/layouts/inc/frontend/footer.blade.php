@@ -14,7 +14,7 @@
                     <h4 class="footer-heading">Quick Links</h4>
                     <div class="footer-underline"></div>
                     <div class="mb-2"><a href="{{ url('/') }}" class="text-white">Home</a></div>
-                    <div class="mb-2"><a href="{{ url('/about-us') }}" class="text-white">About Us</a></div>
+                    <div class="mb-2"><a href="{{ url('/about') }}" class="text-white">About Us</a></div>
                     {{-- <div class="mb-2"><a href="{{ url('/contact-us') }}" class="text-white">Contact Us</a></div>
                     <div class="mb-2"><a href="{{ url('/blogs') }}" class="text-white">Blogs</a></div>
                     <div class="mb-2"><a href="#" class="text-white">Sitemaps</a></div> --}}
