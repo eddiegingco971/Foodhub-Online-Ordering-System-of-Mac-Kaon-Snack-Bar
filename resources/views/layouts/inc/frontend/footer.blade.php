@@ -60,7 +60,7 @@
                 <div class="col-md-4">
                     <div class="social-media text-white">
                         Get Connected:
-                        @if($appSetting->facebook)
+                        {{-- @if($appSetting->facebook)
                             <a href="/{{ $appSetting->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
                         @endif
                         @if($appSetting->twitter)
@@ -71,7 +71,7 @@
                         @endif
                         @if($appSetting->youtube)
                             <a href="/{{ $appSetting->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
