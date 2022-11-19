@@ -32,8 +32,8 @@
                             </a>
                         </h5>
                         <div>
-                            <span class="selling-price">${{$productItem->selling_price}}</span>
-                            <span class="original-price">${{$productItem->original_price}}</span>
+                            <span class="selling-price">₱{{$productItem->selling_price}}</span>
+                            <span class="original-price">₱{{$productItem->original_price}}</span>
                         </div>
                     </div>
                 </div>
@@ -45,9 +45,9 @@
             @endforelse
 
             <div class="text-center">
-                <a href="{{ url('collections') }}" class="btn btn-warning px-3">Shop More</a>
+                <a href="{{ url('collections') }}" class="btn btn-warning px-3">Show More</a>
             </div>
-           
+
         </div>
     </div>
 </div>

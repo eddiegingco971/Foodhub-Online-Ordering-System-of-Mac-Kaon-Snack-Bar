@@ -39,8 +39,8 @@
                         </p>
                         <p class="product-path">Brand : {{ $product->brand }}</p>
                         <div>
-                            <span class="selling-price">${{ $product->selling_price }}</span>
-                            <span class="original-price">${{ $product->original_price }}</span>
+                            <span class="selling-price">₱{{ $product->selling_price }}</span>
+                            <span class="original-price">₱{{ $product->original_price }}</span>
                         </div>
                         <div>
                             @if($product->productColors->count() > 0)
@@ -222,7 +222,7 @@
                         </div>
                     @endif
                 </div>
-                
+
             </div>
         </div>
     </div>

@@ -11,10 +11,10 @@
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
                             Item Total Amount :
-                            <span class="float-end">${{$this->totalProductAmount}}</span>
+                            <span class="float-end">₱{{$this->totalProductAmount}}</span>
                         </h4>
                         <hr>
-                        <small>* Items will be delivered in 3 - 5 days.</small>
+                        <small>* Your order will be process in a moment.</small>
                         <br/>
                         <small>* Tax and other charges are included.</small>
                     </div>
