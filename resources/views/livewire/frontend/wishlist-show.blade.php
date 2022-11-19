@@ -29,8 +29,8 @@
                                     <div class="col-md-6 my-auto">
                                         <a href="{{ url('collections/'.$wishlistItem->product->category->slug.'/'.$wishlistItem->product->slug) }}">
                                             <label class="product-name">
-                                                <img src="{{ $wishlistItem->product->productImages[0]->image }}" 
-                                                    style="width: 50px; height: 50px" 
+                                                <img src="{{ $wishlistItem->product->productImages[0]->image }}"
+                                                    style="width: 50px; height: 50px"
                                                     alt="{{ $wishlistItem->product->name }}" />
 
                                                 {{ $wishlistItem->product->name }}
@@ -38,7 +38,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-2 my-auto">
-                                        <label class="price">${{ $wishlistItem->product->selling_price }} </label>
+                                        <label class="price">₱{{ $wishlistItem->product->selling_price }} </label>
                                     </div>
                                     <div class="col-md-4 col-12 my-auto">
                                         <div class="remove">

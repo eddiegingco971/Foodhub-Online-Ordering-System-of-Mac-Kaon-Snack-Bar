@@ -133,7 +133,7 @@ class View extends Component
                             } else{
 
                                 $this->dispatchBrowserEvent('message', [
-                                    'text' => 'Out of Stock',
+                                    'text' => 'Unavailable',
                                     'type' => 'warning',
                                     'status' => 404
                                 ]);
@@ -191,7 +191,7 @@ class View extends Component
                         else
                         {
                             $this->dispatchBrowserEvent('message', [
-                                'text' => 'Out of Stock',
+                                'text' => 'Unavailable',
                                 'type' => 'warning',
                                 'status' => 404
                             ]);

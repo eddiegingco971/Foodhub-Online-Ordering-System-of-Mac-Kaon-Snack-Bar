@@ -77,7 +77,7 @@
                                                 @endif
                                             @endif
                                         </td>
-                                        <td width="10%">${{ $orderItem->price }}</td>
+                                        <td width="10%">₱{{ $orderItem->price }}</td>
                                         <td width="10%">{{ $orderItem->quantity }}</td>
                                         <td width="10%" class="fw-bold">₱{{ $orderItem->quantity * $orderItem->price }}</td>
                                         @php

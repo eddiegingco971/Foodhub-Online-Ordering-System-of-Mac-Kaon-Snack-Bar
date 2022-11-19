@@ -57,18 +57,18 @@
 
                                 <div>
                                     @if ($this->prodColorSelectedQuantity == 'outOfStock')
-                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">Out of Stock</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">Unavailable</label>
                                     @elseif($this->prodColorSelectedQuantity > 0)
-                                        <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-success">Available</label>
                                     @endif
                                 </div>
 
                             @else
 
                                 @if($product->quantity)
-                                    <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
+                                    <label class="btn-sm py-1 mt-2 text-white bg-success">Available</label>
                                 @else
-                                    <label class="btn-sm py-1 mt-2 text-white bg-danger">Out of Stock</label>
+                                    <label class="btn-sm py-1 mt-2 text-white bg-danger">Unavailable</label>
                                 @endif
 
                             @endif
@@ -154,8 +154,8 @@
                                         </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">${{$relatedProductItem->selling_price}}</span>
-                                        <span class="original-price">${{$relatedProductItem->original_price}}</span>
+                                        <span class="selling-price">₱{{$relatedProductItem->selling_price}}</span>
+                                        <span class="original-price">₱{{$relatedProductItem->original_price}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -207,8 +207,8 @@
                                             </a>
                                         </h5>
                                         <div>
-                                            <span class="selling-price">${{$relatedProductItem->selling_price}}</span>
-                                            <span class="original-price">${{$relatedProductItem->original_price}}</span>
+                                            <span class="selling-price">₱{{$relatedProductItem->selling_price}}</span>
+                                            <span class="original-price">₱{{$relatedProductItem->original_price}}</span>
                                         </div>
                                     </div>
                                 </div>
