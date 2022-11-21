@@ -36,11 +36,19 @@
                         <input type="file" name="image" class="form-control" />
                         <img src="{{ asset("$slider->image") }}" style="width: 50px; height: 50px" alt="Slider" />
                     </div>
-                    <div class="mb-3">
-                        <label>Status</label> <br/>
-                        <input type="checkbox" name="status" {{ $slider->status == '1' ? 'checked':'' }} style="width:30px;height:30px" /> 
-                        Checked=Hidden,UnChecked=Visible
+                    <div class="col-md-4 mb-3">
+                        <label for="status">Status</label><br/>
+                        <select  type="status" name="status" class="form-select form-control" id="status" >
+                            <option hidden="true" value="{{ $product->status}}">--Default Status--</option>
+                            <option value="0">Visible</option>
+                            <option value="1">Hidden</option>
+                           </select>
                     </div>
+                    {{-- <div class="mb-3">
+                        <label>Status</label> <br/>
+                        <input type="checkbox" name="status" {{ $slider->status == '1' ? 'checked':'' }} style="width:30px;height:30px" />
+                        Checked=Hidden,UnChecked=Visible
+                    </div> --}}
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>

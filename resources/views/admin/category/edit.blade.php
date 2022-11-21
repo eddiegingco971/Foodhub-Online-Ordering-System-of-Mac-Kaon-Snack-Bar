@@ -49,7 +49,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="status">Status</label><br/>
                             <select  type="status" name="status" class="form-select form-control" id="status" >
-                                <option hidden="true" value="{{ $category->status == '1' ? 'Hidden':'Visible' }}">{{ $category->status == '1' ? 'Hidden':'Visible' }}</option>
+                                <option hidden="true" value="{{ $category->status}}">--Default Status--</option>
                                 <option value="0">Visible</option>
                                 <option value="1">Hidden</option>
                                </select>

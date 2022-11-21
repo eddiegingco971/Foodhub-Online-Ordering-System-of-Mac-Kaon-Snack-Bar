@@ -69,7 +69,7 @@
                                                     Place Order (Cash on Delivery)
                                                 </span>
                                                 <span wire:loading wire:target="codOrder">
-                                                    Placeing Order
+                                                    Placing Order
                                                 </span>
                                             </button>
 

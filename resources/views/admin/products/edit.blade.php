@@ -143,7 +143,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="trending">Trending</label><br/>
                                     <select  type="trending" name="trending" class="form-select form-control" id="status" >
-                                        <option hidden="true" value="{{ $product->trending == '1' ? 'Trending':'Not-Trending' }}">{{ $product->status == '1' ? 'Trending':'Not-Trending' }}</option>
+                                        <option hidden="true" value="{{ $product->trending}}">--Default Trending-</option>
                                         <option value="0">Not Trending</option>
                                         <option value="1">Trending</option>
                                        </select>
@@ -157,7 +157,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="featured">Featured</label><br/>
                                     <select  type="featured" name="featured" class="form-select form-control" id="status" >
-                                        <option hidden="true" value="{{ $product->featured == '1' ? 'Featured':'Not-Featured' }}">{{ $product->featured == '1' ? 'Featured':'Not-Featured' }}</option>
+                                        <option hidden="true" value="{{ $product->featured }}">--Default Featured--</option>
                                         <option value="0">Not Featured</option>
                                         <option value="1">Featured</option>
                                        </select>
@@ -171,7 +171,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="status">Status</label><br/>
                                     <select  type="status" name="status" class="form-select form-control" id="status" >
-                                        <option hidden="true" value="{{ $product->status == '1' ? 'Hidden':'Visible' }}">{{ $product->status == '1' ? 'Hidden':'Visible' }}</option>
+                                        <option hidden="true" value="{{ $product->status}}">--Default Status--</option>
                                         <option value="0">Visible</option>
                                         <option value="1">Hidden</option>
                                        </select>

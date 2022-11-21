@@ -35,10 +35,17 @@
                         <input type="file" name="image" class="form-control" />
                     </div>
                     <div class="mb-3">
-                        <label>Status</label> <br/>
-                        <input type="checkbox" name="status" style="width:30px;height:30px" /> 
-                        Checked=Hidden,UnChecked=Visible
+                        <label for="status">Status</label><br/>
+                        <select name="status" class="form-select form-control" id="status" >
+                            <option value="0">Visible</option>
+                            <option value="1">Hidden</option>
+                           </select>
                     </div>
+                    {{-- <div class="mb-3">
+                        <label>Status</label> <br/>
+                        <input type="checkbox" name="status" style="width:30px;height:30px" />
+                        Checked=Hidden,UnChecked=Visible
+                    </div> --}}
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>

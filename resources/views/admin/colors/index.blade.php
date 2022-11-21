@@ -35,7 +35,7 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->code }}</td>
-                            <td>{{ $item->status ? 'Hidden':'Visible' }}</td>
+                            <td>{{ $item->status == '0' ? 'Visible':'Hidden'}}</td>
                             <td>
                                 <a href="{{ url('admin/colors/'.$item->id.'/edit') }}" class="btn btn-primary btn-sm">Edit</a>
                                 <a href="{{ url('admin/colors/'.$item->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this data?')" class="btn btn-danger btn-sm">Delete</a>

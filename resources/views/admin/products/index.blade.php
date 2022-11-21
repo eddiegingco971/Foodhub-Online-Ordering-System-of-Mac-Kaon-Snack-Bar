@@ -46,7 +46,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->selling_price }}</td>
                                 <td>{{ $product->quantity }}</td>
-                                <td>{{ $product->status == '1' ? 'Hidden':'Visible' }}</td>
+                                <td>{{ $product->status == '0' ? 'Visible':'Hidden'}}</td>
                                 <td>
                                     <a href="{{ url('admin/products/'.$product->id.'/edit') }}" class="btn btn-sm btn-success">Edit</a>
                                     <a href="{{ url('admin/products/'.$product->id.'/delete') }}" onclick="return confirm('Are you sure, you want to delete this data?')" class="btn btn-sm btn-danger">

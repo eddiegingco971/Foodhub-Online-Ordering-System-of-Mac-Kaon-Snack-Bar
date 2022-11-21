@@ -35,7 +35,7 @@
                     <div class="mb-3">
                         <label for="status">Status</label><br/>
                         <select  type="status" name="status" class="form-select form-control" id="status" >
-                            <option hidden="true" value="{{ $color->status == '1' ? 'Hidden':'Visible' }}">{{ $color->status == '1' ? 'Hidden':'Visible' }}</option>
+                            <option hidden="true" value="{{ $color->status}}">--Default Color--</option>
                             <option value="0">Visible</option>
                             <option value="1">Hidden</option>
                            </select>
