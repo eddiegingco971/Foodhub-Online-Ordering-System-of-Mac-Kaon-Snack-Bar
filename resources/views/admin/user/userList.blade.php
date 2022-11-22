@@ -78,7 +78,7 @@
                   <tr>
                     <th>User ID</th>
                     <th>Profile Image</th>
-                    <th>User Name</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>User Type</th>
                     <th>Status</th>
@@ -90,7 +90,7 @@
                       <tr>
                         <td>{{$user->id}}</td>
                         <td class="text-center"><img src="{{asset('dist/img/'.$user->profile_image)}}" width="100px" height="100px" alt="Image" style="border-radius: 10%"></td>
-                        <td>{{$user->name}}</td>
+                        <td>{{$user->firstname}} {{$user->lastname}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->user_type}}</td>
                         <td>{{$user->status}}</td>

@@ -86,7 +86,7 @@
                               </div>
                             <div class="form-group">
                                 <label for="description" class="col-form-label">Description</label>
-                                <input type="description" name="description" class="form-control" value="{{$products->description}}" id="product_name" placeholder="Product Name">
+                                <textarea type="description" name="description" class="form-control"  id="product_name">{{$products->description}}</textarea>
                             </div>
                             <div class="form-group">
                               <label for="price" class="col-form-label">Price</label>

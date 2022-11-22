@@ -94,7 +94,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description" class="col-form-label">Description</label>
-                        <input type="description" name="description" class="form-control" id="description" placeholder="0.00">
+                        <textarea type="description" name="description" class="form-control" id="description" placeholder="Description of your product"></textarea>
                         @error('description')
                             <div class="text-danger">{{$message}}</div>
                           @enderror

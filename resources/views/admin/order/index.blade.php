@@ -77,8 +77,8 @@
                   <thead>
                   <tr>
                     <th>Order ID#</th>
+                    <th>Track No</th>
                     <th>User ID#</th>
-                    <th>Order Date</th>
                     <th>Quantity</th>
                     <th>Total Amount</th>
                     <th>Payment Method</th>
@@ -93,8 +93,8 @@
                       <tr>
                         <td>{{$order->id}}</td>
                         <td>{{$order->user_id}}</td>
-                        <td>{{$order->order_date}}</td>
-                        <td>{{$order->quantity}}</td>
+                        <td>{{$order->tracking_number}}</td>
+                        {{-- <td>{{$order->quantity}}</td> --}}
                         <td>{{$order->total_amount}}</td>
                         <td>{{$order->payment_method}}</td>
                         <td>{{$order->payment_status}}</td>
