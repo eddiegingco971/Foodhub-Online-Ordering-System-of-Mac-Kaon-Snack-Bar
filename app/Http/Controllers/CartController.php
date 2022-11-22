@@ -38,18 +38,20 @@ class CartController extends Controller
     //    ]);
     // $products = DB::table('products')->where('status', 'active')->get();
 
-       Cart::with(['products'])->create([
-           'product_id' => $request->product_id,
-           'user_id' => auth()->user()->id,
-        //    'user_id' => $request->user_id,
-           'quantity' => $request->quantity,
-           'total_amount' =>  $request->price*$request->quantity,
-           'status' => $request->status,
-        ]);
+       if (Cart::where('user_id', auth()->user()->id)->with('products' , 'product_id')->exists()) {
+            return redirect()->back()->with('error', 'Product is already Added');
+       }else{
+            Cart::with(['products'])->create([
+                'product_id' => $request->product_id,
+                'user_id' => auth()->user()->id,
+            //    'user_id' => $request->user_id,
+                'quantity' => $request->quantity,
+                'total_amount' =>  $request->price*$request->quantity,
+                'status' => $request->status,
+            ]);
+            return back()->with('status', 'Added Product Successfully');
+       }
 
-        // if(check())
-
-        return back()->with('status', 'Added Product Successfully');
    }
 
    public function deleteCart($id)
