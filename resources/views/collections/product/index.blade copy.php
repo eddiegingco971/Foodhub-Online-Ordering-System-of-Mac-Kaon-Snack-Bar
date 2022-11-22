@@ -85,9 +85,6 @@ $products=DB::table('products')->where('status','active')->get();
                             </div>
                         </div>
                     @endforelse
-
-
-
         </div>
         {{-- <div class="col-md-12 offset-md-5">
             <div class=" btn btn-primary">{{$products->links()}}</div>
