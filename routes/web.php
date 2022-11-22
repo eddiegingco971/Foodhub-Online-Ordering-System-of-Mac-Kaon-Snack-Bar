@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
@@ -91,6 +92,7 @@ Route::group(['middleware' => ['auth', 'staff']], function (){
 
 Route::group(['middleware' => ['auth', 'user']], function (){
     Route::get('/user-cart', [UserController::class, 'index'])->name('user');
+    Route::get('/checkout', [CheckoutController::class, 'index']);
 
     Route::get('/user-order', [UserController::class, 'userOrder']);
 
