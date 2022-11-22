@@ -13,7 +13,7 @@ class UserCart extends Component
     //     return compact('carts');
     // }
 
-    public $carts;
+    public $carts, $total_amount = 0;
 
     public function incrementQuantity(int $cartId){
         $cartData = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();

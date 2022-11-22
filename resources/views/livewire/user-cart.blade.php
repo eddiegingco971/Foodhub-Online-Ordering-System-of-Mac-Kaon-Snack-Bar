@@ -52,6 +52,9 @@
                             </div>
                             <div class="col-md-2 my-auto  d-none d-sm-none d-mb-block d-lg-block">
                                 <label class="price text-dark">₱{{$cart->products->price*$cart->quantity}}</label>
+                                @php
+                                    $total_amount += $cart->products->price*$cart->quantity
+                                @endphp
                             </div>
                             <div class="col-md-2 my-auto">
                                 <div class="remove">
@@ -78,14 +81,9 @@
 
                 <div class="card-body">
 
+
                         <div class="col-sm-12">
-                            <label class="price text-dark">Name</label>
-                        </div>
-                        <div class="col-sm-12">
-                            <label class="price text-dark">Address</label>
-                        </div>
-                        <div class="col-sm-12">
-                            <label class="price text-dark">Sub-Total:</label>
+                            <label class="price text-dark">Sub-Total:  ₱ {{$total_amount}}</label>
                         </div>
                         <div class="col-sm-12">
                             <label class="price text-dark">Delivery Fee: ₱ </label>
@@ -95,7 +93,7 @@
                             <label class="price text-dark">Total Payment: ₱ </label>
                         </div>
                         <div class="col-sm-12">
-                            <label class="col-12 price text-light btn btn-primary">Order Now</label>
+                            <a class="col-12 price text-light btn btn1 btn-warning" href="/checkout">Checkout</a>
                         </div>
 
 
