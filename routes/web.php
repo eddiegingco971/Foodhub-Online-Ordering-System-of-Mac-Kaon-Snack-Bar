@@ -77,18 +77,21 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/delivered', [OrderController::class, 'orderDelivered']);
     Route::get('/delete-order/{id}', [OrderController::class, 'destroy']);
 
+    Route::get('/cart-list', [HomeController::class, 'cartList']);
 
-    Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
+
+    // Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
 
     Route::get('/user-list', [UserController::class, 'list']);
     Route::get('/delete-user/{id}', [UserController::class, 'destroy']);
 
-    Route::get('/cart-list', [HomeController::class, 'cartList']);
+
 
 });
 
 Route::group(['middleware' => ['auth', 'staff']], function (){
     Route::get('/staff', [StaffController::class, 'index'])->name('staff');
+    Route::get('/staffdelivered', [StaffController::class, 'orderDelivered']);
 
 });
 

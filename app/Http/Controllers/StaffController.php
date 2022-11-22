@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,16 @@ class StaffController extends Controller
      */
     public function index()
     {
+        // $orders = Order::get();
         $orders = Order::get();
-        return view('staff.index', compact('orders'));
+        $categories = Category::where('created_at', '!=', null)->get();
+        return view('staff.index', compact('categories','orders'));
+    }
+
+    public function orderDelivered()
+    {
+        $orders = Order::get();
+        $categories = Category::where('created_at', '!=', null)->get();
+        return view('staff.delivered', compact('orders', 'categories'));
     }
 }
