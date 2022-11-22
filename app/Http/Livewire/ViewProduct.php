@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
@@ -16,6 +17,27 @@ class ViewProduct extends Component
     //     return compact('products');
 
     // }
+    public $quantityCount = 1;
+    public function loadCarts(){
+        $carts = Cart::orderBy('created_at', 'desc')->where('user_id', auth()->user()->id)->get();
+        return compact('carts');
+    }
+
+    public function incrementQuantity(){
+        if ($this->quantityCount < 10) {
+            $this->quantityCount++;
+        }
+
+
+    }
+    public function decrementQuantity(){
+
+        if ($this->quantityCount > 1) {
+            $this->quantityCount--;
+        }
+
+    }
+
 
     public function mount(){
         $product = Product::find($this->productId);
@@ -34,7 +56,7 @@ class ViewProduct extends Component
     public function render()
     {
         $products=Product::get();
-        return view('livewire.view-product', compact('products'));
+        return view('livewire.view-product', compact('products'), $this->loadCarts());
         // return view('livewire.view-product', $this->loadProducts());
     }
 }

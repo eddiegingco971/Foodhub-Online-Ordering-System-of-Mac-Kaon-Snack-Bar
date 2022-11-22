@@ -7,24 +7,33 @@ use Livewire\Component;
 
 class UserCart extends Component
 {
-    public $quantityCount = 1;
-    public function loadCarts(){
-        $carts = Cart::orderBy('created_at', 'desc')->where('user_id', auth()->user()->id)->get();
-        return compact('carts');
-    }
+    // public $quantityCount = 1;
+    // public function loadCarts(){
+    //     $carts = Cart::orderBy('created_at', 'desc')->where('user_id', auth()->user()->id)->get();
+    //     return compact('carts');
+    // }
 
-    public function incrementQuantity(){
-        if ($this->quantityCount < 10) {
-            $this->quantityCount++;
+    public $carts;
+
+    public function incrementQuantity(int $cartId){
+        $cartData = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();
+        if($cartData){
+            $cartData->increment('quantity');
+            $this->dispatchBrowserEvent('status', 'Quantity Updated');
+        }else{
+            $this->dispatchBrowserEvent('error', 'Something went wrong');
         }
 
-
     }
-    public function decrementQuantity(){
-
-        if ($this->quantityCount > 1) {
-            $this->quantityCount--;
+    public function decrementQuantity(int $cartId){
+        $cartData = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();
+        if($cartData){
+            $cartData->decrement('quantity');
+            $this->dispatchBrowserEvent('status', 'Quantity Updated');
+        }else{
+            $this->dispatchBrowserEvent('error', 'Something went wrong');
         }
+
 
     }
 
@@ -37,6 +46,7 @@ class UserCart extends Component
     // }
     public function render()
     {
-        return view('livewire.user-cart', $this->loadCarts());
+        $this->carts = Cart::where('user_id', auth()->user()->id)->get();
+        return view('livewire.user-cart',['carts' => $this->carts]);
     }
 }
