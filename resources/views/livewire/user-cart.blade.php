@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2 my-auto  d-none d-sm-none d-mb-block d-lg-block">
-                                <label class="price text-dark">₱{{$cart->total_amount}}</label>
+                                <label class="price text-dark">₱{{$cart->products->price*$cart->quantity}}</label>
                             </div>
                             <div class="col-md-2 my-auto">
                                 <div class="remove">
