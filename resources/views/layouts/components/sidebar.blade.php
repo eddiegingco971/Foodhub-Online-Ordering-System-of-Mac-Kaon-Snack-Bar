@@ -52,6 +52,18 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                @php
+                    $carts = DB::table('carts')->where('status', 'new')->count();
+                @endphp
+                <a href="{{url('/cart-list')}}" class="nav-link">
+                  <i class="far fa-clock nav-icon"></i>
+                  <p>Cart</p>
+                  <span class="badge badge-danger right">{{$carts}}</span>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="{{url('/order')}}" class="nav-link">
                   <i class="far fa-calendar nav-icon"></i>
@@ -62,14 +74,16 @@
                   <span class="badge badge-danger right">{{$orders}}</span>
                 </a>
               </li>
+
               <li class="nav-item">
-                @php
-                    $carts = DB::table('carts')->where('status', 'new')->count();
-                @endphp
-                <a href="{{url('/cart-list')}}" class="nav-link">
-                  <i class="far fa-clock nav-icon"></i>
-                  <p>Cart</p>
-                  <span class="badge badge-danger right">{{$carts}}</span>
+                <a href="{{url('/delivered')}}" class="nav-link">
+                  {{-- <i class="far fa-calendar nav-icon"></i> --}}
+                  <i class="far fa-check-circle nav-icon" aria-hidden="true"></i>
+                  @php
+                      $orders = DB::table('orders')->where('status', 'delivered')->count();
+                  @endphp
+                  <p>Delivered</p>
+                  <span class="badge badge-danger right">{{$orders}}</span>
                 </a>
               </li>
 

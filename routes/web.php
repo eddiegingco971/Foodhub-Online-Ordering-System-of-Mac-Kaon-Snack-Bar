@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/delete-category/{id}', [CategoryController::class, 'destroy']);
 
     Route::get('/order', [OrderController::class, 'index'])->name('order');
+    Route::get('/delivered', [OrderController::class, 'orderDelivered']);
     Route::get('/delete-order/{id}', [OrderController::class, 'destroy']);
 
 
@@ -83,6 +84,7 @@ Route::group(['middleware' => ['auth', 'admin']], function (){
     Route::get('/delete-user/{id}', [UserController::class, 'destroy']);
 
     Route::get('/cart-list', [HomeController::class, 'cartList']);
+
 });
 
 Route::group(['middleware' => ['auth', 'staff']], function (){

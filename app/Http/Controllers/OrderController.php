@@ -20,6 +20,13 @@ class OrderController extends Controller
         return view('admin.order.index', compact('orders', 'categories'));
     }
 
+    public function orderDelivered()
+    {
+        $orders = Order::get();
+        $categories = Category::where('created_at', '!=', null)->get();
+        return view('admin.order.delivered', compact('orders', 'categories'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

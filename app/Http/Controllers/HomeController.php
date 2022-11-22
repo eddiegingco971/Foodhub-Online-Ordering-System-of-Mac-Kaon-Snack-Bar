@@ -34,11 +34,10 @@ class HomeController extends Controller
 
     }
 
-
-    public function calendar()
-    {
-        return view('admin.event.calendar');
-    }
+    // public function calendar()
+    // {
+    //     return view('admin.event.calendar');
+    // }
 
     public function cartList()
     {
