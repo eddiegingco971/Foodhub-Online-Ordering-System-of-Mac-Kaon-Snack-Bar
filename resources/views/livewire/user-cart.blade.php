@@ -44,9 +44,9 @@
                             <div class="col-md-3 col-8 my-auto">
                                 <div class="quantity">
                                     <div class="input-group">
-                                        <span class="btn btn1 btn-warning" wire:click="incrementQuantity({{$cart->quantity}})"><i class="fa fa-minus"> </i></span>
-                                        <input type="text" name="quantity" class="input-quantity qty-input"/>
-                                        <span class="btn btn1 btn-warning"><i class="fa fa-plus"></i></span>
+                                        <span class="btn btn1 btn-warning" wire:click="decrementQuantity({{$cart->quantity}})"><i class="fa fa-minus"> </i></span>
+                                        <input type="text" name="quantity" wire:model="quantityCount" value="{{$this->quantityCount}}" class="input-quantity" readonly/>
+                                        <span class="btn btn1 btn-warning" wire:click="incrementQuantity({{$cart->quantity}})"><i class="fa fa-plus"></i></span>
                                     </div>
                                 </div>
                             </div>

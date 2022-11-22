@@ -39,7 +39,7 @@
                         <div class="mt-2">
                             <div class="input-group">
                                 <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
-                                <input type="text" name="quantity" class="input-quantity qty-input" value="1"/>
+                                <input type="text" name="quantity" class="input-quantity qty-input" value="1" readonly/>
                                 <span class="btn btn1 btn-warning increment-btn"><i class="fa fa-plus"></i></span>
                             </div>
                         </div>

@@ -13,12 +13,28 @@ class UserCart extends Component
         return compact('carts');
     }
 
-    public function incrementQuantity($cartId){
-        $cart = Cart::where('id', $cartId)->firstOrFail();
-        $this->quantityCount = $cart->quantity;
-        $this->quantityCount++;
-        $cart->update(['quantity' => $this->quantityCount]);
+    public function incrementQuantity(){
+        if ($this->quantityCount < 10) {
+            $this->quantityCount++;
+        }
+
+
     }
+    public function decrementQuantity(){
+
+        if ($this->quantityCount > 1) {
+            $this->quantityCount--;
+        }
+
+    }
+
+
+    // public function incrementQuantity($cartId){
+    //     $cart = Cart::where('id', $cartId)->firstOrFail();
+    //     $this->quantityCount = $cart->quantity;
+    //     $this->quantityCount++;
+    //     $cart->update(['quantity' => $this->quantityCount]);
+    // }
     public function render()
     {
         return view('livewire.user-cart', $this->loadCarts());
