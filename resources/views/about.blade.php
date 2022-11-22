@@ -60,37 +60,37 @@
         <div class="col-md-2 col-10">
             <svg class="bd-placeholder-img rounded-circle mt-2" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
             <h5 class="fw-normal">Eddie Gingco</h5>
-            <p>Follow</p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            <p>Mater Dei College</p>
+            <p><a class="btn btn-primary" href="https://web.facebook.com/eddiegingco.3">Facebook &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
 
         <div class="col-md-2 col-10">
             <svg class="bd-placeholder-img rounded-circle mt-2" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
             <h5 class="fw-normal">Julius Jess Estose</h5>
-            <p>Follow</p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            <p>Mater Dei College</p>
+            <p><a class="btn btn-primary" href="https://web.facebook.com/yoozzs2c">Facebook &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-2 col-10">
             <svg class="bd-placeholder-img rounded-circle mt-2" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
             <h5 class="fw-normal">Cary Huit</h5>
-            <p>Follow</p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            <p>Mater Dei College</p>
+            <p><a class="btn btn-primary" href="https://web.facebook.com/cary.huit">Facebook &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-2 col-10">
             <svg class="bd-placeholder-img rounded-circle mt-2" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
             <h5 class="fw-normal">Adrian Loresca</h5>
-            <p>Follow</p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            <p>Mater Dei College</p>
+            <p><a class="btn btn-primary" href="https://web.facebook.com/yanyan.loresca.5">Facebook &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-2 col-10">
             <svg class="bd-placeholder-img rounded-circle mt-2" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
             <h5 class="fw-normal">Edwin Buscabus</h5>
-            <p>Follow</p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            <p>Mater Dei College</p>
+            <p><a class="btn btn-primary" href="https://web.facebook.com/edwinbuscabus.amoy">Facebook &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
     </div>
