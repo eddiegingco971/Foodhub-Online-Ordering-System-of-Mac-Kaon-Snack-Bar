@@ -67,8 +67,14 @@ $products=DB::table('products')->where('status','active')->get();
 
     </div>
 </div> --}}
+@if (Route::has('login'))
+    @auth
+        <livewire:view-product :productId="$id"/>
+    @else
+        @include('auth.login')
+    @endauth
+@endif
 
-<livewire:view-product :productId="$id"/>
 
 
 @endsection

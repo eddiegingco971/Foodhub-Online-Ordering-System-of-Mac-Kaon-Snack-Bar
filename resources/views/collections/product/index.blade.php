@@ -98,7 +98,7 @@
                                 </div>
                                 <input type="hidden" name="price" class="form-control" value="{{$product->price}}">
 
-                                <div class="col-md-12 my-auto">
+                                {{-- <div class="col-md-12 my-auto">
                                     <div class="quantity">
                                         <div class="input-group">
                                             <span class="btn btn1 btn-warning decrement-btn"><i class="fa fa-minus"> </i></span>
@@ -117,7 +117,7 @@
                                         <button type="submit" class="btn btn1 btn-success">Add Cart</button>
                                     @else
                                         <div class="btn btn1  btn-danger">Not Available</div>
-                                    @endif
+                                    @endif --}}
 
                                     {{-- <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
                                     <a href="" class="btn btn1"> View </a> --}}

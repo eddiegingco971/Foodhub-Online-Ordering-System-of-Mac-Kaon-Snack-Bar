@@ -81,22 +81,12 @@
 
                 <div class="card-body">
 
-
-                        <div class="col-sm-12">
-                            <label class="price text-dark">Sub-Total:  ₱ {{$total_amount}}</label>
-                        </div>
-                        <div class="col-sm-12">
-                            <label class="price text-dark">Delivery Fee: ₱ </label>
-                        </div>
-
-                        <div class="col-sm-12">
-                            <label class="price text-dark">Total Payment: ₱ </label>
-                        </div>
-                        <div class="col-sm-12">
-                            <a class="col-12 price text-light btn btn1 btn-warning" href="/checkout">Checkout</a>
-                        </div>
-
-
+                    <div class="col-sm-12">
+                        <label class="price text-dark">Total Amount: ₱ {{$total_amount}}</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <a class="col-12 price text-light btn btn1 btn-warning" href="/checkout">Checkout</a>
+                    </div>
 
                 </div>
             </div>

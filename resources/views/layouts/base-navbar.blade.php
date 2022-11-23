@@ -116,6 +116,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">
+                                <i class="fa fa-sign-in" aria-hidden="true"></i>
                                    Login
                                 </a>
                             </li>

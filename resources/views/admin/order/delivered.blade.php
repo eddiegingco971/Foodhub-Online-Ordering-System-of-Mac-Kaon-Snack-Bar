@@ -49,7 +49,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6 mt-3">
-            <h1>Order Management</h1>
+            <h1>Order History</h1>
           </div>
           {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -69,7 +69,7 @@
 
             <div class="card elevation-3">
               <div class="card-header">
-                <h3 class="card-title">List of Order</h3>
+                <h3 class="card-title">List Of All Delivered Orders</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
